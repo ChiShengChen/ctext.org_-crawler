@@ -3,10 +3,11 @@
         "start_volume": 88,
         "end_volume": 100,
         "output_directory": "quantangshi_volumes",
-        "delay_seconds": 2.0,
-        "max_retries": 3,
-        "retry_delay": 5.0,
-        "max_requests_per_session": 15,
+        "delay_seconds": 3.0,
+        "max_retries": 5,
+        "retry_delay": 8.0,
+        "max_requests_per_session": 8,
+        "session_pool_size": 4,
         "test_mode": false,
         "max_volumes_per_run": 50
     },
@@ -14,7 +15,8 @@
         "session_timeout": 300,
         "rotate_user_agents": true,
         "use_proxy": false,
-        "proxy_list": []
+        "proxy_list": [],
+        "session_rotation_strategy": "least_used"
     },
     "content_validation": {
         "check_for_poetry_content": true,
@@ -36,7 +38,9 @@
             "human verification",
             "cloudflare", 
             "security challenge", 
-            "checking your browser"
+            "checking your browser",
+            "please complete the security check",
+            "ddos protection"
         ]
     },
     "output_format": {
@@ -47,9 +51,21 @@
     },
     "anti_detection": {
         "randomize_delays": true,
-        "min_delay": 1.0,
-        "max_delay": 4.0,
+        "min_delay": 1.5,
+        "max_delay": 5.0,
         "use_realistic_headers": true,
-        "simulate_human_behavior": true
+        "simulate_human_behavior": true,
+        "min_request_interval": 2.0
+    },
+    "retry_strategy": {
+        "captcha_wait_time": {
+            "min": 8,
+            "max": 20
+        },
+        "http_403_wait_time": {
+            "min": 5,
+            "max": 15
+        },
+        "exponential_backoff": true
     }
 } 
