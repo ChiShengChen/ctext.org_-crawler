@@ -7,6 +7,9 @@
         "test_mode": false,
         "max_volumes_per_run": 50
     },
+    "content_validation": {
+        "check_for_poetry_content": true
+    },
     "output_format": {
         "save_debug_content": false,
         "debug_content_limit": 3,

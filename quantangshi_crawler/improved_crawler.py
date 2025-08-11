@@ -168,10 +168,10 @@ class ImprovedQuantangshiCrawler:
                 # 先進行HTML解碼
                 content = html.unescape(content)
                 
-                # 調試：檢查HTML解碼是否成功
-                print(f"   HTML解碼後包含'全唐詩': {'全唐詩' in content}")
-                print(f"   HTML解碼後包含'帝京篇': {'帝京篇' in content}")
-                print(f"   HTML解碼後包含'李世民': {'李世民' in content}")
+                # # 調試：檢查HTML解碼是否成功
+                # print(f"   HTML解碼後包含'全唐詩': {'全唐詩' in content}")
+                # print(f"   HTML解碼後包含'帝京篇': {'帝京篇' in content}")
+                # print(f"   HTML解碼後包含'李世民': {'李世民' in content}")
                 
                 # 檢查是否需要驗證碼
                 if self.check_for_captcha(content):
@@ -184,7 +184,7 @@ class ImprovedQuantangshiCrawler:
                 
                 if check_for_poetry:
                     required_keywords = validation_config.get('required_keywords', [
-                        '全唐詩', 'quantangshi', '帝京篇', '李世民', 
+                        '全唐詩', 'quantangshi',  
                         '<h2>《<a', '<td class="ctext">', '詩'
                     ])
                     
@@ -219,10 +219,103 @@ class ImprovedQuantangshiCrawler:
             return None, "unknown_error"
     
     def extract_poems_from_page(self, content: str) -> List[Dict]:
-        """從網頁內容中提取詩歌（簡化版本）"""
-        # 這裡需要實現具體的詩歌提取邏輯
-        # 暫時返回空列表，實際使用時需要完善
-        return []
+        """從網頁內容中提取詩歌"""
+        try:
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(content, 'html.parser')
+            
+            poems = []
+            
+            # 方法1: 從作者信息開始提取（適用於有作者的詩歌）
+            author_spans = soup.find_all('span', class_='etext opt')
+            
+            for author_span in author_spans:
+                author_text = author_span.get_text().strip()
+                if not author_text or author_text == "電子圖書館":
+                    continue
+                    
+                # 找到包含作者信息的table
+                parent_table = author_span.find_parent('table')
+                if not parent_table:
+                    continue
+                    
+                # 在table中尋找H2標題
+                h2_elem = parent_table.find('h2')
+                if not h2_elem:
+                    continue
+                    
+                title_text = h2_elem.get_text().strip()
+                if not title_text.startswith('《') or not title_text.endswith('》'):
+                    continue
+                    
+                # 提取標題
+                title = title_text[1:-1]  # 移除《》
+                
+                # 尋找詩歌內容
+                content = ""
+                # 尋找下一個表格中的詩歌內容
+                table = parent_table.find_next_sibling('table')
+                if table:
+                    content_cells = table.find_all('td', class_='ctext')
+                    if content_cells:
+                        content_parts = []
+                        for cell in content_cells:
+                            cell_text = cell.get_text().strip()
+                            if cell_text and not cell_text.startswith('打開字典'):
+                                content_parts.append(cell_text)
+                        content = '\n'.join(content_parts)
+                
+                if title and content:
+                    poems.append({
+                        'title': title,
+                        'author': author_text,
+                        'content': content
+                    })
+            
+            # 方法2: 如果沒有找到有作者的詩歌，嘗試提取沒有作者的詩歌（如祭祀樂章）
+            if not poems:
+                # 尋找所有H2標題
+                h2_elements = soup.find_all('h2')
+                
+                for h2_elem in h2_elements:
+                    title_text = h2_elem.get_text().strip()
+                    if not title_text.startswith('《') or not title_text.endswith('》'):
+                        continue
+                    
+                    # 提取標題
+                    title = title_text[1:-1]  # 移除《》
+                    
+                    # 尋找詩歌內容
+                    content = ""
+                    # 尋找下一個表格中的詩歌內容
+                    table = h2_elem.find_parent('table')
+                    if table:
+                        next_table = table.find_next_sibling('table')
+                        if next_table:
+                            content_cells = next_table.find_all('td', class_='ctext')
+                            if content_cells:
+                                content_parts = []
+                                for cell in content_cells:
+                                    cell_text = cell.get_text().strip()
+                                    if cell_text and not cell_text.startswith('打開字典'):
+                                        content_parts.append(cell_text)
+                                content = '\n'.join(content_parts)
+                    
+                    if title and content:
+                        poems.append({
+                            'title': title,
+                            'author': '佚名',  # 沒有作者信息時使用佚名
+                            'content': content
+                        })
+            
+            return poems
+            
+        except ImportError:
+            print("⚠️  BeautifulSoup未安裝，無法解析HTML內容")
+            return []
+        except Exception as e:
+            print(f"⚠️  解析詩歌內容時出錯: {e}")
+            return []
     
     def save_volume_to_file(self, poems: List[Dict], volume_num: int):
         """保存單卷詩歌到文件"""
