@@ -1,0 +1,154 @@
+{
+  "failed_volumes": [
+    {
+      "volume": 43,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 44,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 45,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 46,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 47,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 49,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 50,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 51,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 52,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 53,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 54,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 55,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 56,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 57,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 58,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 59,
+      "status": "captcha",
+      "description": "需要驗證碼"
+    },
+    {
+      "volume": 60,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 61,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 62,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 63,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 64,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 65,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 66,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 67,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 68,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 69,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 70,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 71,
+      "status": "http_error_403",
+      "description": "HTTP 403 Forbidden"
+    },
+    {
+      "volume": 72,
+      "status": "interrupted",
+      "description": "用戶中斷"
+    }
+  ],
+  "last_updated": "2024-01-01 00:00:00",
+  "total_failed": 25,
+  "captcha_count": 16,
+  "http_403_count": 12,
+  "interrupted_count": 1
+} 

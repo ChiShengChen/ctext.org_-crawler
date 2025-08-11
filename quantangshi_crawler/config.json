@@ -1,0 +1,19 @@
+{
+    "crawler_settings": {
+        "start_volume": 10,
+        "end_volume": 50,
+        "output_directory": "quantangshi_volumes",
+        "delay_seconds": 2.0,
+        "test_mode": false,
+        "max_volumes_per_run": 50
+    },
+    "content_validation": {
+        "check_for_poetry_content": true,
+        "required_keywords": ["全唐詩", "quantangshi", "帝京篇", "李世民", "<h2>《<a", "<td class=\"ctext\">"]
+    },
+    "output_format": {
+        "save_debug_content": false,
+        "debug_content_limit": 3,
+        "verbose_logging": false
+    }
+} 
