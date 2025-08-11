@@ -3,9 +3,11 @@
         "start_volume": 10,
         "end_volume": 50,
         "output_directory": "quantangshi_volumes",
-        "delay_seconds": 2.0,
+        "delay_seconds": 1.5,
         "test_mode": false,
-        "max_volumes_per_run": 50
+        "max_volumes_per_run": 50,
+        "max_retries": 3,
+        "retry_delay": 3.0
     },
     "content_validation": {
         "check_for_poetry_content": true
@@ -13,6 +15,6 @@
     "output_format": {
         "save_debug_content": false,
         "debug_content_limit": 3,
-        "verbose_logging": false
+        "verbose_logging": true
     }
 } 

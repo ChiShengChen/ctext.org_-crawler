@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-高級全唐詩爬蟲 v4.0
-包含更先進的反檢測機制
+全唐詩爬蟲 v4.0 - 高級反檢測版
+專門用於爬取 ctext.org 上的全唐詩內容
+使用高級反檢測技術繞過網站保護
 """
 
 import requests
@@ -10,12 +11,15 @@ import random
 import json
 import os
 import re
+import signal
+import sys
 from typing import Dict, List, Optional, Tuple
+from urllib import request, parse
 import html
 from bs4 import BeautifulSoup
 import urllib3
-from datetime import datetime, timedelta
-import threading
+import cloudscraper
+from fake_useragent import UserAgent
 
 # 禁用SSL警告
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -23,155 +27,96 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 BASE_URL = "https://ctext.org/quantangshi"
 
 class AdvancedQuantangshiCrawler:
-    def __init__(self, config_file: str = "advanced_config.json", output_dir: str = None, delay: float = None):
+    def __init__(self, config_file: str = "config.json", output_dir: str = None, delay: float = None):
         # 載入配置文件
         self.config = self.load_config(config_file)
         
         # 基本設置
         self.output_dir = output_dir or self.config.get('crawler_settings', {}).get('output_directory', 'quantangshi_volumes')
-        self.delay = delay or self.config.get('crawler_settings', {}).get('delay_seconds', 3.0)
-        self.max_retries = self.config.get('crawler_settings', {}).get('max_retries', 5)
-        self.retry_delay = self.config.get('crawler_settings', {}).get('retry_delay', 8.0)
+        self.delay = delay or self.config.get('crawler_settings', {}).get('delay_seconds', 2.0)
+        self.max_retries = self.config.get('crawler_settings', {}).get('max_retries', 3)
+        self.retry_delay = self.config.get('crawler_settings', {}).get('retry_delay', 5.0)
         
         # 創建輸出目錄
         os.makedirs(self.output_dir, exist_ok=True)
         
-        # 用戶代理池
-        self.user_agents = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/120.0.0.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15'
-        ]
+        # 初始化多種會話類型
+        self.init_sessions()
         
-        # 會話管理
-        self.session_pool = []
-        self.current_session_index = 0
-        self.session_lock = threading.Lock()
+        # 重試計數器
+        self.retry_count = 0
         
-        # 初始化會話池
-        self.init_session_pool()
-        
-        # 統計信息
+        # 成功和失敗統計
         self.success_count = 0
         self.failed_count = 0
         self.captcha_count = 0
-        self.retry_count = 0
         
-        # 請求歷史
-        self.request_history = []
-        self.max_history_size = 100
+        # 會話管理
+        self.session_start_time = time.time()
+        self.requests_in_session = 0
+        self.max_requests_per_session = 5  # 更頻繁地更換會話
         
-        # 冷卻時間管理
-        self.last_request_time = 0
-        self.min_request_interval = 2.0
+        # 調試模式
+        self.debug_mode = self.config.get('output_format', {}).get('verbose_logging', False)
         
-        print("🚀 高級爬蟲初始化完成")
+        # 中斷標誌
+        self.interrupted = False
+        
+        # 設置信號處理器
+        signal.signal(signal.SIGINT, self.signal_handler)
+        
+        print("🔄 初始化高級爬蟲完成")
 
-    def load_config(self, config_file: str) -> Dict:
-        """載入配置文件"""
+    def init_sessions(self):
+        """初始化多種會話類型"""
+        # 1. 標準會話
+        self.session = requests.Session()
+        self.session.verify = False
+        
+        # 2. Cloudscraper會話 (用於繞過Cloudflare保護)
         try:
-            with open(config_file, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except FileNotFoundError:
-            print(f"⚠️  配置文件 {config_file} 不存在，使用默認配置")
-            return self.get_default_config()
-        except json.JSONDecodeError:
-            print(f"⚠️  配置文件 {config_file} 格式錯誤，使用默認配置")
-            return self.get_default_config()
+            self.scraper = cloudscraper.create_scraper(
+                browser={
+                    'browser': 'chrome',
+                    'platform': 'windows',
+                    'desktop': True
+                }
+            )
+            self.scraper.verify = False
+            print("✅ Cloudscraper 會話初始化成功")
+        except Exception as e:
+            print(f"⚠️  Cloudscraper 初始化失敗: {e}")
+            self.scraper = None
+        
+        # 3. 嘗試初始化UserAgent
+        try:
+            self.ua = UserAgent()
+            print("✅ UserAgent 初始化成功")
+        except Exception as e:
+            print(f"⚠️  UserAgent 初始化失敗: {e}")
+            self.ua = None
+        
+        # 設置會話級別的請求頭
+        self.update_session_headers()
 
-    def get_default_config(self) -> Dict:
-        """獲取默認配置"""
-        return {
-            "crawler_settings": {
-                "start_volume": 1,
-                "end_volume": 900,
-                "output_directory": "quantangshi_volumes",
-                "delay_seconds": 3.0,
-                "max_retries": 5,
-                "retry_delay": 8.0,
-                "max_requests_per_session": 10,
-                "session_pool_size": 3
-            },
-            "session_management": {
-                "session_timeout": 300,
-                "rotate_user_agents": True,
-                "use_proxy": False,
-                "proxy_list": []
-            },
-            "content_validation": {
-                "check_for_poetry_content": True,
-                "required_keywords": [
-                    "全唐詩", "quantangshi", "<h2>《<a", "<td class=\"ctext\">", "詩"
-                ]
-            }
-        }
+    def update_session_headers(self):
+        """更新會話請求頭"""
+        headers = self.get_advanced_headers()
+        self.session.headers.update(headers)
+        if self.scraper:
+            self.scraper.headers.update(headers)
 
-    def init_session_pool(self):
-        """初始化會話池"""
-        pool_size = self.config.get('crawler_settings', {}).get('session_pool_size', 3)
+    def get_advanced_headers(self):
+        """獲取高級請求頭"""
+        # 使用真實的瀏覽器User-Agent
+        if self.ua:
+            user_agent = self.ua.chrome
+        else:
+            user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         
-        for i in range(pool_size):
-            session = requests.Session()
-            session.verify = False
-            
-            # 設置會話級別的請求頭
-            session.headers.update({
-                'User-Agent': random.choice(self.user_agents),
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'DNT': '1',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'none',
-                'Sec-Fetch-User': '?1',
-                'Cache-Control': 'max-age=0'
-            })
-            
-            self.session_pool.append({
-                'session': session,
-                'created_at': datetime.now(),
-                'request_count': 0,
-                'last_used': datetime.now()
-            })
-        
-        print(f"🔄 已初始化 {pool_size} 個會話")
-
-    def get_session(self):
-        """獲取會話"""
-        with self.session_lock:
-            # 選擇使用最少的會話
-            session_info = min(self.session_pool, key=lambda x: x['request_count'])
-            session_info['request_count'] += 1
-            session_info['last_used'] = datetime.now()
-            
-            # 如果會話使用過多，重新創建
-            if session_info['request_count'] >= self.config.get('crawler_settings', {}).get('max_requests_per_session', 10):
-                self.recreate_session(session_info)
-            
-            return session_info['session']
-
-    def recreate_session(self, session_info):
-        """重新創建會話"""
-        print("🔄 重新創建會話...")
-        
-        # 關閉舊會話
-        session_info['session'].close()
-        
-        # 創建新會話
-        new_session = requests.Session()
-        new_session.verify = False
-        
-        # 設置新的請求頭
-        new_session.headers.update({
-            'User-Agent': random.choice(self.user_agents),
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        headers = {
+            'User-Agent': user_agent,
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
             'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
             'Accept-Encoding': 'gzip, deflate, br',
             'DNT': '1',
@@ -181,89 +126,103 @@ class AdvancedQuantangshiCrawler:
             'Sec-Fetch-Mode': 'navigate',
             'Sec-Fetch-Site': 'none',
             'Sec-Fetch-User': '?1',
-            'Cache-Control': 'max-age=0'
-        })
+            'Cache-Control': 'max-age=0',
+            'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+            'Sec-Ch-Ua-Mobile': '?0',
+            'Sec-Ch-Ua-Platform': '"Windows"',
+            'Referer': 'https://ctext.org/',
+            'Origin': 'https://ctext.org'
+        }
         
-        # 更新會話信息
-        session_info['session'] = new_session
-        session_info['created_at'] = datetime.now()
-        session_info['request_count'] = 0
-        session_info['last_used'] = datetime.now()
+        return headers
+
+    def signal_handler(self, signum, frame):
+        """處理中斷信號"""
+        print("\n⚠️  收到中斷信號，正在安全退出...")
+        self.interrupted = True
+        sys.exit(0)
+
+    def load_config(self, config_file: str) -> Dict:
+        """載入配置文件"""
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"⚠️  配置文件 {config_file} 不存在，使用默認配置")
+            return {}
+        except json.JSONDecodeError:
+            print(f"⚠️  配置文件 {config_file} 格式錯誤，使用默認配置")
+            return {}
+
+    def reset_session(self):
+        """重新建立會話以避免被檢測"""
+        print("🔄 重新建立會話...")
+        
+        # 關閉舊會話
+        self.session.close()
+        
+        # 重新初始化會話
+        self.session = requests.Session()
+        self.session.verify = False
+        
+        # 更新請求頭
+        self.update_session_headers()
+        
+        self.requests_in_session = 0
+        self.session_start_time = time.time()
 
     def smart_delay(self):
-        """智能延遲"""
-        # 確保最小請求間隔
-        time_since_last = time.time() - self.last_request_time
-        if time_since_last < self.min_request_interval:
-            sleep_time = self.min_request_interval - time_since_last
-            time.sleep(sleep_time)
+        """智能延遲，避免被檢測"""
+        # 檢查是否需要重新建立會話
+        if self.requests_in_session >= self.max_requests_per_session:
+            self.reset_session()
         
         # 基礎延遲
         base_delay = self.delay
         
         # 隨機變化
-        random_delay = random.uniform(1.5, 5.0)
+        random_delay = random.uniform(0.5, 2.0)
         
         # 根據重試次數增加延遲
-        retry_multiplier = min(1 + (self.retry_count * 0.3), 2.5)
+        retry_multiplier = min(1 + (self.retry_count * 0.3), 2.0)
         
         # 添加額外的隨機延遲
-        extra_delay = random.uniform(0, 3.0)
+        extra_delay = random.uniform(0, 1.0)
         
         total_delay = (base_delay + random_delay + extra_delay) * retry_multiplier
+        
+        # 限制最大延遲時間
+        total_delay = min(total_delay, 8.0)
         
         print(f"   等待 {total_delay:.1f} 秒...")
         time.sleep(total_delay)
         
-        self.last_request_time = time.time()
+        self.requests_in_session += 1
 
-    def get_advanced_headers(self):
-        """獲取高級請求頭"""
-        headers = {
-            "User-Agent": random.choice(self.user_agents),
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "Accept-Language": random.choice([
-                "zh-CN,zh;q=0.9,en;q=0.8",
-                "zh-TW,zh;q=0.9,en;q=0.8", 
-                "en-US,en;q=0.9,zh;q=0.8",
-                "zh-HK,zh;q=0.9,en;q=0.8"
-            ]),
-            "Accept-Encoding": "gzip, deflate, br",
-            "DNT": random.choice(["0", "1"]),
-            "Connection": "keep-alive",
-            "Upgrade-Insecure-Requests": "1",
-            "Sec-Fetch-Dest": "document",
-            "Sec-Fetch-Mode": "navigate",
-            "Sec-Fetch-Site": "none",
-            "Sec-Fetch-User": "?1",
-            "Cache-Control": random.choice([
-                "max-age=0",
-                "no-cache",
-                "no-store"
-            ]),
-            "Pragma": random.choice(["no-cache", ""]),
-            "Referer": random.choice([
-                "https://ctext.org/",
-                "https://ctext.org/zh",
-                "https://www.google.com/",
-                "https://www.baidu.com/",
-                "https://ctext.org/quantangshi/",
-                ""
-            ]),
-            "Sec-Ch-Ua": '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-            "Sec-Ch-Ua-Mobile": "?0",
-            "Sec-Ch-Ua-Platform": random.choice(['"Windows"', '"macOS"', '"Linux"'])
-        }
+    def check_for_blocking(self, content: str) -> bool:
+        """檢查是否被阻擋"""
+        blocking_indicators = [
+            'Access unavailable',
+            'Access to ctext.org is unavailable',
+            'strictly prohibited',
+            '無法提供服務',
+            '嚴禁使用自動下載軟体',
+            'cloudflare',
+            'security challenge',
+            'checking your browser'
+        ]
         
-        return headers
+        content_lower = content.lower()
+        for indicator in blocking_indicators:
+            if indicator.lower() in content_lower:
+                return True
+        return False
 
     def check_for_captcha(self, content: str) -> bool:
         """檢查頁面是否包含驗證碼"""
         captcha_indicators = [
             '驗證碼', 'captcha', 'verification', 'security check',
-            '請輸入驗證碼', '請完成驗證', 'robot check', 'human verification',
-            'cloudflare', 'security challenge', 'checking your browser',
-            'please complete the security check', 'ddos protection'
+            '請輸入驗證碼', '請完成驗證', 'robot check', 'human verification'
         ]
         
         content_lower = content.lower()
@@ -273,36 +232,33 @@ class AdvancedQuantangshiCrawler:
         return False
 
     def fetch_volume_with_retry(self, volume_num: int) -> Tuple[Optional[List[Dict]], str]:
-        """帶重試機制的卷獲取"""
+        """帶重試機制的卷獲取 - 使用多種方法"""
         for attempt in range(self.max_retries + 1):
             self.retry_count = attempt
             
             if attempt > 0:
                 print(f"   第 {attempt} 次重試...")
-                self.smart_delay()
+                time.sleep(random.uniform(2, 5))
             
-            poems, status = self.fetch_volume(volume_num)
+            # 嘗試不同的會話類型
+            session_types = ['standard', 'cloudscraper']
+            if self.scraper is None:
+                session_types = ['standard']
             
-            # 如果成功，直接返回
-            if status == "success":
-                return poems, status
-            
-            # 如果遇到驗證碼，更換會話並等待
-            if status == "captcha":
-                print(f"⚠️  遇到驗證碼，更換會話...")
-                self.rotate_sessions()
-                time.sleep(random.uniform(8, 20))  # 更長的等待時間
-                if attempt < self.max_retries:
+            for session_type in session_types:
+                print(f"   嘗試使用 {session_type} 會話...")
+                poems, status = self.fetch_volume(volume_num, session_type)
+                
+                if status == "success":
+                    return poems, status
+                elif status == "blocked":
+                    print(f"   {session_type} 會話被阻擋，嘗試下一個...")
                     continue
-                else:
-                    self.captcha_count += 1
-                    return None, "captcha"
-            
-            # 如果是403錯誤，更換會話
-            if "http_error_403" in status:
-                print(f"   遇到403錯誤，更換會話...")
-                self.rotate_sessions()
-                time.sleep(random.uniform(5, 15))
+                elif status == "captcha":
+                    print(f"⚠️  遇到驗證碼，重新建立會話...")
+                    self.reset_session()
+                    time.sleep(random.uniform(3, 8))
+                    break
             
             # 最後一次嘗試
             if attempt == self.max_retries:
@@ -311,13 +267,7 @@ class AdvancedQuantangshiCrawler:
         
         return None, "unknown_error"
 
-    def rotate_sessions(self):
-        """輪換會話"""
-        with self.session_lock:
-            for session_info in self.session_pool:
-                self.recreate_session(session_info)
-
-    def fetch_volume(self, volume_num: int) -> Tuple[Optional[List[Dict]], str]:
+    def fetch_volume(self, volume_num: int, session_type: str = 'standard') -> Tuple[Optional[List[Dict]], str]:
         """獲取指定卷的內容"""
         url = f"{BASE_URL}/{volume_num}/zh"
         print(f"正在獲取第 {volume_num} 卷: {url}")
@@ -326,16 +276,23 @@ class AdvancedQuantangshiCrawler:
             # 智能延遲
             self.smart_delay()
             
-            # 獲取會話
-            session = self.get_session()
+            # 選擇會話類型
+            if session_type == 'cloudscraper' and self.scraper:
+                session = self.scraper
+            else:
+                session = self.session
             
-            # 使用會話發送請求
-            response = session.get(url, timeout=30, headers=self.get_advanced_headers())
+            # 發送請求
+            response = session.get(url, timeout=30)
             
             # 檢查響應狀態
             if response.status_code == 403:
+                if self.debug_mode:
+                    print(f"   DEBUG: 403錯誤，響應頭: {dict(response.headers)}")
                 return None, "http_error_403"
             elif response.status_code != 200:
+                if self.debug_mode:
+                    print(f"   DEBUG: HTTP {response.status_code}錯誤")
                 return None, f"http_error_{response.status_code}"
             
             # 獲取內容
@@ -343,6 +300,13 @@ class AdvancedQuantangshiCrawler:
             
             # 先進行HTML解碼
             content = html.unescape(content)
+            
+            # 檢查是否被阻擋
+            if self.check_for_blocking(content):
+                print(f"⚠️  第 {volume_num} 卷被阻擋")
+                if self.debug_mode:
+                    print(f"   DEBUG: 阻擋頁面前500字符: {content[:500]}")
+                return None, "blocked"
             
             # 檢查是否需要驗證碼
             if self.check_for_captcha(content):
@@ -363,7 +327,9 @@ class AdvancedQuantangshiCrawler:
                 
                 if not has_poetry_content:
                     print(f"⚠️  第 {volume_num} 卷可能不是有效的詩歌頁面")
-                    print(f"   頁面內容長度: {len(content)}")
+                    if self.debug_mode:
+                        print(f"   DEBUG: 頁面內容長度: {len(content)}")
+                        print(f"   DEBUG: 頁面前500字符: {content[:500]}")
                     return None, "invalid_page"
             
             # 提取詩歌
@@ -374,6 +340,8 @@ class AdvancedQuantangshiCrawler:
                 return poems, "success"
             else:
                 print(f"⚠️  第 {volume_num} 卷未找到詩歌內容")
+                if self.debug_mode:
+                    print(f"   DEBUG: 頁面內容長度: {len(content)}")
                 return None, "no_poems_found"
                 
         except requests.exceptions.Timeout:
@@ -382,76 +350,85 @@ class AdvancedQuantangshiCrawler:
         except requests.exceptions.ConnectionError:
             print(f"   連接錯誤")
             return None, "connection_error"
+        except requests.exceptions.RequestException as e:
+            print(f"   請求異常: {e}")
+            return None, f"request_error_{str(e)}"
         except Exception as e:
-            print(f"   未知錯誤: {str(e)}")
+            print(f"   未知錯誤: {e}")
             return None, f"unknown_error_{str(e)}"
 
     def extract_poems_from_page(self, content: str) -> List[Dict]:
-        """從網頁內容中提取詩歌"""
+        """從頁面提取詩歌內容"""
         poems = []
         
         try:
-            # 使用BeautifulSoup解析HTML
             soup = BeautifulSoup(content, 'html.parser')
             
-            # 找到所有的詩歌表格
-            poem_tables = soup.find_all('table', {'width': '100%'})
+            # 查找詩歌表格
+            tables = soup.find_all('table')
             
-            for table in poem_tables:
-                # 查找標題
-                title_element = table.find('h2')
-                if title_element:
-                    title_link = title_element.find('a')
-                    if title_link:
-                        title = title_link.get_text(strip=True)
-                    else:
-                        title = title_element.get_text(strip=True)
-                else:
-                    continue
+            for table in tables:
+                rows = table.find_all('tr')
                 
-                # 查找作者
-                author_element = table.find('span', {'class': 'author'})
-                if author_element:
-                    author = author_element.get_text(strip=True)
-                else:
-                    # 嘗試其他方式查找作者
-                    author_span = table.find('span')
-                    if author_span:
-                        author = author_span.get_text(strip=True)
-                    else:
-                        author = '佚名'
-                
-                # 查找詩歌內容
-                content_element = table.find('td', {'class': 'ctext'})
-                if content_element:
-                    content = content_element.get_text(strip=True)
-                else:
-                    # 嘗試其他方式查找內容
-                    content_div = table.find('div', {'id': re.compile(r'comm.*')})
-                    if content_div:
-                        content = content_div.get_text(strip=True)
-                    else:
-                        content = ''
-                
-                # 清理內容
-                if content:
-                    content = re.sub(r'\s+', ' ', content).strip()
+                for row in rows:
+                    cells = row.find_all('td')
                     
-                    if title and content:
-                        poems.append({
-                            'title': title,
-                            'author': author,
-                            'content': content
-                        })
+                    if len(cells) >= 2:
+                        # 提取標題和作者
+                        title_cell = cells[0]
+                        content_cell = cells[1] if len(cells) > 1 else None
+                        
+                        # 提取標題
+                        title_link = title_cell.find('a')
+                        if title_link:
+                            title = title_link.get_text(strip=True)
+                        else:
+                            title = title_cell.get_text(strip=True)
+                        
+                        # 提取作者
+                        author = "未知作者"
+                        author_elements = title_cell.find_all('a')
+                        if len(author_elements) > 1:
+                            author = author_elements[1].get_text(strip=True)
+                        
+                        # 提取內容
+                        content = ""
+                        if content_cell:
+                            content = content_cell.get_text(strip=True)
+                        
+                        if title and content:
+                            poems.append({
+                                'title': title,
+                                'author': author,
+                                'content': content
+                            })
             
-            return poems
+            # 如果沒有找到表格格式，嘗試其他方法
+            if not poems:
+                # 查找詩歌標題
+                title_links = soup.find_all('a', href=re.compile(r'/quantangshi/'))
+                
+                for link in title_links:
+                    title = link.get_text(strip=True)
+                    if title and len(title) > 1:
+                        # 查找對應的內容
+                        parent = link.parent
+                        if parent:
+                            content = parent.get_text(strip=True)
+                            if content and len(content) > len(title):
+                                poems.append({
+                                    'title': title,
+                                    'author': "未知作者",
+                                    'content': content
+                                })
             
-        except ImportError:
-            print("⚠️  BeautifulSoup未安裝，無法解析HTML內容")
-            return []
         except Exception as e:
-            print(f"⚠️  解析詩歌內容時出錯: {e}")
-            return []
+            print(f"   提取詩歌時發生錯誤: {e}")
+            if self.debug_mode:
+                import traceback
+                traceback.print_exc()
+        
+        return poems
 
     def save_volume_to_file(self, poems: List[Dict], volume_num: int):
         """保存單卷詩歌到文件"""
@@ -479,48 +456,64 @@ class AdvancedQuantangshiCrawler:
         
         total_volumes = end_volume - start_volume + 1
         
-        for i, volume_num in enumerate(range(start_volume, end_volume + 1), 1):
-            progress = (i / total_volumes) * 100
-            print(f"進度: {i}/{total_volumes} ({progress:.1f}%)")
-            
-            poems, status = self.fetch_volume_with_retry(volume_num)
-            
-            if status == "success":
-                self.success_count += 1
-                self.save_volume_to_file(poems, volume_num)
-            elif status == "captcha":
-                self.captcha_count += 1
-            else:
-                self.failed_count += 1
-            
-            # 每10卷顯示一次統計
-            if i % 10 == 0:
-                print(f"📊 當前統計: 成功 {self.success_count}, 失敗 {self.failed_count}, 驗證碼 {self.captcha_count}")
-                print()
+        try:
+            for i, volume_num in enumerate(range(start_volume, end_volume + 1), 1):
+                # 檢查是否被中斷
+                if self.interrupted:
+                    print("\n⚠️  檢測到中斷信號，正在安全退出...")
+                    break
+                
+                progress = (i / total_volumes) * 100
+                print(f"進度: {i}/{total_volumes} ({progress:.1f}%)")
+                
+                poems, status = self.fetch_volume_with_retry(volume_num)
+                
+                if status == "success":
+                    self.success_count += 1
+                    self.save_volume_to_file(poems, volume_num)
+                elif status == "captcha":
+                    self.captcha_count += 1
+                elif status == "blocked":
+                    self.failed_count += 1
+                    print(f"⚠️  第 {volume_num} 卷被阻擋，可能需要更換IP或等待")
+                else:
+                    self.failed_count += 1
+                
+                # 每10卷顯示一次統計
+                if i % 10 == 0:
+                    print(f"📊 當前統計: 成功 {self.success_count}, 失敗 {self.failed_count}, 驗證碼 {self.captcha_count}")
+                    print()
+                
+                # 每20卷強制重新建立會話
+                if i % 20 == 0:
+                    print("🔄 定期重新建立會話...")
+                    self.reset_session()
+        
+        except KeyboardInterrupt:
+            print("\n⚠️  收到鍵盤中斷信號，正在安全退出...")
+        except Exception as e:
+            print(f"\n❌ 發生未預期的錯誤: {e}")
         
         # 最終統計
         print("=" * 60)
-        print("🎉 爬取完成！")
+        if self.interrupted:
+            print("⏹️  爬取被中斷！")
+        else:
+            print("🎉 爬取完成！")
         print(f"✅ 成功: {self.success_count} 卷")
         print(f"❌ 失敗: {self.failed_count} 卷")
         print(f"⚠️  驗證碼: {self.captcha_count} 卷")
-        
-        if self.failed_count > 0:
-            print(f"\n失敗的卷: {self.failed_count} 卷")
-        
-        if self.captcha_count > 0:
-            print(f"\n需要驗證碼的卷: {self.captcha_count} 卷")
 
 def main():
     """主函數"""
     import argparse
     
-    parser = argparse.ArgumentParser(description="高級全唐詩爬蟲 v4.0")
+    parser = argparse.ArgumentParser(description="全唐詩爬蟲 v4.0 - 高級反檢測版")
     parser.add_argument("--start", type=int, default=1, help="開始卷號")
     parser.add_argument("--end", type=int, default=900, help="結束卷號")
     parser.add_argument("--output", type=str, default="quantangshi_volumes", help="輸出目錄")
-    parser.add_argument("--delay", type=float, default=3.0, help="請求延遲（秒）")
-    parser.add_argument("--config", type=str, default="advanced_config.json", help="配置文件")
+    parser.add_argument("--delay", type=float, default=2.0, help="請求延遲（秒）")
+    parser.add_argument("--config", type=str, default="config.json", help="配置文件")
     
     args = parser.parse_args()
     
@@ -538,14 +531,12 @@ def main():
     print(f"   請求延遲: {args.delay} 秒")
     print(f"   配置文件: {args.config}")
     
-    # 創建爬蟲實例
     crawler = AdvancedQuantangshiCrawler(
         config_file=args.config,
         output_dir=args.output,
         delay=args.delay
     )
     
-    # 開始爬取
     crawler.crawl_volumes(args.start, args.end)
 
 if __name__ == "__main__":

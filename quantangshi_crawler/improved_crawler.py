@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-全唐詩爬蟲 v3.0 - 改進版
+全唐詩爬蟲 v3.1 - 調試改進版
 專門用於爬取 ctext.org 上的全唐詩內容
 增強反檢測機制，更好的錯誤處理和重試機制
 """
@@ -11,6 +11,8 @@ import random
 import json
 import os
 import re
+import signal
+import sys
 from typing import Dict, List, Optional, Tuple
 from urllib import request, parse
 import html
@@ -76,9 +78,24 @@ class ImprovedQuantangshiCrawler:
         # 會話管理
         self.session_start_time = time.time()
         self.requests_in_session = 0
-        self.max_requests_per_session = 20  # 每20個請求後重新建立會話
+        self.max_requests_per_session = 10  # 減少到10個請求後重新建立會話
+        
+        # 調試模式
+        self.debug_mode = self.config.get('output_format', {}).get('verbose_logging', False)
+        
+        # 中斷標誌
+        self.interrupted = False
+        
+        # 設置信號處理器
+        signal.signal(signal.SIGINT, self.signal_handler)
         
         print("🔄 初始化爬蟲完成")
+
+    def signal_handler(self, signum, frame):
+        """處理中斷信號"""
+        print("\n⚠️  收到中斷信號，正在安全退出...")
+        self.interrupted = True
+        sys.exit(0)
 
     def load_config(self, config_file: str) -> Dict:
         """載入配置文件"""
@@ -115,28 +132,31 @@ class ImprovedQuantangshiCrawler:
             'Cache-Control': 'max-age=0'
         })
         
-        self.session_start_time = time.time()
         self.requests_in_session = 0
+        self.session_start_time = time.time()
 
     def smart_delay(self):
-        """智能延遲，避免被檢測"""
+        """智能延遲，避免被檢測 - 減少延遲時間"""
         # 檢查是否需要重新建立會話
         if self.requests_in_session >= self.max_requests_per_session:
             self.reset_session()
         
-        # 基礎延遲
+        # 基礎延遲 - 減少到更合理的範圍
         base_delay = self.delay
         
-        # 隨機變化 - 減少延遲範圍以避免過長等待
-        random_delay = random.uniform(1.0, 4.0)
+        # 隨機變化 - 大幅減少延遲範圍
+        random_delay = random.uniform(0.5, 2.0)
         
-        # 根據重試次數增加延遲，但設置上限
-        retry_multiplier = min(1 + (self.retry_count * 0.5), 3.0)
+        # 根據重試次數增加延遲，但設置更小的上限
+        retry_multiplier = min(1 + (self.retry_count * 0.3), 2.0)
         
-        # 添加額外的隨機延遲
-        extra_delay = random.uniform(0, 2.0)
+        # 添加額外的隨機延遲 - 減少範圍
+        extra_delay = random.uniform(0, 1.0)
         
         total_delay = (base_delay + random_delay + extra_delay) * retry_multiplier
+        
+        # 限制最大延遲時間
+        total_delay = min(total_delay, 8.0)
         
         print(f"   等待 {total_delay:.1f} 秒...")
         time.sleep(total_delay)
@@ -190,13 +210,14 @@ class ImprovedQuantangshiCrawler:
         return False
 
     def fetch_volume_with_retry(self, volume_num: int) -> Tuple[Optional[List[Dict]], str]:
-        """帶重試機制的卷獲取"""
+        """帶重試機制的卷獲取 - 改進版本"""
         for attempt in range(self.max_retries + 1):
             self.retry_count = attempt
             
             if attempt > 0:
                 print(f"   第 {attempt} 次重試...")
-                self.smart_delay()
+                # 重試時使用較短的延遲
+                time.sleep(random.uniform(2, 5))
             
             poems, status = self.fetch_volume(volume_num)
             
@@ -208,7 +229,7 @@ class ImprovedQuantangshiCrawler:
             if status == "captcha":
                 print(f"⚠️  遇到驗證碼，重新建立會話...")
                 self.reset_session()
-                time.sleep(random.uniform(5, 15))  # 減少等待時間
+                time.sleep(random.uniform(3, 8))  # 減少等待時間
                 # 如果是第一次遇到驗證碼，繼續重試
                 if attempt < self.max_retries:
                     continue
@@ -220,7 +241,8 @@ class ImprovedQuantangshiCrawler:
             if "http_error_403" in status:
                 print(f"   遇到403錯誤，重新建立會話...")
                 self.reset_session()
-                time.sleep(random.uniform(3, 10))
+                time.sleep(random.uniform(2, 5))  # 減少等待時間
+                continue
             
             # 最後一次嘗試
             if attempt == self.max_retries:
@@ -243,8 +265,12 @@ class ImprovedQuantangshiCrawler:
             
             # 檢查響應狀態
             if response.status_code == 403:
+                if self.debug_mode:
+                    print(f"   DEBUG: 403錯誤，響應頭: {dict(response.headers)}")
                 return None, "http_error_403"
             elif response.status_code != 200:
+                if self.debug_mode:
+                    print(f"   DEBUG: HTTP {response.status_code}錯誤")
                 return None, f"http_error_{response.status_code}"
             
             # 獲取內容
@@ -272,7 +298,9 @@ class ImprovedQuantangshiCrawler:
                 
                 if not has_poetry_content:
                     print(f"⚠️  第 {volume_num} 卷可能不是有效的詩歌頁面")
-                    print(f"   頁面內容長度: {len(content)}")
+                    if self.debug_mode:
+                        print(f"   DEBUG: 頁面內容長度: {len(content)}")
+                        print(f"   DEBUG: 頁面前500字符: {content[:500]}")
                     return None, "invalid_page"
             
             # 提取詩歌
@@ -283,6 +311,8 @@ class ImprovedQuantangshiCrawler:
                 return poems, "success"
             else:
                 print(f"⚠️  第 {volume_num} 卷未找到詩歌內容")
+                if self.debug_mode:
+                    print(f"   DEBUG: 頁面內容長度: {len(content)}")
                 return None, "no_poems_found"
                 
         except requests.exceptions.Timeout:
@@ -291,8 +321,11 @@ class ImprovedQuantangshiCrawler:
         except requests.exceptions.ConnectionError:
             print(f"   連接錯誤")
             return None, "connection_error"
+        except requests.exceptions.RequestException as e:
+            print(f"   請求異常: {e}")
+            return None, f"request_error_{str(e)}"
         except Exception as e:
-            print(f"   未知錯誤: {str(e)}")
+            print(f"   未知錯誤: {e}")
             return None, f"unknown_error_{str(e)}"
 
     def extract_poems_from_page(self, content: str) -> List[Dict]:
@@ -420,38 +453,53 @@ class ImprovedQuantangshiCrawler:
         
         total_volumes = end_volume - start_volume + 1
         
-        for i, volume_num in enumerate(range(start_volume, end_volume + 1), 1):
-            progress = (i / total_volumes) * 100
-            print(f"進度: {i}/{total_volumes} ({progress:.1f}%)")
-            
-            poems, status = self.fetch_volume_with_retry(volume_num)
-            
-            if status == "success":
-                self.success_count += 1
-                self.save_volume_to_file(poems, volume_num)
-            elif status == "captcha":
-                self.captcha_count += 1
-            else:
-                self.failed_count += 1
-            
-            # 每10卷顯示一次統計
-            if i % 10 == 0:
-                print(f"📊 當前統計: 成功 {self.success_count}, 失敗 {self.failed_count}, 驗證碼 {self.captcha_count}")
-                print()
+        try:
+            for i, volume_num in enumerate(range(start_volume, end_volume + 1), 1):
+                # 檢查是否被中斷
+                if self.interrupted:
+                    print("\n⚠️  檢測到中斷信號，正在安全退出...")
+                    break
+                
+                progress = (i / total_volumes) * 100
+                print(f"進度: {i}/{total_volumes} ({progress:.1f}%)")
+                
+                poems, status = self.fetch_volume_with_retry(volume_num)
+                
+                if status == "success":
+                    self.success_count += 1
+                    self.save_volume_to_file(poems, volume_num)
+                elif status == "captcha":
+                    self.captcha_count += 1
+                else:
+                    self.failed_count += 1
+                
+                # 每10卷顯示一次統計
+                if i % 10 == 0:
+                    print(f"📊 當前統計: 成功 {self.success_count}, 失敗 {self.failed_count}, 驗證碼 {self.captcha_count}")
+                    print()
+                
+                # 每50卷強制重新建立會話
+                if i % 50 == 0:
+                    print("🔄 定期重新建立會話...")
+                    self.reset_session()
+        
+        except KeyboardInterrupt:
+            print("\n⚠️  收到鍵盤中斷信號，正在安全退出...")
+        except Exception as e:
+            print(f"\n❌ 發生未預期的錯誤: {e}")
         
         # 最終統計
         print("=" * 60)
-        print("🎉 爬取完成！")
+        if self.interrupted:
+            print("⏹️  爬取被中斷！")
+        else:
+            print("🎉 爬取完成！")
         print(f"✅ 成功: {self.success_count} 卷")
         print(f"❌ 失敗: {self.failed_count} 卷")
         print(f"⚠️  驗證碼: {self.captcha_count} 卷")
         
         if self.failed_count > 0:
-            print("\n失敗的卷:")
-            # The original code had self.failed_volumes, which is no longer used.
-            # Assuming the intent was to print failed attempts if they were tracked.
-            # Since the new code uses self.failed_count, we'll print that.
-            print(f"   總失敗: {self.failed_count} 卷")
+            print(f"\n失敗的卷: {self.failed_count} 卷")
         
         if self.captcha_count > 0:
             print(f"\n需要驗證碼的卷: {self.captcha_count} 卷")
