@@ -75,27 +75,61 @@ class ImprovedQuantangshiCrawler:
             print(f"❌ 配置文件格式錯誤: {e}")
             return {}
     
-    def get_random_headers(self):
-        """獲取隨機的請求頭"""
-        headers = self.session_headers.copy()
-        headers["User-Agent"] = random.choice(self.user_agents)
-        return headers
-    
     def smart_delay(self):
         """智能延遲，避免被檢測"""
         # 基礎延遲
         base_delay = self.delay
         
-        # 隨機變化
-        random_delay = random.uniform(0.5, 2.0)
+        # 隨機變化 - 增加更大的隨機範圍
+        random_delay = random.uniform(2.0, 8.0)
         
         # 根據重試次數增加延遲
-        retry_multiplier = 1 + (self.retry_count * 0.5)
+        retry_multiplier = 1 + (self.retry_count * 1.0)
         
-        total_delay = (base_delay + random_delay) * retry_multiplier
+        # 添加額外的隨機延遲
+        extra_delay = random.uniform(0, 3.0)
+        
+        total_delay = (base_delay + random_delay + extra_delay) * retry_multiplier
         
         print(f"   等待 {total_delay:.1f} 秒...")
         time.sleep(total_delay)
+    
+    def get_random_headers(self):
+        """獲取隨機的請求頭"""
+        headers = self.session_headers.copy()
+        headers["User-Agent"] = random.choice(self.user_agents)
+        
+        # 添加更多隨機的請求頭來模擬真實瀏覽器
+        headers.update({
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+            "Accept-Language": random.choice([
+                "zh-CN,zh;q=0.9,en;q=0.8",
+                "zh-TW,zh;q=0.9,en;q=0.8", 
+                "en-US,en;q=0.9,zh;q=0.8"
+            ]),
+            "Accept-Encoding": "gzip, deflate, br",
+            "DNT": random.choice(["0", "1"]),
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "none",
+            "Sec-Fetch-User": "?1",
+            "Cache-Control": random.choice([
+                "max-age=0",
+                "no-cache",
+                "no-store"
+            ]),
+            "Pragma": random.choice(["no-cache", ""]),
+            "Referer": random.choice([
+                "https://ctext.org/",
+                "https://ctext.org/zh",
+                "https://www.google.com/",
+                "https://www.baidu.com/"
+            ])
+        })
+        
+        return headers
     
     def check_for_captcha(self, content: str) -> bool:
         """檢查頁面是否包含驗證碼"""
@@ -122,9 +156,19 @@ class ImprovedQuantangshiCrawler:
             
             poems, status = self.fetch_volume(volume_num)
             
-            # 如果成功或遇到驗證碼，不再重試
-            if status == "success" or status == "captcha":
+            # 如果成功，直接返回
+            if status == "success":
                 return poems, status
+            
+            # 如果遇到驗證碼，暫停更長時間
+            if status == "captcha":
+                print(f"⚠️  遇到驗證碼，暫停 {30 + random.uniform(10, 30):.1f} 秒...")
+                time.sleep(30 + random.uniform(10, 30))
+                # 如果是第一次遇到驗證碼，繼續重試
+                if attempt < self.max_retries:
+                    continue
+                else:
+                    return None, "captcha"
             
             # 如果是403錯誤，增加更長的延遲
             if "http_error_403" in status:
