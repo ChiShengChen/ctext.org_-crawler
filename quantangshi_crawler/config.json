@@ -7,10 +7,6 @@
         "test_mode": false,
         "max_volumes_per_run": 50
     },
-    "content_validation": {
-        "check_for_poetry_content": true,
-        "required_keywords": ["全唐詩", "quantangshi", "帝京篇", "李世民", "<h2>《<a", "<td class=\"ctext\">"]
-    },
     "output_format": {
         "save_debug_content": false,
         "debug_content_limit": 3,

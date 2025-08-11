@@ -27,16 +27,6 @@
   },
   "content_validation": {
     "check_for_poetry_content": true,
-    "required_keywords": [
-      "全唐詩",
-      "quantangshi",
-      "帝京篇",
-      "李世民",
-      "<h2>《<a",
-      "<td class=\"ctext\">",
-      "詩",
-      "唐詩"
-    ],
     "captcha_indicators": [
       "驗證碼",
       "captcha",
