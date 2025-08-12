@@ -249,8 +249,8 @@ class AdvancedQuantangshiCrawler:
                 print(f"   嘗試使用 {session_type} 會話...")
                 poems, status = self.fetch_volume(volume_num, session_type)
                 
-                if status == "success":
-                    return poems, status
+            if status == "success":
+                return poems, status
                 elif status == "blocked":
                     print(f"   {session_type} 會話被阻擋，嘗試下一個...")
                     continue
@@ -380,9 +380,9 @@ class AdvancedQuantangshiCrawler:
                         
                         # 提取標題
                         title_link = title_cell.find('a')
-                        if title_link:
-                            title = title_link.get_text(strip=True)
-                        else:
+                    if title_link:
+                        title = title_link.get_text(strip=True)
+                    else:
                             title = title_cell.get_text(strip=True)
                         
                         # 提取作者
@@ -395,13 +395,13 @@ class AdvancedQuantangshiCrawler:
                         content = ""
                         if content_cell:
                             content = content_cell.get_text(strip=True)
-                        
-                        if title and content:
-                            poems.append({
-                                'title': title,
-                                'author': author,
-                                'content': content
-                            })
+                    
+                    if title and content:
+                        poems.append({
+                            'title': title,
+                            'author': author,
+                            'content': content
+                        })
             
             # 如果沒有找到表格格式，嘗試其他方法
             if not poems:
@@ -457,32 +457,32 @@ class AdvancedQuantangshiCrawler:
         total_volumes = end_volume - start_volume + 1
         
         try:
-            for i, volume_num in enumerate(range(start_volume, end_volume + 1), 1):
+        for i, volume_num in enumerate(range(start_volume, end_volume + 1), 1):
                 # 檢查是否被中斷
                 if self.interrupted:
                     print("\n⚠️  檢測到中斷信號，正在安全退出...")
                     break
                 
-                progress = (i / total_volumes) * 100
-                print(f"進度: {i}/{total_volumes} ({progress:.1f}%)")
-                
-                poems, status = self.fetch_volume_with_retry(volume_num)
-                
-                if status == "success":
-                    self.success_count += 1
-                    self.save_volume_to_file(poems, volume_num)
-                elif status == "captcha":
-                    self.captcha_count += 1
+            progress = (i / total_volumes) * 100
+            print(f"進度: {i}/{total_volumes} ({progress:.1f}%)")
+            
+            poems, status = self.fetch_volume_with_retry(volume_num)
+            
+            if status == "success":
+                self.success_count += 1
+                self.save_volume_to_file(poems, volume_num)
+            elif status == "captcha":
+                self.captcha_count += 1
                 elif status == "blocked":
                     self.failed_count += 1
                     print(f"⚠️  第 {volume_num} 卷被阻擋，可能需要更換IP或等待")
-                else:
-                    self.failed_count += 1
-                
-                # 每10卷顯示一次統計
-                if i % 10 == 0:
-                    print(f"📊 當前統計: 成功 {self.success_count}, 失敗 {self.failed_count}, 驗證碼 {self.captcha_count}")
-                    print()
+            else:
+                self.failed_count += 1
+            
+            # 每10卷顯示一次統計
+            if i % 10 == 0:
+                print(f"📊 當前統計: 成功 {self.success_count}, 失敗 {self.failed_count}, 驗證碼 {self.captcha_count}")
+                print()
                 
                 # 每20卷強制重新建立會話
                 if i % 20 == 0:
@@ -499,7 +499,7 @@ class AdvancedQuantangshiCrawler:
         if self.interrupted:
             print("⏹️  爬取被中斷！")
         else:
-            print("🎉 爬取完成！")
+        print("🎉 爬取完成！")
         print(f"✅ 成功: {self.success_count} 卷")
         print(f"❌ 失敗: {self.failed_count} 卷")
         print(f"⚠️  驗證碼: {self.captcha_count} 卷")

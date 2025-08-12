@@ -1,0 +1,74 @@
+# 全唐詩爬蟲項目依賴包
+
+# 核心爬蟲依賴
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+cloudscraper>=1.2.60
+fake-useragent>=1.1.0
+urllib3>=1.26.0
+
+# 數據處理
+pandas>=1.5.0
+numpy>=1.24.0
+
+# 可視化
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Web API
+Flask>=2.3.0
+Flask-CORS>=4.0.0
+
+# 數據庫 (可選)
+sqlite3  # Python內建
+# pymongo>=4.3.0  # 如果需要MongoDB
+# psycopg2-binary>=2.9.0  # 如果需要PostgreSQL
+
+# 工具庫
+tqdm>=4.64.0  # 進度條
+python-dotenv>=1.0.0  # 環境變量
+click>=8.1.0  # 命令行工具
+
+# 開發工具 (可選)
+pytest>=7.3.0  # 測試
+black>=23.0.0  # 代碼格式化
+flake8>=6.0.0  # 代碼檢查
+
+# 機器學習 (可選)
+scikit-learn>=1.2.0  # 機器學習
+jieba>=0.42.0  # 中文分詞
+wordcloud>=1.9.0  # 詞雲生成
+
+# 異步處理 (可選)
+aiohttp>=3.8.0  # 異步HTTP
+asyncio  # Python內建
+
+# 日誌和監控
+loguru>=0.7.0  # 日誌
+prometheus-client>=0.16.0  # 監控指標
+
+# 配置管理
+pyyaml>=6.0  # YAML配置
+configparser  # Python內建
+
+# 文件處理
+openpyxl>=3.1.0  # Excel文件
+xlrd>=2.0.0  # Excel讀取
+
+# 網絡工具
+selenium>=4.8.0  # 瀏覽器自動化 (可選)
+playwright>=1.30.0  # 現代瀏覽器自動化 (可選)
+
+# 數據驗證
+pydantic>=2.0.0  # 數據驗證
+
+# 緩存
+redis>=4.5.0  # Redis緩存 (可選)
+
+# 任務隊列 (可選)
+celery>=5.3.0  # 異步任務
+redis>=4.5.0  # Celery broker
+
+# 文檔生成
+sphinx>=6.0.0  # 文檔生成 (可選)
+sphinx-rtd-theme>=1.2.0  # 文檔主題 (可選) 
