@@ -1,0 +1,1681 @@
+{
+  "metadata": {
+    "total_nodes": 154,
+    "total_edges": 180,
+    "filtered_at": "2025-08-20T14:31:39.954191"
+  },
+  "nodes": [
+    {
+      "id": "法輪",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "崔湜",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "李適",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "宋之問",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "李嶠",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "懷素",
+      "weight": 18,
+      "size": 8.6
+    },
+    {
+      "id": "薛稷",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "上官昭容",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "武平一",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "賀知章",
+      "weight": 7,
+      "size": 6.4
+    },
+    {
+      "id": "張說",
+      "weight": 40,
+      "size": 13.0
+    },
+    {
+      "id": "李泌",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "裴度",
+      "weight": 13,
+      "size": 7.6
+    },
+    {
+      "id": "柳公權",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "白居易",
+      "weight": 16,
+      "size": 8.2
+    },
+    {
+      "id": "陸暢",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "徐鉉",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "韓昭",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "李都",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "皎然",
+      "weight": 71,
+      "size": 19.2
+    },
+    {
+      "id": "任生",
+      "weight": 12,
+      "size": 7.4
+    },
+    {
+      "id": "李白",
+      "weight": 55,
+      "size": 16.0
+    },
+    {
+      "id": "李清",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "陸海",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "何扶",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "李榮",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "崔尚",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "陳子昂",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "王喬",
+      "weight": 14,
+      "size": 7.8
+    },
+    {
+      "id": "尹懋",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "馬令",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "宋璟",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "陳羽",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "王建",
+      "weight": 10,
+      "size": 7.0
+    },
+    {
+      "id": "李令",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "王起",
+      "weight": 34,
+      "size": 11.8
+    },
+    {
+      "id": "孟浩然",
+      "weight": 22,
+      "size": 9.4
+    },
+    {
+      "id": "應物",
+      "weight": 26,
+      "size": 10.2
+    },
+    {
+      "id": "綦毋潛",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "王維",
+      "weight": 23,
+      "size": 9.6
+    },
+    {
+      "id": "高適",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "裴迪",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "盧象",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "錢起",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "王昌齡",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "陸羽",
+      "weight": 17,
+      "size": 8.4
+    },
+    {
+      "id": "苗發",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "張旭",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "張果",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "劉方平",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "皇甫曾",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "劉昚虛",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "薛據",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "李觀",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "李端",
+      "weight": 25,
+      "size": 10.0
+    },
+    {
+      "id": "張南史",
+      "weight": 7,
+      "size": 6.4
+    },
+    {
+      "id": "嚴維",
+      "weight": 20,
+      "size": 9.0
+    },
+    {
+      "id": "朱放",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "李中",
+      "weight": 34,
+      "size": 11.8
+    },
+    {
+      "id": "李紓",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "包佶",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "孟雲卿",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "孟郊",
+      "weight": 30,
+      "size": 11.0
+    },
+    {
+      "id": "杜甫",
+      "weight": 25,
+      "size": 10.0
+    },
+    {
+      "id": "謝良輔",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "賈至",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "馮著",
+      "weight": 7,
+      "size": 6.4
+    },
+    {
+      "id": "暢當",
+      "weight": 20,
+      "size": 9.0
+    },
+    {
+      "id": "章八元",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "司空曙",
+      "weight": 12,
+      "size": 7.4
+    },
+    {
+      "id": "顏真卿",
+      "weight": 23,
+      "size": 9.6
+    },
+    {
+      "id": "顧況",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "皇甫冉",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "李景",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "陳陶",
+      "weight": 10,
+      "size": 7.0
+    },
+    {
+      "id": "鄭谷",
+      "weight": 25,
+      "size": 10.0
+    },
+    {
+      "id": "薛能",
+      "weight": 7,
+      "size": 6.4
+    },
+    {
+      "id": "王駕",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "郎士元",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "路應",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "張生",
+      "weight": 13,
+      "size": 7.6
+    },
+    {
+      "id": "陳元初",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "鮑防",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "袁高",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "崔峒",
+      "weight": 7,
+      "size": 6.4
+    },
+    {
+      "id": "崔子向",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "張薦",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "韓愈",
+      "weight": 24,
+      "size": 9.8
+    },
+    {
+      "id": "劉禹錫",
+      "weight": 21,
+      "size": 9.2
+    },
+    {
+      "id": "元稹",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "李賀",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "吉中孚",
+      "weight": 10,
+      "size": 7.0
+    },
+    {
+      "id": "耿湋",
+      "weight": 12,
+      "size": 7.4
+    },
+    {
+      "id": "令狐楚",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "薛存誠",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "李益",
+      "weight": 21,
+      "size": 9.2
+    },
+    {
+      "id": "楊凝",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "盧綸",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "廣宣",
+      "weight": 21,
+      "size": 9.2
+    },
+    {
+      "id": "馬逢",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "丘丹",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "張籍",
+      "weight": 28,
+      "size": 10.6
+    },
+    {
+      "id": "拾得",
+      "weight": 22,
+      "size": 9.4
+    },
+    {
+      "id": "武元衡",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "賈島",
+      "weight": 62,
+      "size": 17.4
+    },
+    {
+      "id": "薛濤",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "顧非熊",
+      "weight": 13,
+      "size": 7.6
+    },
+    {
+      "id": "崔常侍",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "李翱",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "盧仝",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "蔡京",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "李德裕",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "段成式",
+      "weight": 25,
+      "size": 10.0
+    },
+    {
+      "id": "劉言史",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "盧殷",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "朱慶餘",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "李餘",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "馬周",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "李紳",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "張為",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "李陽冰",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "張祜",
+      "weight": 11,
+      "size": 7.2
+    },
+    {
+      "id": "彭伉",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "馬戴",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "許渾",
+      "weight": 7,
+      "size": 6.4
+    },
+    {
+      "id": "李節",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "李頻",
+      "weight": 15,
+      "size": 8.0
+    },
+    {
+      "id": "羅隱",
+      "weight": 9,
+      "size": 6.8
+    },
+    {
+      "id": "厲玄",
+      "weight": 14,
+      "size": 7.8
+    },
+    {
+      "id": "杜牧",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "高蟾",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "趙嘏",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "李溟",
+      "weight": 6,
+      "size": 6.2
+    },
+    {
+      "id": "韋蟾",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "許大",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "許棠",
+      "weight": 14,
+      "size": 7.8
+    },
+    {
+      "id": "喻坦之",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "張喬",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "劉得仁",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "令狐綯",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "張希複",
+      "weight": 19,
+      "size": 8.8
+    },
+    {
+      "id": "陸肱",
+      "weight": 5,
+      "size": 6.0
+    },
+    {
+      "id": "皮日休",
+      "weight": 10,
+      "size": 7.0
+    },
+    {
+      "id": "顧雲",
+      "weight": 8,
+      "size": 6.6
+    },
+    {
+      "id": "方幹",
+      "weight": 23,
+      "size": 9.6
+    },
+    {
+      "id": "高駢",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "陸龜蒙",
+      "weight": 12,
+      "size": 7.4
+    },
+    {
+      "id": "李洞",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "杜荀鶴",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "鄭仁表",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "鄭概",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "杜羔",
+      "weight": 4,
+      "size": 5.8
+    },
+    {
+      "id": "王軒",
+      "weight": 3,
+      "size": 5.6
+    },
+    {
+      "id": "黃巢",
+      "weight": 4,
+      "size": 5.8
+    }
+  ],
+  "edges": [
+    {
+      "source": "崔湜",
+      "target": "李適",
+      "weight": 1
+    },
+    {
+      "source": "崔湜",
+      "target": "李嶠",
+      "weight": 1
+    },
+    {
+      "source": "崔湜",
+      "target": "懷素",
+      "weight": 1
+    },
+    {
+      "source": "崔湜",
+      "target": "薛稷",
+      "weight": 1
+    },
+    {
+      "source": "崔湜",
+      "target": "武平一",
+      "weight": 1
+    },
+    {
+      "source": "崔湜",
+      "target": "宋之問",
+      "weight": 1
+    },
+    {
+      "source": "崔湜",
+      "target": "上官昭容",
+      "weight": 1
+    },
+    {
+      "source": "李適",
+      "target": "薛稷",
+      "weight": 1
+    },
+    {
+      "source": "李適",
+      "target": "宋之問",
+      "weight": 1
+    },
+    {
+      "source": "李適",
+      "target": "李嶠",
+      "weight": 1
+    },
+    {
+      "source": "李適",
+      "target": "懷素",
+      "weight": 1
+    },
+    {
+      "source": "宋之問",
+      "target": "李嶠",
+      "weight": 1
+    },
+    {
+      "source": "宋之問",
+      "target": "懷素",
+      "weight": 1
+    },
+    {
+      "source": "宋之問",
+      "target": "薛稷",
+      "weight": 1
+    },
+    {
+      "source": "李嶠",
+      "target": "薛稷",
+      "weight": 1
+    },
+    {
+      "source": "李嶠",
+      "target": "懷素",
+      "weight": 1
+    },
+    {
+      "source": "懷素",
+      "target": "薛稷",
+      "weight": 1
+    },
+    {
+      "source": "懷素",
+      "target": "李白",
+      "weight": 1
+    },
+    {
+      "source": "懷素",
+      "target": "杜甫",
+      "weight": 1
+    },
+    {
+      "source": "懷素",
+      "target": "顏真卿",
+      "weight": 1
+    },
+    {
+      "source": "懷素",
+      "target": "張旭",
+      "weight": 1
+    },
+    {
+      "source": "上官昭容",
+      "target": "武平一",
+      "weight": 1
+    },
+    {
+      "source": "賀知章",
+      "target": "李白",
+      "weight": 1
+    },
+    {
+      "source": "賀知章",
+      "target": "孟浩然",
+      "weight": 1
+    },
+    {
+      "source": "張說",
+      "target": "宋璟",
+      "weight": 1
+    },
+    {
+      "source": "裴度",
+      "target": "白居易",
+      "weight": 7
+    },
+    {
+      "source": "裴度",
+      "target": "劉禹錫",
+      "weight": 8
+    },
+    {
+      "source": "裴度",
+      "target": "張籍",
+      "weight": 5
+    },
+    {
+      "source": "裴度",
+      "target": "武元衡",
+      "weight": 1
+    },
+    {
+      "source": "裴度",
+      "target": "李紳",
+      "weight": 2
+    },
+    {
+      "source": "白居易",
+      "target": "王起",
+      "weight": 4
+    },
+    {
+      "source": "白居易",
+      "target": "劉禹錫",
+      "weight": 14
+    },
+    {
+      "source": "白居易",
+      "target": "張籍",
+      "weight": 4
+    },
+    {
+      "source": "白居易",
+      "target": "李紳",
+      "weight": 2
+    },
+    {
+      "source": "陸暢",
+      "target": "陸羽",
+      "weight": 1
+    },
+    {
+      "source": "陸暢",
+      "target": "皎然",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "陸羽",
+      "weight": 11
+    },
+    {
+      "source": "皎然",
+      "target": "顏真卿",
+      "weight": 19
+    },
+    {
+      "source": "皎然",
+      "target": "顧況",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "袁高",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "耿湋",
+      "weight": 2
+    },
+    {
+      "source": "皎然",
+      "target": "皮日休",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "陸龜蒙",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "李令",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "皇甫曾",
+      "weight": 3
+    },
+    {
+      "source": "皎然",
+      "target": "崔子向",
+      "weight": 8
+    },
+    {
+      "source": "皎然",
+      "target": "張薦",
+      "weight": 9
+    },
+    {
+      "source": "皎然",
+      "target": "李益",
+      "weight": 1
+    },
+    {
+      "source": "皎然",
+      "target": "楊凝",
+      "weight": 2
+    },
+    {
+      "source": "李白",
+      "target": "高適",
+      "weight": 2
+    },
+    {
+      "source": "李白",
+      "target": "杜甫",
+      "weight": 4
+    },
+    {
+      "source": "李白",
+      "target": "顧況",
+      "weight": 1
+    },
+    {
+      "source": "李白",
+      "target": "陳陶",
+      "weight": 1
+    },
+    {
+      "source": "李白",
+      "target": "李賀",
+      "weight": 2
+    },
+    {
+      "source": "李白",
+      "target": "薛濤",
+      "weight": 1
+    },
+    {
+      "source": "李白",
+      "target": "李餘",
+      "weight": 1
+    },
+    {
+      "source": "李白",
+      "target": "張旭",
+      "weight": 1
+    },
+    {
+      "source": "李白",
+      "target": "張籍",
+      "weight": 1
+    },
+    {
+      "source": "李白",
+      "target": "劉得仁",
+      "weight": 1
+    },
+    {
+      "source": "李清",
+      "target": "謝良輔",
+      "weight": 1
+    },
+    {
+      "source": "李清",
+      "target": "陳元初",
+      "weight": 1
+    },
+    {
+      "source": "李清",
+      "target": "鮑防",
+      "weight": 1
+    },
+    {
+      "source": "李清",
+      "target": "鄭概",
+      "weight": 1
+    },
+    {
+      "source": "李清",
+      "target": "嚴維",
+      "weight": 1
+    },
+    {
+      "source": "李清",
+      "target": "丘丹",
+      "weight": 1
+    },
+    {
+      "source": "陸海",
+      "target": "路應",
+      "weight": 1
+    },
+    {
+      "source": "李榮",
+      "target": "孟郊",
+      "weight": 1
+    },
+    {
+      "source": "陳子昂",
+      "target": "孟浩然",
+      "weight": 1
+    },
+    {
+      "source": "陳子昂",
+      "target": "杜甫",
+      "weight": 1
+    },
+    {
+      "source": "馬令",
+      "target": "韓愈",
+      "weight": 1
+    },
+    {
+      "source": "王建",
+      "target": "張籍",
+      "weight": 1
+    },
+    {
+      "source": "王起",
+      "target": "劉禹錫",
+      "weight": 4
+    },
+    {
+      "source": "孟浩然",
+      "target": "王維",
+      "weight": 1
+    },
+    {
+      "source": "應物",
+      "target": "張果",
+      "weight": 1
+    },
+    {
+      "source": "王維",
+      "target": "盧象",
+      "weight": 1
+    },
+    {
+      "source": "王維",
+      "target": "鄭谷",
+      "weight": 1
+    },
+    {
+      "source": "王維",
+      "target": "賈島",
+      "weight": 1
+    },
+    {
+      "source": "王維",
+      "target": "杜甫",
+      "weight": 1
+    },
+    {
+      "source": "高適",
+      "target": "薛據",
+      "weight": 1
+    },
+    {
+      "source": "高適",
+      "target": "賈至",
+      "weight": 1
+    },
+    {
+      "source": "裴迪",
+      "target": "王昌齡",
+      "weight": 1
+    },
+    {
+      "source": "錢起",
+      "target": "苗發",
+      "weight": 1
+    },
+    {
+      "source": "錢起",
+      "target": "郎士元",
+      "weight": 1
+    },
+    {
+      "source": "王昌齡",
+      "target": "許棠",
+      "weight": 1
+    },
+    {
+      "source": "陸羽",
+      "target": "顏真卿",
+      "weight": 7
+    },
+    {
+      "source": "陸羽",
+      "target": "皇甫曾",
+      "weight": 2
+    },
+    {
+      "source": "陸羽",
+      "target": "崔子向",
+      "weight": 1
+    },
+    {
+      "source": "陸羽",
+      "target": "張薦",
+      "weight": 1
+    },
+    {
+      "source": "陸羽",
+      "target": "耿湋",
+      "weight": 3
+    },
+    {
+      "source": "陸羽",
+      "target": "楊凝",
+      "weight": 2
+    },
+    {
+      "source": "張旭",
+      "target": "李陽冰",
+      "weight": 1
+    },
+    {
+      "source": "皇甫曾",
+      "target": "顏真卿",
+      "weight": 2
+    },
+    {
+      "source": "皇甫曾",
+      "target": "崔子向",
+      "weight": 1
+    },
+    {
+      "source": "劉昚虛",
+      "target": "司空曙",
+      "weight": 1
+    },
+    {
+      "source": "薛據",
+      "target": "孟雲卿",
+      "weight": 1
+    },
+    {
+      "source": "李觀",
+      "target": "韓愈",
+      "weight": 1
+    },
+    {
+      "source": "李端",
+      "target": "耿湋",
+      "weight": 2
+    },
+    {
+      "source": "李端",
+      "target": "賈島",
+      "weight": 1
+    },
+    {
+      "source": "李端",
+      "target": "司空曙",
+      "weight": 2
+    },
+    {
+      "source": "李端",
+      "target": "崔峒",
+      "weight": 1
+    },
+    {
+      "source": "李端",
+      "target": "吉中孚",
+      "weight": 1
+    },
+    {
+      "source": "李端",
+      "target": "李洞",
+      "weight": 1
+    },
+    {
+      "source": "張南史",
+      "target": "李紓",
+      "weight": 1
+    },
+    {
+      "source": "嚴維",
+      "target": "謝良輔",
+      "weight": 2
+    },
+    {
+      "source": "嚴維",
+      "target": "章八元",
+      "weight": 1
+    },
+    {
+      "source": "嚴維",
+      "target": "陳元初",
+      "weight": 3
+    },
+    {
+      "source": "嚴維",
+      "target": "鮑防",
+      "weight": 3
+    },
+    {
+      "source": "嚴維",
+      "target": "鄭概",
+      "weight": 3
+    },
+    {
+      "source": "嚴維",
+      "target": "包佶",
+      "weight": 1
+    },
+    {
+      "source": "嚴維",
+      "target": "丘丹",
+      "weight": 2
+    },
+    {
+      "source": "李紓",
+      "target": "包佶",
+      "weight": 1
+    },
+    {
+      "source": "孟郊",
+      "target": "杜甫",
+      "weight": 1
+    },
+    {
+      "source": "孟郊",
+      "target": "張生",
+      "weight": 1
+    },
+    {
+      "source": "孟郊",
+      "target": "韓愈",
+      "weight": 12
+    },
+    {
+      "source": "孟郊",
+      "target": "張籍",
+      "weight": 2
+    },
+    {
+      "source": "孟郊",
+      "target": "拾得",
+      "weight": 1
+    },
+    {
+      "source": "孟郊",
+      "target": "賈島",
+      "weight": 2
+    },
+    {
+      "source": "孟郊",
+      "target": "李翱",
+      "weight": 1
+    },
+    {
+      "source": "孟郊",
+      "target": "盧殷",
+      "weight": 1
+    },
+    {
+      "source": "杜甫",
+      "target": "陳陶",
+      "weight": 1
+    },
+    {
+      "source": "杜甫",
+      "target": "薛濤",
+      "weight": 1
+    },
+    {
+      "source": "杜甫",
+      "target": "張為",
+      "weight": 1
+    },
+    {
+      "source": "謝良輔",
+      "target": "陳元初",
+      "weight": 2
+    },
+    {
+      "source": "謝良輔",
+      "target": "鮑防",
+      "weight": 2
+    },
+    {
+      "source": "謝良輔",
+      "target": "鄭概",
+      "weight": 2
+    },
+    {
+      "source": "謝良輔",
+      "target": "丘丹",
+      "weight": 2
+    },
+    {
+      "source": "馮著",
+      "target": "耿湋",
+      "weight": 1
+    },
+    {
+      "source": "司空曙",
+      "target": "崔峒",
+      "weight": 1
+    },
+    {
+      "source": "司空曙",
+      "target": "吉中孚",
+      "weight": 1
+    },
+    {
+      "source": "司空曙",
+      "target": "耿湋",
+      "weight": 3
+    },
+    {
+      "source": "顏真卿",
+      "target": "袁高",
+      "weight": 2
+    },
+    {
+      "source": "顏真卿",
+      "target": "張薦",
+      "weight": 9
+    },
+    {
+      "source": "顏真卿",
+      "target": "耿湋",
+      "weight": 3
+    },
+    {
+      "source": "顏真卿",
+      "target": "李益",
+      "weight": 1
+    },
+    {
+      "source": "顏真卿",
+      "target": "楊凝",
+      "weight": 2
+    },
+    {
+      "source": "陳陶",
+      "target": "李賀",
+      "weight": 1
+    },
+    {
+      "source": "郎士元",
+      "target": "馬逢",
+      "weight": 1
+    },
+    {
+      "source": "路應",
+      "target": "李溟",
+      "weight": 1
+    },
+    {
+      "source": "張生",
+      "target": "韓愈",
+      "weight": 1
+    },
+    {
+      "source": "張生",
+      "target": "張籍",
+      "weight": 1
+    },
+    {
+      "source": "張生",
+      "target": "張祜",
+      "weight": 1
+    },
+    {
+      "source": "張生",
+      "target": "高蟾",
+      "weight": 1
+    },
+    {
+      "source": "陳元初",
+      "target": "鮑防",
+      "weight": 3
+    },
+    {
+      "source": "陳元初",
+      "target": "丘丹",
+      "weight": 2
+    },
+    {
+      "source": "陳元初",
+      "target": "鄭概",
+      "weight": 3
+    },
+    {
+      "source": "鮑防",
+      "target": "丘丹",
+      "weight": 2
+    },
+    {
+      "source": "鮑防",
+      "target": "鄭概",
+      "weight": 3
+    },
+    {
+      "source": "袁高",
+      "target": "張薦",
+      "weight": 1
+    },
+    {
+      "source": "崔峒",
+      "target": "耿湋",
+      "weight": 2
+    },
+    {
+      "source": "崔峒",
+      "target": "吉中孚",
+      "weight": 1
+    },
+    {
+      "source": "韓愈",
+      "target": "張籍",
+      "weight": 3
+    },
+    {
+      "source": "韓愈",
+      "target": "賈島",
+      "weight": 1
+    },
+    {
+      "source": "韓愈",
+      "target": "李翱",
+      "weight": 3
+    },
+    {
+      "source": "劉禹錫",
+      "target": "張籍",
+      "weight": 5
+    },
+    {
+      "source": "劉禹錫",
+      "target": "李紳",
+      "weight": 2
+    },
+    {
+      "source": "耿湋",
+      "target": "楊凝",
+      "weight": 2
+    },
+    {
+      "source": "令狐楚",
+      "target": "顧非熊",
+      "weight": 1
+    },
+    {
+      "source": "薛存誠",
+      "target": "張為",
+      "weight": 1
+    },
+    {
+      "source": "李益",
+      "target": "賈島",
+      "weight": 1
+    },
+    {
+      "source": "李益",
+      "target": "杜羔",
+      "weight": 2
+    },
+    {
+      "source": "李益",
+      "target": "廣宣",
+      "weight": 6
+    },
+    {
+      "source": "廣宣",
+      "target": "杜羔",
+      "weight": 2
+    },
+    {
+      "source": "丘丹",
+      "target": "鄭概",
+      "weight": 2
+    },
+    {
+      "source": "張籍",
+      "target": "李翱",
+      "weight": 2
+    },
+    {
+      "source": "拾得",
+      "target": "薛濤",
+      "weight": 1
+    },
+    {
+      "source": "賈島",
+      "target": "顧非熊",
+      "weight": 1
+    },
+    {
+      "source": "賈島",
+      "target": "劉得仁",
+      "weight": 1
+    },
+    {
+      "source": "賈島",
+      "target": "李洞",
+      "weight": 1
+    },
+    {
+      "source": "薛濤",
+      "target": "高駢",
+      "weight": 1
+    },
+    {
+      "source": "段成式",
+      "target": "張希複",
+      "weight": 18
+    },
+    {
+      "source": "劉言史",
+      "target": "盧殷",
+      "weight": 1
+    },
+    {
+      "source": "朱慶餘",
+      "target": "張為",
+      "weight": 1
+    },
+    {
+      "source": "張為",
+      "target": "方幹",
+      "weight": 1
+    },
+    {
+      "source": "李頻",
+      "target": "方幹",
+      "weight": 1
+    },
+    {
+      "source": "羅隱",
+      "target": "顧雲",
+      "weight": 2
+    },
+    {
+      "source": "杜牧",
+      "target": "趙嘏",
+      "weight": 1
+    },
+    {
+      "source": "許棠",
+      "target": "陸肱",
+      "weight": 1
+    },
+    {
+      "source": "喻坦之",
+      "target": "張喬",
+      "weight": 1
+    },
+    {
+      "source": "皮日休",
+      "target": "陸龜蒙",
+      "weight": 7
+    },
+    {
+      "source": "皮日休",
+      "target": "黃巢",
+      "weight": 1
+    }
+  ]
+}
