@@ -1,0 +1,206 @@
+{
+  "1gram": {
+    "Guannei Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Henan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Jiangnan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Hebei Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Other": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Shannan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Hedong Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Lingnan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Huainan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Jiannan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Longyou Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    }
+  },
+  "2gram": {
+    "Guannei Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Henan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Jiangnan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Hebei Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Other": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Shannan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Hedong Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Lingnan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Huainan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Jiannan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Longyou Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    }
+  },
+  "4gram": {
+    "Guannei Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Henan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Jiangnan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Hebei Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Other": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Shannan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Hedong Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Lingnan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Huainan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Jiannan Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    },
+    "Longyou Dao": {
+      "top_ngrams": [],
+      "ngram_frequencies": {},
+      "total_ngram_count": 0,
+      "unique_ngrams": 0
+    }
+  }
+}

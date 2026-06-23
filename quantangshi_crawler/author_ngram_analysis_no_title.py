@@ -20,7 +20,11 @@ class AuthorNgramAnalyzerNoTitle:
         self.author_ngram_stats = defaultdict(lambda: {
             '1gram': Counter(),
             '2gram': Counter(),
-            '4gram': Counter()
+            '3gram': Counter(),
+            '4gram': Counter(),
+            '5gram': Counter(),
+            '6gram': Counter(),
+            '7gram': Counter()
         })
         
     def load_data(self):
@@ -102,6 +106,37 @@ class AuthorNgramAnalyzerNoTitle:
         # 移除標點符號、數字、英文等，只保留中文字符
         chinese_chars = re.findall(r'[\u4e00-\u9fff]', text)
         return ''.join(chinese_chars)
+
+    def _is_title_marker_line(self, line: str, title: str) -> bool:
+        """判斷是否為內容中的題名前綴行（例如：江行無題... :）
+
+        規則（保守）：
+        - 行末出現省略號（... 或 …）後緊跟冒號，例如 "... :" 或 "… :"
+        - 僅針對結尾含冒號的標記行，避免誤刪正文省略語氣
+        """
+        s = line.strip()
+        if not s:
+            return False
+        # 僅當行尾為 省略號+冒號 的格式時過濾
+        if re.search(r'(?:\.{3,}|…{1,3})\s*:\s*$', s):
+            return True
+        return False
+
+    def _filter_title_markers_in_content(self, content: str, title: str) -> str:
+        """移除內容中疑似題名前綴的標記行（如：江行無題... :），並剔除與題名相同/包含題名的短行"""
+        lines = content.split('\n')
+        kept_lines = []
+        title_cn = self.clean_text(title) if title else ''
+        for line in lines:
+            if self._is_title_marker_line(line, title):
+                continue
+            # 若此行（僅中文）等同或以題名開頭，視為題名行，過濾（短行閾值）
+            if title_cn:
+                line_cn = self.clean_text(line)
+                if line_cn and (line_cn == title_cn or line_cn.startswith(title_cn)) and len(line_cn) <= 30:
+                    continue
+            kept_lines.append(line)
+        return '\n'.join(kept_lines)
     
     def extract_ngrams(self, text: str, n: int) -> List[str]:
         """提取n-gram"""
@@ -142,12 +177,18 @@ class AuthorNgramAnalyzerNoTitle:
             all_content = ""
             for poem in poems:
                 content = poem.get('content', '')
-                cleaned_content = self.clean_text(content)
+                title = poem.get('title', '')
+                # 先移除內容中疑似題名的標記行
+                filtered_content = self._filter_title_markers_in_content(content, title)
+                # 粗略剔除內嵌題名：直接刪除題名字串本身
+                if title:
+                    filtered_content = filtered_content.replace(title, '')
+                cleaned_content = self.clean_text(filtered_content)
                 all_content += cleaned_content
             
             if all_content:
                 # 提取1-gram, 2-gram, 4-gram
-                for n in [1, 2, 4]:
+                for n in [1, 2, 3, 4, 5, 6, 7]:
                     ngram_type = f'{n}gram'
                     ngrams = self.extract_ngrams(all_content, n)
                     self.author_ngram_stats[author][ngram_type].update(ngrams)
@@ -164,6 +205,8 @@ class AuthorNgramAnalyzerNoTitle:
         
         total_authors = len(self.author_ngram_stats)
         processed_authors = 0
+        skipped_files = 0
+        created_files = 0
         
         for author, ngram_data in self.author_ngram_stats.items():
             processed_authors += 1
@@ -171,7 +214,7 @@ class AuthorNgramAnalyzerNoTitle:
                 print(f"   進度: {processed_authors}/{total_authors}")
             
             # 為每個n-gram類型創建CSV文件
-            for n in [1, 2, 4]:
+            for n in [1, 2, 3, 4, 5, 6, 7]:
                 ngram_type = f'{n}gram'
                 counter = ngram_data[ngram_type]
                 
@@ -179,6 +222,11 @@ class AuthorNgramAnalyzerNoTitle:
                     # 創建CSV文件名
                     filename = f"{author}_{n}gram_詞頻統計.csv"
                     filepath = os.path.join(csv_dir, filename)
+                    
+                    # 檢查檔案是否已存在，如果是1,2,4-gram則跳過
+                    if os.path.exists(filepath) and n in [1, 2, 4]:
+                        skipped_files += 1
+                        continue
                     
                     # 寫入CSV文件
                     with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
@@ -189,8 +237,13 @@ class AuthorNgramAnalyzerNoTitle:
                         sorted_items = counter.most_common()
                         for rank, (ngram, count) in enumerate(sorted_items, 1):
                             writer.writerow([rank, ngram, count])
+                    
+                    created_files += 1
         
-        print(f"✅ CSV文件已保存到: {csv_dir}")
+        print(f"✅ CSV文件處理完成！")
+        print(f"   📁 目錄: {csv_dir}")
+        print(f"   📊 跳過已存在檔案: {skipped_files:,} 個")
+        print(f"   ✨ 新建立檔案: {created_files:,} 個")
     
     def save_detailed_analysis(self, output_dir: str = "analysis_result/analysis_results_no_title"):
         """保存詳細分析結果"""
@@ -355,12 +408,20 @@ class AuthorNgramAnalyzerNoTitle:
         # 統計n-gram總數
         total_1gram = sum(len(stats['1gram']) for stats in self.author_ngram_stats.values())
         total_2gram = sum(len(stats['2gram']) for stats in self.author_ngram_stats.values())
+        total_3gram = sum(len(stats['3gram']) for stats in self.author_ngram_stats.values())
         total_4gram = sum(len(stats['4gram']) for stats in self.author_ngram_stats.values())
+        total_5gram = sum(len(stats['5gram']) for stats in self.author_ngram_stats.values())
+        total_6gram = sum(len(stats['6gram']) for stats in self.author_ngram_stats.values())
+        total_7gram = sum(len(stats['7gram']) for stats in self.author_ngram_stats.values())
         
         print(f"\nN-gram統計:")
         print(f"  1-gram 總數: {total_1gram:,}")
         print(f"  2-gram 總數: {total_2gram:,}")
+        print(f"  3-gram 總數: {total_3gram:,}")
         print(f"  4-gram 總數: {total_4gram:,}")
+        print(f"  5-gram 總數: {total_5gram:,}")
+        print(f"  6-gram 總數: {total_6gram:,}")
+        print(f"  7-gram 總數: {total_7gram:,}")
 
 def main():
     """主函數"""

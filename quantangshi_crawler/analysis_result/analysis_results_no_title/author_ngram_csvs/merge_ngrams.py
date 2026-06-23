@@ -7,7 +7,7 @@ def merge_ngram_files():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     
     # 定義n-gram類型
-    ngram_types = ['1gram', '2gram', '4gram']
+    ngram_types = ['1gram', '2gram', '3gram', '4gram', '5gram', '6gram', '7gram']
     
     for ngram_type in ngram_types:
         print(f"處理 {ngram_type} 檔案...")

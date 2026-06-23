@@ -1,0 +1,1696 @@
+{
+  "Guannei Dao": {
+    "total_poets": 185,
+    "total_poems": 7631,
+    "avg_poems_per_poet": 41.24864864864865,
+    "gender_distribution": {
+      "male": 180,
+      "female": 5
+    },
+    "top_poets": [
+      {
+        "poet_name": "1. 白居易",
+        "poem_count": 2600
+      },
+      {
+        "poet_name": "2. 杜甫",
+        "poem_count": 1137
+      },
+      {
+        "poet_name": "8. 韋應物",
+        "poem_count": 540
+      },
+      {
+        "poet_name": "14. 杜牧",
+        "poem_count": 484
+      },
+      {
+        "poet_name": "23. 王建",
+        "poem_count": 380
+      },
+      {
+        "poet_name": "34. 韓偓",
+        "poem_count": 312
+      },
+      {
+        "poet_name": "57. 張九齡",
+        "poem_count": 190
+      },
+      {
+        "poet_name": "67. 王昌齡",
+        "poem_count": 166
+      },
+      {
+        "poet_name": "72. 李洞",
+        "poem_count": 165
+      },
+      {
+        "poet_name": "82. 李德裕",
+        "poem_count": 135
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 51,
+      "skilled at writing工於文": 15,
+      "poet詩人,skilled at writing工於文": 14,
+      "poet詩人,civil office[為官者：文]": 12,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 11,
+      "poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 11,
+      "poet詩人,office: chief councilor[宰相]": 5,
+      "詩人、文人": 5,
+      "Unknown": 5,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,civil office[為官者：文]": 3,
+      "skilled at writing工於文,emperor[皇帝]": 3,
+      "skilled at writing工於文,civil office[為官者：文]": 3,
+      "emperor[皇帝]": 2,
+      "詩人": 2,
+      "為官者": 2,
+      "poet詩人,man of culture文人": 2,
+      "poet詩人、man of culture (wenren)文人": 2,
+      "office: chief councilor[宰相]": 2,
+      "painter畫家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 2,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "calligrapher書法家,poet詩人,civil office[為官者：文]": 1,
+      "poet詩人,man of culture文人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "skilled at writing工於文,imperial consort[后妃]": 1,
+      "calligrapher書法家,poet詩人,office: chief councilor[宰相]": 1,
+      "poet詩人,skilled at writing工於文,office: finance[財政官員],office:state council[宰執]": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文": 1,
+      "calligrapher書法家,painter畫家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "calligrapher書法家,painter畫家,poet詩人,imperial prince宗子": 1,
+      "skilled at writing工於文,fond of learning好學, poet詩人": 1,
+      "buddhist monk僧人、calligrapher書法家、poet詩人、man of culture (wenren)文人、skilled at writing工於文、 civil office[為官者：文]": 1,
+      "poet詩人、man of culture文人、civil office[為官者：文]": 1,
+      "poet詩人, civil office[為官者：文]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人": 1,
+      "poet詩人、man of culture (wenren)文人、skilled at writing工於文、 civil office[為官者：文]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、 skilled at writing工於文、civil office[為官者：文]": 1,
+      "poet詩人,man of culture (wenren)文人": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文": 1,
+      "calligrapher書法家, poet詩人,civil office[為官者：文]": 1,
+      "calligrapher書法家、poet詩人、skilled at writing工於文、office: chief councilor[宰相]": 1,
+      "poet詩人、 skilled at writing工於文、 office: chief councilor[宰相]": 1,
+      "skilled at writing工於文、emperor[皇帝]": 1,
+      "skilled at writing工於文、 emperor[皇帝]": 1,
+      "poet詩人,man of culture文人,skilled at writing工於文": 1,
+      "poet詩人、man of culture (wenren)文人、 skilled at writing工於文": 1,
+      "poet詩人、man of culture (wenren)文人、 office: chief councilor[宰相]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、civil office[為官者：文]": 1,
+      "詩人 文人、官員": 1,
+      "詩人、武官、宰相": 1,
+      "工於文": 1,
+      "書法家、詩人、工於文、武官、宰相": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、 civil office[為官者：文]": 1,
+      "poet詩人、skilled at writing工於文": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 42,
+      "?-?": 3,
+      "684-712": 2,
+      "749-?": 2,
+      "749-758": 2,
+      "713-713": 2,
+      "803-?": 1,
+      "753-758": 1,
+      "705-746": 1,
+      "734-?": 1,
+      "754-762": 1,
+      "738-756": 1,
+      "742-746": 1,
+      "727-762": 1,
+      "724-725": 1,
+      "773-782": 1,
+      "759-762": 1,
+      "807-811": 1,
+      "782-822": 1,
+      "707-713": 1,
+      "668-684": 1,
+      "697-713": 1,
+      "783-821": 1,
+      "638-678": 1,
+      "638-638": 1,
+      "638-?": 1,
+      "617-667": 1,
+      "586-641": 1,
+      "618-638": 1,
+      "781-803": 1,
+      "632-697": 1,
+      "728-728": 1,
+      "?-967": 1,
+      "705-765": 1,
+      "713-733": 1,
+      "599-?": 1,
+      "810-?": 1,
+      "831-?": 1,
+      "802-824": 1,
+      "874-?": 1,
+      "787-805": 1,
+      "798-": 1,
+      "800-808": 1,
+      "712-?": 1,
+      "894-?": 1,
+      "804-821": 1,
+      "814-815": 1,
+      "751-?": 1,
+      "840-865": 1,
+      "742-?": 1,
+      "?-980": 1,
+      "880-896": 1,
+      "904-?": 1,
+      "860-879": 1,
+      "836-872": 1,
+      "818-832": 1,
+      "853-885": 1,
+      "711-719": 1,
+      "713-729": 1,
+      "707-739": 1,
+      "710-723": 1,
+      "838-?": 1,
+      "829-?": 1,
+      "813-848": 1,
+      "727-856": 1,
+      "812-846": 1,
+      "806-?": 1,
+      "799-824": 1,
+      "816-823": 1,
+      "759-786": 1,
+      "733?-833": 1,
+      "788-807": 1,
+      "769-?": 1,
+      "736-782": 1,
+      "747-764": 1,
+      "821-846": 1,
+      "680-705": 1,
+      "643-649": 1,
+      "684-713": 1,
+      "814-841": 1,
+      "777-779": 1,
+      "685-708": 1,
+      "684-727": 1,
+      "816-824": 1,
+      "756-790": 1,
+      "805-827": 1,
+      "617-639": 1,
+      "798-814": 1,
+      "707-711": 1,
+      "764-805": 1,
+      "844-854": 1,
+      "884-887": 1,
+      "697-706": 1,
+      "792-836": 1,
+      "792-800": 1,
+      "687-756": 1,
+      "754-?": 1,
+      "618-626": 1,
+      "706-725": 1,
+      "718-737": 1,
+      "901-905": 1,
+      "795-828": 1,
+      "833-852": 1,
+      "774-789": 1,
+      "711?-846": 1,
+      "?-618": 1,
+      "749-787": 1,
+      "779-792": 1,
+      "751-764": 1,
+      "766-781": 1,
+      "713-747": 1,
+      "713-726": 1,
+      "662-?": 1,
+      "599-792?": 1,
+      "677-712": 1,
+      "885-?": 1,
+      "813-841": 1,
+      "861-866": 1,
+      "819-840": 1,
+      "813-?": 1,
+      "802-809": 1,
+      "804-823": 1,
+      "792-815": 1,
+      "783-790": 1,
+      "786-800": 1,
+      "783-805": 1,
+      "684-838?": 1,
+      "703-?": 1,
+      "707-719": 1,
+      "617-626": 1,
+      "794-805": 1,
+      "754-779": 1,
+      "749-780": 1,
+      "724-736": 1,
+      "872-886": 1,
+      "717-759": 1,
+      "780-812": 1,
+      "841-851": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 75,
+      "multi_poem_poets": 110,
+      "highly_productive_poets": 11,
+      "extremely_productive_poets": 2,
+      "max_poems": 2600,
+      "min_poems": 1,
+      "median_poems": 2.0,
+      "std_poems": 217.19416981828778
+    }
+  },
+  "Henan Dao": {
+    "total_poets": 99,
+    "total_poems": 1783,
+    "avg_poems_per_poet": 18.01010101010101,
+    "gender_distribution": {
+      "male": 97,
+      "female": 2
+    },
+    "top_poets": [
+      {
+        "poet_name": "3. 李白",
+        "poem_count": 853
+      },
+      {
+        "poet_name": "59. 宋之問",
+        "poem_count": 189
+      },
+      {
+        "poet_name": "90. 劉商",
+        "poem_count": 110
+      },
+      {
+        "poet_name": "103. 羊士諤",
+        "poem_count": 94
+      },
+      {
+        "poet_name": "107. 元結",
+        "poem_count": 89
+      },
+      {
+        "poet_name": "154. 崔顥",
+        "poem_count": 44
+      },
+      {
+        "poet_name": "156. 聶夷中",
+        "poem_count": 42
+      },
+      {
+        "poet_name": "165. 楊凝",
+        "poem_count": 38
+      },
+      {
+        "poet_name": "198. 張仲素",
+        "poem_count": 29
+      },
+      {
+        "poet_name": "214. 劉憲",
+        "poem_count": 26
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 45,
+      "skilled at writing工於文": 11,
+      "poet詩人,skilled at writing工於文": 9,
+      "poet詩人,civil office[為官者：文]": 3,
+      "Unknown": 2,
+      "poet詩人,man of culture (wenren)文人": 2,
+      "skilled at writing工於文,civil office[為官者：文]": 2,
+      "calligrapher書法家,poet詩人": 2,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 2,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、skilled at writing工於文、 civil office[為官者：文]": 2,
+      "poet詩人、man of culture (wenren)文人": 2,
+      "詩人、工於文、為官者:文": 1,
+      "poet詩人、man of culture文人": 1,
+      "poet詩人、man of culture (wenren)文人、 skilled at writing工於文": 1,
+      "poet詩人、man of culture (wenren)文人、skilled at writing工於文、 civil office[為官者：文]": 1,
+      "poet詩人,military[武官]": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "詩人": 1,
+      "poet詩人,man of culture文人": 1,
+      "poet詩人,man of culture文人,civil office[為官者：文]": 1,
+      "poet詩人,rebel叛臣": 1,
+      "civil office[為官者：文]": 1,
+      "詩人、文人": 1,
+      "poet詩人, civil office[為官者：文]": 1,
+      "工於文": 1,
+      "工於文、宰相": 1,
+      "書法家、詩人、工於文、宰相": 1,
+      "local literatus / gentry地方士人/鄉紳": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 36,
+      "867-?": 2,
+      "?-960": 2,
+      "975-987": 1,
+      "698-721": 1,
+      "705-713": 1,
+      "684-684": 1,
+      "709-?": 1,
+      "972-980": 1,
+      "742-759": 1,
+      "706?-?": 1,
+      "?-980": 1,
+      "891-905": 1,
+      "854-877": 1,
+      "817-849": 1,
+      "762-762": 1,
+      "904-?": 1,
+      "703-742": 1,
+      "795-823": 1,
+      "707-?": 1,
+      "727-?": 1,
+      "756-?": 1,
+      "727-739": 1,
+      "669-835": 1,
+      "824-836": 1,
+      "683-706": 1,
+      "854-?": 1,
+      "907-?": 1,
+      "732-1040?": 1,
+      "757-?": 1,
+      "796-?": 1,
+      "833-861": 1,
+      "666-677": 1,
+      "711-856": 1,
+      "684-818?": 1,
+      "766-795": 1,
+      "777-819": 1,
+      "759-769": 1,
+      "741-742": 1,
+      "784-802": 1,
+      "801-819": 1,
+      "691-710": 1,
+      "649-662": 1,
+      "710-722": 1,
+      "684-?": 1,
+      "705?-?": 1,
+      "804-826": 1,
+      "713-741": 1,
+      "690-709": 1,
+      "706-716": 1,
+      "680-?": 1,
+      "714-754": 1,
+      "727-748": 1,
+      "741-759": 1,
+      "766-806?": 1,
+      "854-862": 1,
+      "823-838": 1,
+      "860-965": 1,
+      "723-?": 1,
+      "698-710": 1,
+      "611-?": 1,
+      "810-837": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 39,
+      "multi_poem_poets": 60,
+      "highly_productive_poets": 3,
+      "extremely_productive_poets": 0,
+      "max_poems": 853,
+      "min_poems": 1,
+      "median_poems": 2.0,
+      "std_poems": 88.57436572889137
+    }
+  },
+  "Jiangnan Dao": {
+    "total_poets": 320,
+    "total_poems": 11414,
+    "avg_poems_per_poet": 35.66875,
+    "gender_distribution": {
+      "male": 315,
+      "female": 5
+    },
+    "top_poets": [
+      {
+        "poet_name": "4. 齊己",
+        "poem_count": 770
+      },
+      {
+        "poet_name": "9. 貫休",
+        "poem_count": 537
+      },
+      {
+        "poet_name": "10. 陸龜蒙",
+        "poem_count": 503
+      },
+      {
+        "poet_name": "12. 皎然",
+        "poem_count": 498
+      },
+      {
+        "poet_name": "15. 羅隱",
+        "poem_count": 459
+      },
+      {
+        "poet_name": "16. 姚合",
+        "poem_count": 451
+      },
+      {
+        "poet_name": "17. 張籍",
+        "poem_count": 450
+      },
+      {
+        "poet_name": "20. 孟郊",
+        "poem_count": 390
+      },
+      {
+        "poet_name": "22. 岑參",
+        "poem_count": 384
+      },
+      {
+        "poet_name": "27. 皮日休",
+        "poem_count": 342
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 139,
+      "poet詩人,skilled at writing工於文": 26,
+      "Unknown": 16,
+      "skilled at writing工於文": 16,
+      "poet詩人,man of culture文人": 9,
+      "poet詩人、man of culture (wenren)文人": 8,
+      "詩人、文人": 7,
+      "poet詩人,man of culture (wenren)文人": 6,
+      "poet詩人,man of culture (wenren)文人,skilled at writing工於文": 5,
+      "poet詩人,civil office[為官者：文]": 4,
+      "poet詩人、man of culture (wenren)文人、 skilled at writing工於文": 3,
+      "civil office[為官者：文]": 3,
+      "詩人、文人、工於文": 3,
+      "calligrapher書法家,poet詩人,civil office[為官者：文]": 3,
+      "poet詩人, civil office[為官者：文]": 3,
+      "calligrapher書法家,poet詩人": 3,
+      "poet詩人、civil office[為官者：文]": 3,
+      "poet詩人,office: chief councilor[宰相]": 3,
+      "skilled at writing工於文,civil office[為官者：文]": 2,
+      "poet詩人,man of culture文人,skilled at writing工於文": 2,
+      "詩人": 2,
+      "僧、skilled at writing工於文": 2,
+      "poet詩人、skilled at writing工於文": 2,
+      "僧、\tskilled at writing工於文": 2,
+      "poet詩人、man of culture (wenren)文人、 civil office[為官者：文]": 2,
+      "calligrapher書法家,poet詩人,civil office[為官者：文],office: chief councilor[宰相]": 1,
+      "poet詩人、 military[武官]": 1,
+      "poet詩人、literati士人": 1,
+      "calligrapher書法家、 poet詩人": 1,
+      "buddhist monk僧人,skilled at writing工於文": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文": 1,
+      "painter畫家,poet詩人,civil office[為官者：文]": 1,
+      "office: chief councilor[宰相]": 1,
+      "poet詩人,ruler統治者": 1,
+      "skilled at writing工於文,ruler統治者": 1,
+      "military[武官],poet詩人,        excelled in particular military weapons精於某種兵器": 1,
+      "calligrapher書法家,poet詩人,man of culture文人": 1,
+      "poet詩人,local literatus / gentry地方士人/鄉紳": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "calligrapher書法家,painter畫家, poet詩人,skilled at writing工於文,ruler統治者": 1,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "poet詩人,\tcivil office[為官者：文]": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "書法家、畫家、詩人、工於文、宰相": 1,
+      "poet詩人、僧": 1,
+      "詩人、文人、為官者:文": 1,
+      "calligrapher書法家、painter畫家、poet詩人、man of culture (wenren)文人、 skilled at writing工於文、civil office[為官者：文]": 1,
+      "callpoet詩人、man of culture (wenren)文人": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、 skilled at writing工於文、civil office[為官者：文]": 1,
+      "poet詩人,man of culture (wenren)文人,civil office[為官者：文]": 1,
+      "poet詩人,man of culture (wenren)文人,literati士人": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、 skilled at writing工於文": 1,
+      "poet詩人,man of culture (wenren)文人,office: chief councilor[宰相]": 1,
+      "painter畫家,poet詩人,man of culture (wenren)文人,skilled at writing工於文": 1,
+      "poet詩人,man of culture (wenren)文人, literati士人": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人, skilled at writing工於文": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人": 1,
+      "poet詩人、 skilled at writing工於文、 civil office[為官者：文]": 1,
+      "書法家、詩人、工於文、為官者": 1,
+      "詩人、文人、為官者": 1,
+      "詩人、工於文、為官者": 1,
+      "工於文、宰相": 1,
+      "書法家、詩人、工於文": 1,
+      "詩人、文人、工於文、為官者：文": 1,
+      "詩人、僧": 1,
+      "書法家、詩人、工於文、為官者:文、隱居道士": 1,
+      "poet詩人、man of culture (wenren)文人、recluse[隱士]": 1,
+      "工於文、為官者:文": 1,
+      "詩人、宰執": 1,
+      "僧": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 178,
+      "?-?": 6,
+      "795-?": 3,
+      "727-?": 3,
+      "762-808": 2,
+      "766-788": 2,
+      "812-?": 2,
+      "713-?": 2,
+      "821-835": 2,
+      "800-814": 1,
+      "749-773": 1,
+      "968-?": 1,
+      "713-725": 1,
+      "799-819": 1,
+      "733-781": 1,
+      "893-?": 1,
+      "759-779": 1,
+      "800-835": 1,
+      "771-?": 1,
+      "836-?": 1,
+      "877-?": 1,
+      "839?-?": 1,
+      "764-789": 1,
+      "847-?": 1,
+      "714-?": 1,
+      "862-?": 1,
+      "783-795": 1,
+      "785-?": 1,
+      "766-?": 1,
+      "599-627": 1,
+      "880-907": 1,
+      "?-960": 1,
+      "881-889": 1,
+      "821-826": 1,
+      "756-779": 1,
+      "701-742": 1,
+      "675-687": 1,
+      "820-827": 1,
+      "?-988": 1,
+      "867-?": 1,
+      "850-?": 1,
+      "-978": 1,
+      "763-763": 1,
+      "898-898": 1,
+      "713-713": 1,
+      "728-?": 1,
+      "1041-?": 1,
+      "831-?": 1,
+      "732-867": 1,
+      "883-883": 1,
+      "904-?": 1,
+      "896-?": 1,
+      "865-877": 1,
+      "712-724": 1,
+      "850-867": 1,
+      "822-830": 1,
+      "805-831": 1,
+      "795-806": 1,
+      "756-?": 1,
+      "725-730": 1,
+      "722-727": 1,
+      "711-729": 1,
+      "650-?": 1,
+      "638-677": 1,
+      "611-627": 1,
+      "617-657": 1,
+      "968-969": 1,
+      "622-627": 1,
+      "837-837": 1,
+      "864-?": 1,
+      "749-767": 1,
+      "824-831": 1,
+      "727-741": 1,
+      "813-?": 1,
+      "586-638": 1,
+      "770-791": 1,
+      "?633": 1,
+      "766-779": 1,
+      "844-860": 1,
+      "741-758": 1,
+      "835-857": 1,
+      "902-?": 1,
+      "831-831": 1,
+      "757-779": 1,
+      "854-?": 1,
+      "809-?": 1,
+      "826-835": 1,
+      "893-897": 1,
+      "659-?": 1,
+      "784-?": 1,
+      "900-901": 1,
+      "875-?": 1,
+      "780-789": 1,
+      "764-767": 1,
+      "901-903": 1,
+      "?-972": 1,
+      "903-904": 1,
+      "869-880": 1,
+      "859-": 1,
+      "723-738": 1,
+      "874-895": 1,
+      "790-?": 1,
+      "817-826": 1,
+      "870-?": 1,
+      "749-749": 1,
+      "718-730": 1,
+      "591-618": 1,
+      "629-799": 1,
+      "895-900": 1,
+      "814-?": 1,
+      "826-846": 1,
+      "742-?": 1,
+      "703-862": 1,
+      "891-?": 1,
+      "727-727": 1,
+      "666-667": 1,
+      "617-622": 1,
+      "840-852": 1,
+      "821-?": 1,
+      "813-828": 1,
+      "784-796": 1,
+      "617-617": 1,
+      "838-844": 1,
+      "758-?": 1,
+      "806-828": 1,
+      "1066-?": 1,
+      "749-756": 1,
+      "864-961": 1,
+      "684-759": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 117,
+      "multi_poem_poets": 203,
+      "highly_productive_poets": 31,
+      "extremely_productive_poets": 0,
+      "max_poems": 770,
+      "min_poems": 1,
+      "median_poems": 3.0,
+      "std_poems": 97.53910697910932
+    }
+  },
+  "Hebei Dao": {
+    "total_poets": 249,
+    "total_poems": 6218,
+    "avg_poems_per_poet": 24.971887550200805,
+    "gender_distribution": {
+      "male": 243,
+      "female": 6
+    },
+    "top_poets": [
+      {
+        "poet_name": "5. 劉禹錫",
+        "poem_count": 688
+      },
+      {
+        "poet_name": "6. 元稹",
+        "poem_count": 563
+      },
+      {
+        "poet_name": "11. 劉長卿",
+        "poem_count": 503
+      },
+      {
+        "poet_name": "19. 賈島",
+        "poem_count": 401
+      },
+      {
+        "poet_name": "25. 韓愈",
+        "poem_count": 358
+      },
+      {
+        "poet_name": "31. 權德輿",
+        "poem_count": 329
+      },
+      {
+        "poet_name": "35. 張說",
+        "poem_count": 293
+      },
+      {
+        "poet_name": "40. 李端",
+        "poem_count": 266
+      },
+      {
+        "poet_name": "49. 李賀",
+        "poem_count": 214
+      },
+      {
+        "poet_name": "51. 李嶠",
+        "poem_count": 201
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 104,
+      "skilled at writing工於文": 26,
+      "poet詩人,civil office[為官者：文]": 13,
+      "poet詩人,skilled at writing工於文": 11,
+      "Unknown": 10,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 9,
+      "poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 7,
+      "poet詩人, civil office[為官者：文]": 6,
+      "poet詩人,office: chief councilor[宰相]": 5,
+      "詩人": 4,
+      "calligrapher書法家,poet詩人": 3,
+      "poet詩人,man of culture文人": 3,
+      "poet詩人,man of culture (wenren)文人,skilled at writing工於文,civil office[為官者：文]": 2,
+      "poet詩人、man of culture (wenren)文人、 civil office[為官者：文]": 2,
+      "skilled at writing工於文,office: chief councilor[宰相]": 2,
+      "skilled at writing工於文,ruler統治者": 2,
+      "poet詩人、man of culture (wenren)文人": 2,
+      "poet詩人, office: chief councilor[宰相]": 2,
+      "詩人、文人": 2,
+      "poet詩人,man of culture (wenren)文人": 2,
+      "historian史學家,skilled at writing工於文": 1,
+      "poet詩人,man of culture文人,skilled at writing工於文": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、 civil office[為官者：文]": 1,
+      "poet詩人,skilled at writing工於文, office: chief councilor[宰相]": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "poet詩人,man of culture文人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "painter畫家, poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "painter畫家,poet詩人": 1,
+      "calligrapher書法家,painter畫家,poet詩人,man of culture (wenren)文人": 1,
+      "poet詩人,military[武官]": 1,
+      "skilled at writing工於文,fond of learning好學, poet詩人": 1,
+      "filial son/daughter孝子/孝女,skilled at writing工於文,\truler統治者": 1,
+      "calligrapher書法家,poet詩人,civil office[為官者：文]": 1,
+      "calligrapher書法家,painter畫家,poet詩人,man of culture (wenren)文人,recluse[隱士]": 1,
+      "poet詩人,man of culture文人,civil office[為官者：文]": 1,
+      "skilled at writing工於文,civil office[為官者：文]": 1,
+      "poet詩人、man of culture (wenren)文人、civil office[為官者：文]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人": 1,
+      "calligrapher書法家,poet詩人,man of culture (wenren)文人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "poet詩人,man of culture (wenren)文人,skilled at writing工於文,office: finance[財政官員],office:state council[宰執]": 1,
+      "poet詩人,man of culture (wenren)文人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "僧、poet詩人": 1,
+      "poet詩人、man of culture (wenren)文人、skilled at writing工於文、 civil office[為官者：文]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、skilled at writing工於文": 1,
+      "詩人、文人、工於文、為官者": 1,
+      "詩人、文人、工於文": 1,
+      "詩人、文人、工於文、為官者:文": 1,
+      "詩人、工於文、為官者:文": 1,
+      "poet詩人、office: chief councilor[宰相]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、skilled at writing工於文、 office: chief councilor[宰相]": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "poet詩人、military[武官]": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 67,
+      "806-?": 3,
+      "709-713": 2,
+      "788-?": 2,
+      "782-795": 2,
+      "684-792": 2,
+      "896-?": 2,
+      "638-?": 2,
+      "742-?": 2,
+      "754-759": 1,
+      "716-748": 1,
+      "749-752": 1,
+      "713-724": 1,
+      "749-?": 1,
+      "760-780": 1,
+      "745-765": 1,
+      "727-763": 1,
+      "783-787": 1,
+      "727-742": 1,
+      "?-809": 1,
+      "757-?": 1,
+      "750-751": 1,
+      "721-742": 1,
+      "727-?": 1,
+      "795-836": 1,
+      "723-725": 1,
+      "788-807": 1,
+      "708-708": 1,
+      "773-804": 1,
+      "795-809": 1,
+      "667-?": 1,
+      "697-?": 1,
+      "807-865": 1,
+      "739?-886": 1,
+      "858-865": 1,
+      "810-?": 1,
+      "627-670": 1,
+      "675-684": 1,
+      "681-687": 1,
+      "703-706": 1,
+      "684-715": 1,
+      "697-904": 1,
+      "693-?": 1,
+      "684-788?": 1,
+      "712-712": 1,
+      "752-769": 1,
+      "803-814": 1,
+      "773-784": 1,
+      "1001-?": 1,
+      "877-?": 1,
+      "797-895": 1,
+      "882-893": 1,
+      "618-619": 1,
+      "?-960": 1,
+      "898-?": 1,
+      "726-968?": 1,
+      "728-728": 1,
+      "779-?": 1,
+      "849-889": 1,
+      "796-813": 1,
+      "875-875": 1,
+      "?-976": 1,
+      "709-?": 1,
+      "741-759": 1,
+      "874-900": 1,
+      "828-852": 1,
+      "821-": 1,
+      "867-879": 1,
+      "843-869": 1,
+      "804-811": 1,
+      "725-725": 1,
+      "780-811": 1,
+      "806-814": 1,
+      "795-813": 1,
+      "792-816": 1,
+      "776-806": 1,
+      "808-835": 1,
+      "800-835": 1,
+      "853-?": 1,
+      "667-667": 1,
+      "860-875": 1,
+      "756-756": 1,
+      "813-829": 1,
+      "838-839": 1,
+      "864-874": 1,
+      "844-?": 1,
+      "849-859": 1,
+      "826-?": 1,
+      "880-900": 1,
+      "737-769": 1,
+      "701-705": 1,
+      "755-787": 1,
+      "581-636": 1,
+      "854-?": 1,
+      "826-838": 1,
+      "713-?": 1,
+      "819-883": 1,
+      "694-705": 1,
+      "699-713?": 1,
+      "?-?": 1,
+      "881-907": 1,
+      "713-731": 1,
+      "?-717": 1,
+      "638-653": 1,
+      "679-704": 1,
+      "684-781?": 1,
+      "779-822": 1,
+      "703-?": 1,
+      "703-709": 1,
+      "709-717": 1,
+      "756-?": 1,
+      "756-770": 1,
+      "684-837?": 1,
+      "782-785": 1,
+      "757-779": 1,
+      "837-843": 1,
+      "796-823": 1,
+      "684-729": 1,
+      "782-?": 1,
+      "811-?": 1,
+      "684-712": 1,
+      "804-813": 1,
+      "717-820": 1,
+      "779-785": 1,
+      "700-819": 1,
+      "806-821": 1,
+      "662-?": 1,
+      "758-773": 1,
+      "762-805": 1,
+      "795-?": 1,
+      "854-879": 1,
+      "622-622": 1,
+      "684-713": 1,
+      "741-840": 1,
+      "667-697": 1,
+      "799-813": 1,
+      "812-813": 1,
+      "635?-833": 1,
+      "895-896": 1,
+      "905-?": 1,
+      "777?-?": 1,
+      "757-787": 1,
+      "?-965": 1,
+      "723-?": 1,
+      "811-819": 1,
+      "709-711": 1,
+      "599-637": 1,
+      "599-658": 1,
+      "622-648": 1,
+      "695-727": 1,
+      "809-830": 1,
+      "698-717": 1,
+      "699-?": 1,
+      "599-627": 1,
+      "715-715": 1,
+      "626-649": 1,
+      "635-713": 1,
+      "699-701": 1,
+      "806-837": 1,
+      "725-754": 1,
+      "877-896": 1,
+      "960-969": 1,
+      "887-?": 1,
+      "748-751": 1,
+      "799-834": 1,
+      "802-810": 1,
+      "705-712": 1,
+      "684-804?": 1,
+      "732-742": 1,
+      "798-?": 1,
+      "805-827": 1,
+      "717-723": 1,
+      "683-819": 1,
+      "749-": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 114,
+      "multi_poem_poets": 135,
+      "highly_productive_poets": 17,
+      "extremely_productive_poets": 0,
+      "max_poems": 688,
+      "min_poems": 1,
+      "median_poems": 2.0,
+      "std_poems": 83.64245148472396
+    }
+  },
+  "Other": {
+    "total_poets": 101,
+    "total_poems": 2737,
+    "avg_poems_per_poet": 27.099009900990097,
+    "gender_distribution": {
+      "male": 94,
+      "female": 5,
+      "Unknown": 1,
+      "?": 1
+    },
+    "top_poets": [
+      {
+        "poet_name": "7. 李商隱",
+        "poem_count": 552
+      },
+      {
+        "poet_name": "43. 徐鉉",
+        "poem_count": 249
+      },
+      {
+        "poet_name": "48. 司空圖",
+        "poem_count": 228
+      },
+      {
+        "poet_name": "68. 朱慶餘",
+        "poem_count": 166
+      },
+      {
+        "poet_name": "88. 戎昱",
+        "poem_count": 117
+      },
+      {
+        "poet_name": "108. 盧仝",
+        "poem_count": 88
+      },
+      {
+        "poet_name": "110. 李建勳",
+        "poem_count": 88
+      },
+      {
+        "poet_name": "121. 劉兼",
+        "poem_count": 72
+      },
+      {
+        "poet_name": "128. 崔道融",
+        "poem_count": 67
+      },
+      {
+        "poet_name": "130. 喻鳧",
+        "poem_count": 64
+      }
+    ],
+    "background_distribution": {
+      "Unknown": 25,
+      "poet詩人": 23,
+      "skilled at writing工於文": 4,
+      "literati士人": 3,
+      "詩人": 2,
+      "poet詩人,skilled at writing工於文": 2,
+      "poet詩人,office: finance[財政官員]": 2,
+      "military[武官]": 2,
+      "詩人、文人": 2,
+      "civil office[為官者：文],historian史學家": 2,
+      "僧、poet詩人": 2,
+      "一说为妓。善歌诗": 1,
+      "妃嬪": 1,
+      "poet詩人,man of culture文人": 1,
+      "buddhist monk僧人,poet詩人": 1,
+      "historian史學家,civil office[為官者：文]": 1,
+      "Daoist priest道士,poet詩人": 1,
+      "astronomer天文學家（星象家),historian史學家,geomancer堪輿家∕風水師,specialist in the calendar曆算家,extensive factual knowledge強記;博學強記": 1,
+      "Classicist經學家、scholar of music音樂學家、civil office[為官者：文]": 1,
+      "poet詩人,office: chief councilor[宰相]": 1,
+      "poet詩人、historian史學家、\tcivil office[為官者：文]": 1,
+      "buddhist monk僧人,calligrapher書法家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "civil office[為官者：文],filial son/daughter孝子/孝女,Classicist經學家": 1,
+      "recluse[隱士],Neo-Confucian thinker (lixue)理學家,erudite博學之人,literati士人": 1,
+      "poet詩人,historian史學家": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、skilled at writing工於文、 civil office[為官者：文]": 1,
+      "Daoist priest道士,poet詩人,practioner of Daoist magics習於道術": 1,
+      "校刊學家、工於文、好學、為官者": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人, skilled at writing工於文": 1,
+      "poet詩人、man of culture (wenren)文人": 1,
+      "五代节度使": 1,
+      "唐朝大臣、poet詩人": 1,
+      "詩人 文人、官員": 1,
+      "詩人(仕途不達)": 1,
+      "詩人、文人、工於文": 1,
+      "civil office[為官者：文]": 1,
+      "詩人、工於文、為官者:文": 1,
+      "詩人、僧": 1,
+      "poet詩人、僧": 1,
+      "poet詩人、道士": 1,
+      "philologist小學家,man of culture (wenren)文人,philologist (shuowen)小學家－說文,skilled at writing工於文,civil office[為官者：文]": 1,
+      "gentleman without office處士,poet詩人": 1,
+      "poet詩人、military[武官]": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 72,
+      "829-856": 1,
+      "769-769": 1,
+      "860-": 1,
+      "965-986": 1,
+      "1008-?": 1,
+      "976-?": 1,
+      "?-969": 1,
+      "1098-1104": 1,
+      "880-886": 1,
+      "841-856": 1,
+      "996-?": 1,
+      "781-828": 1,
+      "963-999": 1,
+      "?-972": 1,
+      "898-898": 1,
+      "?-991": 1,
+      "709-742": 1,
+      "765-782": 1,
+      "617-641": 1,
+      "?-?": 1,
+      "802-809": 1,
+      "773-": 1,
+      "870-?": 1,
+      "907-968": 1,
+      "896-?": 1,
+      "650-960": 1,
+      "763-805": 1,
+      "885-907": 1,
+      "653-842": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 37,
+      "multi_poem_poets": 64,
+      "highly_productive_poets": 5,
+      "extremely_productive_poets": 0,
+      "max_poems": 552,
+      "min_poems": 1,
+      "median_poems": 4.0,
+      "std_poems": 66.82686659577793
+    }
+  },
+  "Shannan Dao": {
+    "total_poets": 35,
+    "total_poems": 1146,
+    "avg_poems_per_poet": 32.74285714285714,
+    "gender_distribution": {
+      "male": 35
+    },
+    "top_poets": [
+      {
+        "poet_name": "24. 張祜",
+        "poem_count": 362
+      },
+      {
+        "poet_name": "41. 孟浩然",
+        "poem_count": 266
+      },
+      {
+        "poet_name": "46. 李群玉",
+        "poem_count": 235
+      },
+      {
+        "poet_name": "73. 韓翃",
+        "poem_count": 163
+      },
+      {
+        "poet_name": "213. 朱放",
+        "poem_count": 26
+      },
+      {
+        "poet_name": "張子容",
+        "poem_count": 17
+      },
+      {
+        "poet_name": "285. 張賁",
+        "poem_count": 15
+      },
+      {
+        "poet_name": "362. 李昭象",
+        "poem_count": 9
+      },
+      {
+        "poet_name": "376. 鮑防",
+        "poem_count": 8
+      },
+      {
+        "poet_name": "444. 李宣古",
+        "poem_count": 6
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 15,
+      "skilled at writing工於文": 5,
+      "poet詩人,man of culture (wenren)文人": 4,
+      "詩人、文人": 2,
+      "poet詩人,office: chief councilor[宰相]": 2,
+      "poet詩人,man of culture文人,skilled at writing工於文": 1,
+      "poet詩人,man of culture文人": 1,
+      "poet詩人,man of culture文人,skilled at writing工於文,recluse[隱士]": 1,
+      "calligrapher書法家,poet詩人": 1,
+      "poet詩人,civil office[為官者：文]": 1,
+      "poet詩人、skilled at writing工於文": 1,
+      "poet詩人、man of culture (wenren)文人": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 18,
+      "737-?": 1,
+      "618-?": 1,
+      "840-874": 1,
+      "769-788": 1,
+      "767-787": 1,
+      "749-763": 1,
+      "599-627": 1,
+      "617-644": 1,
+      "877-897": 1,
+      "777-?": 1,
+      "780-?": 1,
+      "684-706": 1,
+      "749-818": 1,
+      "727-": 1,
+      "782-786": 1,
+      "762-780": 1,
+      "672-672": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 19,
+      "multi_poem_poets": 16,
+      "highly_productive_poets": 4,
+      "extremely_productive_poets": 0,
+      "max_poems": 362,
+      "min_poems": 1,
+      "median_poems": 1.0,
+      "std_poems": 85.32682595110846
+    }
+  },
+  "Hedong Dao": {
+    "total_poets": 97,
+    "total_poems": 2300,
+    "avg_poems_per_poet": 23.711340206185568,
+    "gender_distribution": {
+      "male": 91,
+      "female": 6
+    },
+    "top_poets": [
+      {
+        "poet_name": "26. 王維",
+        "poem_count": 346
+      },
+      {
+        "poet_name": "28. 溫庭筠",
+        "poem_count": 338
+      },
+      {
+        "poet_name": "39. 薛能",
+        "poem_count": 267
+      },
+      {
+        "poet_name": "61. 耿湋",
+        "poem_count": 179
+      },
+      {
+        "poet_name": "71. 唐彥謙",
+        "poem_count": 165
+      },
+      {
+        "poet_name": "74. 柳宗元",
+        "poem_count": 161
+      },
+      {
+        "poet_name": "75. 楊巨源",
+        "poem_count": 145
+      },
+      {
+        "poet_name": "96. 呂溫",
+        "poem_count": 102
+      },
+      {
+        "poet_name": "105. 薛逢",
+        "poem_count": 91
+      },
+      {
+        "poet_name": "114. 王勃",
+        "poem_count": 78
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 29,
+      "skilled at writing工於文": 12,
+      "poet詩人,skilled at writing工於文": 7,
+      "Unknown": 7,
+      "poet詩人,civil office[為官者：文]": 5,
+      "poet詩人,office: chief councilor[宰相]": 4,
+      "poet詩人,man of culture文人": 4,
+      "poet詩人,man of culture (wenren)文人": 3,
+      "poet詩人、man of culture (wenren)文人、 civil office[為官者：文]": 2,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 2,
+      "poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 2,
+      "poet詩人,skilled at writing工於文,military[武官]": 2,
+      "painter畫家,poet詩人": 1,
+      "poet詩人,imperial consort[后妃]": 1,
+      "painter畫家,poet詩人,skilled at writing工於文": 1,
+      "poet詩人,skilled at writing工於文, office: chief councilor[宰相]": 1,
+      "painter畫家,skilled at writing工於文": 1,
+      "calligrapher書法家,poet詩人,man of culture文人": 1,
+      "calligrapher書法家,painter畫家,poet詩人,man of culture (wenren)文人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "poet詩人,man of culture文人,skilled at writing工於文": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文,office: chief councilor[宰相]": 1,
+      "poet詩人、man of culture文人": 1,
+      "calligrapher書法家、painter畫家、poet詩人、skilled at writing工於文、 office: chief councilor[宰相]": 1,
+      "poet詩人、civil office[為官者：文]": 1,
+      "工於文": 1,
+      "詩人、文人、工於文": 1,
+      "empress[皇后]": 1,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人, skilled at writing工於文": 1,
+      "calligrapher書法家, poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "妃嬪、poet詩人、imperial consort[后妃]": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 30,
+      "695-?": 2,
+      "772-797": 2,
+      "667-698?": 1,
+      "773-784": 1,
+      "749-?": 1,
+      "741-770": 1,
+      "684-742": 1,
+      "711-?": 1,
+      "735-760": 1,
+      "741-768": 1,
+      "680-684": 1,
+      "680-691": 1,
+      "745-?": 1,
+      "771-784": 1,
+      "891-907": 1,
+      "709-716": 1,
+      "735-759": 1,
+      "860-867": 1,
+      "773-773": 1,
+      "792-817": 1,
+      "820-824": 1,
+      "803-820": 1,
+      "831-834": 1,
+      "729-732": 1,
+      "854-876": 1,
+      "643-844?": 1,
+      "854-854": 1,
+      "880-880": 1,
+      "907-?": 1,
+      "599-617": 1,
+      "735-742": 1,
+      "670-?": 1,
+      "888-903": 1,
+      "824-859": 1,
+      "854-?": 1,
+      "806-812": 1,
+      "854-870": 1,
+      "766-780": 1,
+      "803-815": 1,
+      "811-824": 1,
+      "772-881": 1,
+      "849-860": 1,
+      "730-746": 1,
+      "804-824": 1,
+      "765-837": 1,
+      "684-710": 1,
+      "726-?": 1,
+      "778-786": 1,
+      "752-759": 1,
+      "748-811?": 1,
+      "859-866": 1,
+      "684-882": 1,
+      "834-850": 1,
+      "742-759": 1,
+      "705-709": 1,
+      "813-825": 1,
+      "805-827": 1,
+      "836-861": 1,
+      "721-889": 1,
+      "727-742": 1,
+      "802-802": 1,
+      "681-825": 1,
+      "827-836": 1,
+      "806-837": 1,
+      "705-710": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 42,
+      "multi_poem_poets": 55,
+      "highly_productive_poets": 8,
+      "extremely_productive_poets": 0,
+      "max_poems": 346,
+      "min_poems": 1,
+      "median_poems": 2.0,
+      "std_poems": 63.81874704369245
+    }
+  },
+  "Lingnan Dao": {
+    "total_poets": 21,
+    "total_poems": 609,
+    "avg_poems_per_poet": 29.0,
+    "gender_distribution": {
+      "male": 21
+    },
+    "top_poets": [
+      {
+        "poet_name": "30. 韋莊",
+        "poem_count": 329
+      },
+      {
+        "poet_name": "95. 曹鄴",
+        "poem_count": 104
+      },
+      {
+        "poet_name": "142. 裴說",
+        "poem_count": 51
+      },
+      {
+        "poet_name": "162. 曹唐",
+        "poem_count": 39
+      },
+      {
+        "poet_name": "187. 邵謁",
+        "poem_count": 32
+      },
+      {
+        "poet_name": "207. 杜光庭",
+        "poem_count": 28
+      },
+      {
+        "poet_name": "579. 莫宣卿",
+        "poem_count": 4
+      },
+      {
+        "poet_name": "580. 鄭愚",
+        "poem_count": 4
+      },
+      {
+        "poet_name": "594. 翁宏",
+        "poem_count": 4
+      },
+      {
+        "poet_name": "裴諧",
+        "poem_count": 2
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 12,
+      "poet詩人,man of culture (wenren)文人": 2,
+      "skilled at writing工於文": 2,
+      "calligrapher書法家、poet詩人、man of culture (wenren)文人、 skilled at writing工於文": 1,
+      "詩人 文人、官員": 1,
+      "詩人、文人": 1,
+      "書法家、詩人、工於文": 1,
+      "civil office[為官者：文]、skilled at writing工於文": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 13,
+      "897-?": 1,
+      "860-?": 1,
+      "866": 1,
+      "791-868": 1,
+      "711-?": 1,
+      "711-727": 1,
+      "709-756": 1,
+      "?-981": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 10,
+      "multi_poem_poets": 11,
+      "highly_productive_poets": 2,
+      "extremely_productive_poets": 0,
+      "max_poems": 329,
+      "min_poems": 1,
+      "median_poems": 2.0,
+      "std_poems": 73.27755454434872
+    }
+  },
+  "Huainan Dao": {
+    "total_poets": 22,
+    "total_poems": 681,
+    "avg_poems_per_poet": 30.954545454545453,
+    "gender_distribution": {
+      "male": 22
+    },
+    "top_poets": [
+      {
+        "poet_name": "42. 趙嘏",
+        "poem_count": 256
+      },
+      {
+        "poet_name": "60. 鮑溶",
+        "poem_count": 183
+      },
+      {
+        "poet_name": "76. 曹松",
+        "poem_count": 143
+      },
+      {
+        "poet_name": "184. 高蟾",
+        "poem_count": 32
+      },
+      {
+        "poet_name": "238. 伍喬",
+        "poem_count": 21
+      },
+      {
+        "poet_name": "314. 馬懷素",
+        "poem_count": 12
+      },
+      {
+        "poet_name": "350. 蔣貽恭",
+        "poem_count": 10
+      },
+      {
+        "poet_name": "635. 張若虛",
+        "poem_count": 3
+      },
+      {
+        "poet_name": "705. 張蕭遠",
+        "poem_count": 3
+      },
+      {
+        "poet_name": "782. 曇域",
+        "poem_count": 3
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 11,
+      "poet詩人,man of culture (wenren)文人": 2,
+      "詩人、文人": 2,
+      "Unknown": 2,
+      "poet詩人,man of culture (wenren)文人,skilled at writing工於文,office: finance[財政官員],office:state council[宰執]": 1,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "poet詩人,skilled at writing工於文": 1,
+      "calligrapher書法家,poet詩人,skilled at writing工於文": 1,
+      "calligrapher書法家,painter畫家,poet詩人,skilled at writing工於文,civil office[為官者：文]": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 13,
+      "831-854": 1,
+      "896-?": 1,
+      "703-717": 1,
+      "?-?": 1,
+      "795-?": 1,
+      "638-660": 1,
+      "698-?": 1,
+      "713-?": 1,
+      "780-788": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 9,
+      "multi_poem_poets": 13,
+      "highly_productive_poets": 3,
+      "extremely_productive_poets": 0,
+      "max_poems": 256,
+      "min_poems": 1,
+      "median_poems": 2.0,
+      "std_poems": 69.05862055958744
+    }
+  },
+  "Jiannan Dao": {
+    "total_poets": 26,
+    "total_poems": 444,
+    "avg_poems_per_poet": 17.076923076923077,
+    "gender_distribution": {
+      "male": 23,
+      "female": 3
+    },
+    "top_poets": [
+      {
+        "poet_name": "85. 雍陶",
+        "poem_count": 123
+      },
+      {
+        "poet_name": "97. 劉滄",
+        "poem_count": 101
+      },
+      {
+        "poet_name": "109. 陳子昂",
+        "poem_count": 88
+      },
+      {
+        "poet_name": "179. 唐求",
+        "poem_count": 35
+      },
+      {
+        "poet_name": "193. 雍裕之",
+        "poem_count": 30
+      },
+      {
+        "poet_name": "223. 歐陽炯",
+        "poem_count": 25
+      },
+      {
+        "poet_name": "352. 李義府",
+        "poem_count": 9
+      },
+      {
+        "poet_name": "522. 可朋",
+        "poem_count": 5
+      },
+      {
+        "poet_name": "593. 李家明",
+        "poem_count": 4
+      },
+      {
+        "poet_name": "617. 卓英英",
+        "poem_count": 4
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 17,
+      "calligrapher書法家,poet詩人": 2,
+      "poet詩人,man of culture (wenren)文人,skilled at writing工於文": 1,
+      "poet詩人,man of culture (wenren)文人": 1,
+      "poet詩人、man of culture (wenren)文人 civil office[為官者：文]": 1,
+      "詩人": 1,
+      "詩人、文人": 1,
+      "poet詩人,skilled at writing工於文": 1,
+      "poet詩人、painter畫家": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 17,
+      "854-854": 1,
+      "696-?": 1,
+      "?-962": 1,
+      "618-663": 1,
+      "969-?": 1,
+      "709-?": 1,
+      "801-?": 1,
+      "965-": 1,
+      "759-795": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 13,
+      "multi_poem_poets": 13,
+      "highly_productive_poets": 2,
+      "extremely_productive_poets": 0,
+      "max_poems": 123,
+      "min_poems": 1,
+      "median_poems": 1.5,
+      "std_poems": 33.71044120378502
+    }
+  },
+  "Longyou Dao": {
+    "total_poets": 23,
+    "total_poems": 100,
+    "avg_poems_per_poet": 4.3478260869565215,
+    "gender_distribution": {
+      "male": 23
+    },
+    "top_poets": [
+      {
+        "poet_name": "174. 李咸用",
+        "poem_count": 36
+      },
+      {
+        "poet_name": "298. 王仁裕",
+        "poem_count": 14
+      },
+      {
+        "poet_name": "344. 李廓",
+        "poem_count": 10
+      },
+      {
+        "poet_name": "367. 李逢吉",
+        "poem_count": 8
+      },
+      {
+        "poet_name": "440. 李翱",
+        "poem_count": 6
+      },
+      {
+        "poet_name": "491. 李程",
+        "poem_count": 5
+      },
+      {
+        "poet_name": "738. 李縠",
+        "poem_count": 3
+      },
+      {
+        "poet_name": "804. 姜皎",
+        "poem_count": 2
+      },
+      {
+        "poet_name": "唐晅",
+        "poem_count": 2
+      },
+      {
+        "poet_name": "趙微明",
+        "poem_count": 1
+      }
+    ],
+    "background_distribution": {
+      "poet詩人": 13,
+      "poet詩人,skilled at writing工於文": 3,
+      "poet詩人,man of culture文人": 2,
+      "詩人": 1,
+      "calligrapher書法家,poet詩人,civil office[為官者：文]": 1,
+      "poet詩人,skilled at writing工於文,civil office[為官者：文]": 1,
+      "skilled at writing工於文": 1,
+      "painter畫家,poet詩人": 1
+    },
+    "official_period_distribution": {
+      "Unknown": 10,
+      "877-?": 2,
+      "810-?": 1,
+      "826-860": 1,
+      "803-834": 1,
+      "803-841": 1,
+      "703-712": 1,
+      "675-?": 1,
+      "707-?": 1,
+      "854-855": 1,
+      "730-?": 1,
+      "735-742": 1,
+      "848-854": 1
+    },
+    "poem_count_distribution": {
+      "single_poem_poets": 14,
+      "multi_poem_poets": 9,
+      "highly_productive_poets": 0,
+      "extremely_productive_poets": 0,
+      "max_poems": 36,
+      "min_poems": 1,
+      "median_poems": 1.0,
+      "std_poems": 7.726040357436859
+    }
+  }
+}
