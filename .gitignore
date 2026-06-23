@@ -1,4 +1,4 @@
 texts/
 __pycache__/
 *.pyc
-gender_poem_predictor/paper/
+poet_origin_predictor/paper/

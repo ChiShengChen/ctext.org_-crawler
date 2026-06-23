@@ -22,7 +22,7 @@
 |------|------|----------|
 | [`api_crawler/`](api_crawler/) | 透過 ctext.org **API** 批量下載任意古典文獻 | requests、編碼處理、斷點續傳 |
 | [`quantangshi_crawler/`](quantangshi_crawler/) | 專門爬取**《全唐詩》900 卷**，並做 n-gram 詞頻統計 | 反檢測爬蟲、n-gram、TF-IDF |
-| [`gender_poem_predictor/`](gender_poem_predictor/) | 僅憑詩作預測詩人**地理出身（唐代「道」）** | scikit-learn、字元 n-gram、領域特徵 |
+| [`poet_origin_predictor/`](poet_origin_predictor/) | 僅憑詩作預測詩人**地理出身（唐代「道」）** | scikit-learn、字元 n-gram、領域特徵 |
 | [`quantum_tangshi_relation_predict/`](quantum_tangshi_relation_predict/) | 以**量子神經網路**預測詩人社交關係 | 量子圖神經網路、PennyLane |
 | [`bencao_gangmu/`](bencao_gangmu/) | 已下載之古典文獻範例（論語、孟子、詩經…） | — |
 
@@ -56,7 +56,7 @@ python retry_failed_volumes.py --delay 15.0               # 重試失敗卷
 ### 3. 詩人籍貫預測（機器學習）
 
 ```bash
-cd gender_poem_predictor
+cd poet_origin_predictor
 python build_dataset.py   # 建立詩人層級語料 → dataset.csv（357 位詩人、10 個道）
 python train.py           # 交叉驗證評估 + 可解釋性分析
 ```
@@ -81,7 +81,7 @@ python experiment_runner.py   # 154 詩人節點、180 關係邊的關係預測�
 - ✅ 分批爬取策略與詳細統計
 - ✅ 1–7 gram 作者詞頻統計（見 `analysis_result/`）
 
-### 籍貫預測 (`gender_poem_predictor/`)
+### 籍貫預測 (`poet_origin_predictor/`)
 - ✅ 結合《全唐詩》文本與 CBDB 籍貫資料建立資料集
 - ✅ 字元 n-gram TF-IDF + 意象／季節／典故等領域特徵
 - ✅ 交叉驗證、混淆矩陣、距離衰減等可解釋性圖表
