@@ -109,6 +109,18 @@ def haversine(a, b):
     return 2*6371*asin(sqrt(d))
 
 
+def mantel_p(d1, d2, n_perm=10000, seed=42):
+    """Label-permutation p-value for the correlation of two distance matrices
+    (pairwise distances are not independent, so the naive Pearson p is invalid)."""
+    n = d1.shape[0]
+    iu = np.triu_indices(n, 1)
+    r = pearsonr(d1[iu], d2[iu])[0]
+    rng = np.random.RandomState(seed)
+    count = sum(abs(pearsonr(d1[np.ix_(p, p)][iu], d2[iu])[0]) >= abs(r)
+                for p in (rng.permutation(n) for _ in range(n_perm)))
+    return r, (count + 1) / (n_perm + 1)
+
+
 def load_df(min_poems=10):
     df = pd.read_csv(os.path.join(HERE, "dataset.csv"))
     return df[df["n_poems"] >= min_poems].reset_index(drop=True)
@@ -237,12 +249,14 @@ def fig03_distance_decay():
                      for b in regions] for a in regions])
     iu = np.triu_indices(len(regions), 1)
     gx, ly = geo[iu], ling[iu]
-    r, p = pearsonr(gx, ly)
+    r, p_naive = pearsonr(gx, ly)
+    _, p_mantel = mantel_p(geo, ling)
     fig, ax = plt.subplots(figsize=(6.5, 5))
     ax.scatter(gx, ly, alpha=.7)
     z = np.polyfit(gx, ly, 1)
     xs = np.linspace(gx.min(), gx.max(), 50)
-    ax.plot(xs, np.polyval(z, xs), "r--", label=f"r={r:.2f}, p={p:.3f}")
+    ax.plot(xs, np.polyval(z, xs), "r--",
+            label=f"r={r:.2f}, Mantel p={p_mantel:.2f}\n(naive p={p_naive:.3f})")
     ax.set_xlabel(T("地理距離（km）", "geographic distance (km)"))
     ax.set_ylabel(T("語言距離（1 − cosine）", "linguistic distance (1 - cosine)"))
     ax.set_title(T(f"詩歌語言的距離衰減（{len(regions)} 道）",
@@ -437,18 +451,16 @@ def fig11_periphery():
     order = list(le.classes_)
     dist = [haversine(CIRCUIT_COORDS[r], CIRCUIT_COORDS[CAP]) for r in order]
     rr = [rec[i] for i in range(len(order))]
-    r, pval = pearsonr(dist, rr)
+    # No regression line: the association is non-significant (p>0.3) and reverses
+    # sign without Jiangnan, so a fitted trend would over-state a distance effect.
     fig, ax = plt.subplots(figsize=(6.5, 5))
     ax.scatter(dist, rr, s=80, color="purple")
     for r_, d, a in zip(order, dist, rr):
         ax.annotate(R(r_), (d, a), textcoords="offset points", xytext=(6, 4))
-    z = np.polyfit(dist, rr, 1)
-    xs = np.linspace(min(dist), max(dist), 30)
-    ax.plot(xs, np.polyval(z, xs), "r--", label=f"r={r:.2f}, p={pval:.2f}")
     ax.set_xlabel(T("離長安距離（km）", "distance from Chang'an (km)"))
     ax.set_ylabel(T("辨識率（recall）", "identifiability (recall)"))
-    ax.set_title(T("邊陲比中心更易辨識", "Periphery is more identifiable than the center"))
-    ax.legend()
+    ax.set_title(T("各道辨識率 vs. 離首都距離",
+                   "Per-circuit identifiability vs. distance from the capital"))
     save(fig, "fig11_periphery.png")
 
 
