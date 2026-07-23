@@ -23,6 +23,7 @@
 | [`api_crawler/`](api_crawler/) | 透過 ctext.org **API** 批量下載任意古典文獻 | requests、編碼處理、斷點續傳 |
 | [`quantangshi_crawler/`](quantangshi_crawler/) | 專門爬取**《全唐詩》900 卷**，並做 n-gram 詞頻統計 | 反檢測爬蟲、n-gram、TF-IDF |
 | [`poet_origin_predictor/`](poet_origin_predictor/) | 僅憑詩作預測詩人**地理出身（唐代「道」）** | scikit-learn、字元 n-gram、領域特徵 |
+| [`palace_lament_female_diction/`](palace_lament_female_diction/) | **宮怨詩(男性代言) vs 女性詩人**用語差異 | 加權 log-odds、語彙場 |
 | [`quantum_tangshi_relation_predict/`](quantum_tangshi_relation_predict/) | 以**量子神經網路**預測詩人社交關係 | 量子圖神經網路、PennyLane |
 | [`bencao_gangmu/`](bencao_gangmu/) | 已下載之古典文獻範例（論語、孟子、詩經…） | — |
 
