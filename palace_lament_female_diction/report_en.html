@@ -65,6 +65,19 @@ td.hi{color:var(--vermil);font-weight:700} td.hii{color:var(--indigo);font-weigh
 .note .lbl{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vermil);font-weight:700;display:block;margin-bottom:.3rem}
 footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.78rem;color:var(--muted);line-height:1.6}
 a{color:var(--indigo)}
+
+details.appx{border:1px solid var(--rule);border-radius:5px;margin:.85rem 0;background:var(--card);overflow:hidden}
+details.appx>summary{cursor:pointer;padding:.7rem 1rem;font-family:var(--sans);font-weight:700;
+  font-size:.9rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+details.appx>summary::-webkit-details-marker{display:none}
+details.appx>summary .c{color:var(--muted);font-weight:400;font-size:.82rem}
+details.appx>summary::after{content:"\25B8";color:var(--muted);transition:transform .2s;flex:none}
+details.appx[open]>summary::after{transform:rotate(90deg)}
+details.appx .tablewrap{margin:0 1rem 1rem;max-height:60vh;overflow:auto}
+details.appx table{font-size:.8rem}
+details.appx thead th{position:sticky;top:0;background:var(--card)}
+.gm{color:var(--indigo);font-weight:700} .gf{color:var(--vermil);font-weight:700}
+
 @media (prefers-reduced-motion:no-preference){.wrap{animation:fade .5s ease both}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
 </style>
@@ -271,6 +284,591 @@ and function words — take these in turn.</p>
     They are best treated as <strong>hypotheses for close reading and literary history</strong>, to be
     tested with more female-lament material and bootstrap confidence intervals.
   </div>
+</section>
+
+<section>
+<div class="h2row"><span class="num">VII</span><h2>Appendix: full listings</h2></div>
+<p>Per-group poem listings (click to expand). The machine-readable file with all flags is <code>group_membership.csv</code> in the repo.</p>
+<details class="appx"><summary><span>G1 palace-lament <span class="c">· 321 poems</span></span></summary><div class="tablewrap"><table><thead><tr><th>Author</th><th>Sex</th><th style="text-align:left">Title</th><th>Form</th></tr></thead><tbody><tr><td>于武陵</td><td class="gm">男</td><td>長信宮</td><td class="rowlab">五言</td></tr>
+<tr><td>于武陵</td><td class="gm">男</td><td>長信宮二首</td><td class="rowlab">五言</td></tr>
+<tr><td>任翻</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">五言</td></tr>
+<tr><td>元稹</td><td class="gm">男</td><td>上陽白髮人</td><td class="rowlab">七言</td></tr>
+<tr><td>元稹</td><td class="gm">男</td><td>月暗</td><td class="rowlab">七言</td></tr>
+<tr><td>元稹</td><td class="gm">男</td><td>苦樂相倚曲</td><td class="rowlab">七言</td></tr>
+<tr><td>劉庭琦</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>劉得仁</td><td class="gm">男</td><td>悲老宮人</td><td class="rowlab">七言</td></tr>
+<tr><td>劉得仁</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉方平</td><td class="gm">男</td><td>春怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉方平</td><td class="gm">男</td><td>班婕妤</td><td class="rowlab">五言</td></tr>
+<tr><td>劉方平</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>劉方平</td><td class="gm">男</td><td>長信宮</td><td class="rowlab">五言</td></tr>
+<tr><td>劉皂</td><td class="gm">男</td><td>長門怨三首</td><td class="rowlab">七言</td></tr>
+<tr><td>劉禹錫</td><td class="gm">男</td><td>團扇歌</td><td class="rowlab">五言</td></tr>
+<tr><td>劉禹錫</td><td class="gm">男</td><td>秋扇詞</td><td class="rowlab">七言</td></tr>
+<tr><td>劉禹錫</td><td class="gm">男</td><td>詠古二首有所寄</td><td class="rowlab">五言</td></tr>
+<tr><td>劉禹錫</td><td class="gm">男</td><td>阿嬌怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉禹錫</td><td class="gm">男</td><td>阿嬌怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉禹錫</td><td class="gm">男</td><td>魏宮詞二首</td><td class="rowlab">七言</td></tr>
+<tr><td>劉言史</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉言史</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉長卿</td><td class="gm">男</td><td>昭陽曲</td><td class="rowlab">七言</td></tr>
+<tr><td>劉駕</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉駕</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>吳少微</td><td class="gm">男</td><td>怨歌行</td><td class="rowlab">七言</td></tr>
+<tr><td>吳少微</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>吳少微</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>吳燭</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>吳燭</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">七言</td></tr>
+<tr><td>吳英秀</td><td class="gm">男</td><td>鸚鵡</td><td class="rowlab">七言</td></tr>
+<tr><td>吳融</td><td class="gm">男</td><td>上陽宮辭</td><td class="rowlab">七言</td></tr>
+<tr><td>和凝</td><td class="gm">男</td><td>宮詞百首</td><td class="rowlab">七言</td></tr>
+<tr><td>喬備</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>喬知之</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>喬知之</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>喬知之</td><td class="gm">男</td><td>長信宮中樹</td><td class="rowlab">五言</td></tr>
+<tr><td>孟浩然</td><td class="gm">男</td><td>長樂宮</td><td class="rowlab">七言</td></tr>
+<tr><td>孟遲</td><td class="gm">男</td><td>宮人斜</td><td class="rowlab">七言</td></tr>
+<tr><td>孟遲</td><td class="gm">男</td><td>長信宮</td><td class="rowlab">七言</td></tr>
+<tr><td>崔國輔</td><td class="gm">男</td><td>怨詞二首</td><td class="rowlab">五言</td></tr>
+<tr><td>崔國輔</td><td class="gm">男</td><td>秦女卷衣</td><td class="rowlab">五言</td></tr>
+<tr><td>崔國輔</td><td class="gm">男</td><td>長信草</td><td class="rowlab">五言</td></tr>
+<tr><td>崔湜</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>崔湜</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>崔道融</td><td class="gm">男</td><td>班婕妤</td><td class="rowlab">五言</td></tr>
+<tr><td>崔道融</td><td class="gm">男</td><td>銅雀妓二首</td><td class="rowlab">五言</td></tr>
+<tr><td>崔道融</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>崔道融</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>崔顥</td><td class="gm">男</td><td>七夕</td><td class="rowlab">七言</td></tr>
+<tr><td>崔顥</td><td class="gm">男</td><td>行路難</td><td class="rowlab">雜言</td></tr>
+<tr><td>崔顥</td><td class="gm">男</td><td>行路難</td><td class="rowlab">七言</td></tr>
+<tr><td>崔顥</td><td class="gm">男</td><td>邯鄲宮人怨</td><td class="rowlab">七言</td></tr>
+<tr><td>崔顥</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>左偃</td><td class="gm">男</td><td>漢宮詞</td><td class="rowlab">五言</td></tr>
+<tr><td>張仲素</td><td class="gm">男</td><td>思君恩</td><td class="rowlab">五言</td></tr>
+<tr><td>張烜</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>張烜</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>張碧</td><td class="gm">男</td><td>古意</td><td class="rowlab">七言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>宮詞二首</td><td class="rowlab">五言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>折楊柳</td><td class="rowlab">五言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>折楊柳</td><td class="rowlab">五言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>折楊柳枝二首</td><td class="rowlab">七言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>牆頭花二首</td><td class="rowlab">五言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>贈內人</td><td class="rowlab">七言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>吳宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>宿山祠</td><td class="rowlab">七言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>楚妃怨</td><td class="rowlab">七言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>白頭吟</td><td class="rowlab">七言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>舊宮人</td><td class="rowlab">五言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>送宮人入道</td><td class="rowlab">五言</td></tr>
+<tr><td>張籍</td><td class="gm">男</td><td>離宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>張蠙</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>徐凝</td><td class="gm">男</td><td>上陽紅葉</td><td class="rowlab">七言</td></tr>
+<tr><td>徐凝</td><td class="gm">男</td><td>漢宮曲</td><td class="rowlab">七言</td></tr>
+<tr><td>徐夤</td><td class="gm">男</td><td>李夫人二首</td><td class="rowlab">七言</td></tr>
+<tr><td>徐彥伯</td><td class="gm">男</td><td>婕妤</td><td class="rowlab">五言</td></tr>
+<tr><td>戎昱</td><td class="gm">男</td><td>閨情</td><td class="rowlab">五言</td></tr>
+<tr><td>戴叔倫</td><td class="gm">男</td><td>後宮曲</td><td class="rowlab">五言</td></tr>
+<tr><td>戴叔倫</td><td class="gm">男</td><td>獨不見</td><td class="rowlab">五言</td></tr>
+<tr><td>戴叔倫</td><td class="gm">男</td><td>獨不見</td><td class="rowlab">五言</td></tr>
+<tr><td>施肩吾</td><td class="gm">男</td><td>帝宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>曹鄴</td><td class="gm">男</td><td>代班姬</td><td class="rowlab">五言</td></tr>
+<tr><td>曹鄴</td><td class="gm">男</td><td>恃寵</td><td class="rowlab">五言</td></tr>
+<tr><td>曹鄴</td><td class="gm">男</td><td>金井怨</td><td class="rowlab">五言</td></tr>
+<tr><td>朱光弼</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">七言</td></tr>
+<tr><td>朱光弼</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>朱慶餘</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>朱放</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>朱放</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>李中</td><td class="gm">男</td><td>宮詞二首</td><td class="rowlab">七言</td></tr>
+<tr><td>李咸用</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">七言</td></tr>
+<tr><td>李商隱</td><td class="gm">男</td><td>促漏</td><td class="rowlab">七言</td></tr>
+<tr><td>李商隱</td><td class="gm">男</td><td>宮辭</td><td class="rowlab">七言</td></tr>
+<tr><td>李商隱</td><td class="gm">男</td><td>效長吉</td><td class="rowlab">五言</td></tr>
+<tr><td>李商隱</td><td class="gm">男</td><td>深宮</td><td class="rowlab">七言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>中山孺子妾歌</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>中山孺子妾歌</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>怨情</td><td class="rowlab">七言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>怨情</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>懼讒</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>玉階怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>玉階怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>長信宮</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>長門怨二首</td><td class="rowlab">七言</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>長門怨二首</td><td class="rowlab">七言</td></tr>
+<tr><td>李百藥</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>李百藥</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>李益</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>李益</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>李端</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>李端</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>李端</td><td class="gm">男</td><td>妾薄命三首</td><td class="rowlab">五言</td></tr>
+<tr><td>李華</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李華</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>三月</td><td class="rowlab">七言</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>三月過行宮</td><td class="rowlab">七言</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>感諷五首</td><td class="rowlab">五言</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>感諷六首</td><td class="rowlab">五言</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>謠俗</td><td class="rowlab">五言</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>馮小憐</td><td class="rowlab">五言</td></tr>
+<tr><td>杜審言</td><td class="gm">男</td><td>賦得妾薄命</td><td class="rowlab">五言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>奉陵宮人</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>宮人塚</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>月</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>洛中二首</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>洛中監察病假滿，送韋楚老拾遺歸朝</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>洛中送冀處士東游</td><td class="rowlab">五言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>秋夕</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>秋夕有懷</td><td class="rowlab">五言</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>簾</td><td class="rowlab">五言</td></tr>
+<tr><td>杜荀鶴</td><td class="gm">男</td><td>春宮怨</td><td class="rowlab">五言</td></tr>
+<tr><td>杜荀鶴</td><td class="gm">男</td><td>春宮怨</td><td class="rowlab">五言</td></tr>
+<tr><td>柯崇</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>柯崇</td><td class="gm">男</td><td>宮怨二首</td><td class="rowlab">七言</td></tr>
+<tr><td>楊巨源</td><td class="gm">男</td><td>月宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>楊衡</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>權德輿</td><td class="gm">男</td><td>宮人斜絕句</td><td class="rowlab">七言</td></tr>
+<tr><td>歐陽詹</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>歐陽詹</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>段成式</td><td class="gm">男</td><td>漢宮詞二首</td><td class="rowlab">七言</td></tr>
+<tr><td>殷堯藩</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>殷堯藩</td><td class="gm">男</td><td>漢宮詞三首</td><td class="rowlab">七言</td></tr>
+<tr><td>汪遵</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>沈佺期</td><td class="gm">男</td><td>古歌</td><td class="rowlab">七言</td></tr>
+<tr><td>沈佺期</td><td class="gm">男</td><td>古歌</td><td class="rowlab">七言</td></tr>
+<tr><td>沈佺期</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>沈佺期</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>沈佺期</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>沈佺期</td><td class="gm">男</td><td>鳳簫曲</td><td class="rowlab">七言</td></tr>
+<tr><td>溫庭筠</td><td class="gm">男</td><td>楊柳八首</td><td class="rowlab">七言</td></tr>
+<tr><td>溫庭筠</td><td class="gm">男</td><td>楊柳枝</td><td class="rowlab">七言</td></tr>
+<tr><td>王勃</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>王勃</td><td class="gm">男</td><td>銅雀妓二首</td><td class="rowlab">五言</td></tr>
+<tr><td>王建</td><td class="gm">男</td><td>古宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="gm">男</td><td>宮人斜</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="gm">男</td><td>舊宮人</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>王昌齡</td><td class="gm">男</td><td>春宮曲</td><td class="rowlab">七言</td></tr>
+<tr><td>王昌齡</td><td class="gm">男</td><td>西宮春怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王沈</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王沈</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王涯</td><td class="gm">男</td><td>宮詞三十首</td><td class="rowlab">七言</td></tr>
+<tr><td>王涯</td><td class="gm">男</td><td>思君恩</td><td class="rowlab">五言</td></tr>
+<tr><td>王渙</td><td class="gm">男</td><td>惆悵詩十二首</td><td class="rowlab">七言</td></tr>
+<tr><td>王無競</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>王無競</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>王翰</td><td class="gm">男</td><td>古蛾眉怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王諲</td><td class="gm">男</td><td>後庭怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王諲</td><td class="gm">男</td><td>長信怨</td><td class="rowlab">五言</td></tr>
+<tr><td>王諲</td><td class="gm">男</td><td>長信怨</td><td class="rowlab">五言</td></tr>
+<tr><td>王適</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>王適</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>白居易</td><td class="gm">男</td><td>上陽白髮人－湣怨曠也</td><td class="rowlab">七言</td></tr>
+<tr><td>白居易</td><td class="gm">男</td><td>後宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>白居易</td><td class="gm">男</td><td>後宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>白居易</td><td class="gm">男</td><td>怨詞</td><td class="rowlab">五言</td></tr>
+<tr><td>白居易</td><td class="gm">男</td><td>昭君怨</td><td class="rowlab">七言</td></tr>
+<tr><td>白居易</td><td class="gm">男</td><td>昭君怨</td><td class="rowlab">七言</td></tr>
+<tr><td>皇甫冉</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>皇甫冉</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>皇甫冉</td><td class="gm">男</td><td>婕妤春怨</td><td class="rowlab">五言</td></tr>
+<tr><td>皇甫冉</td><td class="gm">男</td><td>秋怨</td><td class="rowlab">五言</td></tr>
+<tr><td>皎然</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>皎然</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">七言</td></tr>
+<tr><td>皎然</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>皎然</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>皮日休</td><td class="gm">男</td><td>古宮詞三首</td><td class="rowlab">五言</td></tr>
+<tr><td>盧汝弼</td><td class="gm">男</td><td>薄命妾</td><td class="rowlab">七言</td></tr>
+<tr><td>盧綸</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>盧綸</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>祖詠</td><td class="gm">男</td><td>古意二首</td><td class="rowlab">五言</td></tr>
+<tr><td>竇鞏</td><td class="gm">男</td><td>宮人斜</td><td class="rowlab">七言</td></tr>
+<tr><td>章碣</td><td class="gm">男</td><td>東都望幸</td><td class="rowlab">七言</td></tr>
+<tr><td>羅鄴</td><td class="gm">男</td><td>上陽宮</td><td class="rowlab">七言</td></tr>
+<tr><td>羅鄴</td><td class="gm">男</td><td>宮中二首</td><td class="rowlab">七言</td></tr>
+<tr><td>羅隱</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>羅隱</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>羅隱</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>翁綬</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">七言</td></tr>
+<tr><td>翁綬</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">七言</td></tr>
+<tr><td>耿湋</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>胡曾</td><td class="gm">男</td><td>薄命妾</td><td class="rowlab">七言</td></tr>
+<tr><td>胡曾</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>蕭意</td><td class="gm">男</td><td>長門失寵</td><td class="rowlab">五言</td></tr>
+<tr><td>薛奇童</td><td class="gm">男</td><td>吳聲子夜歌</td><td class="rowlab">五言</td></tr>
+<tr><td>薛奇童</td><td class="gm">男</td><td>楚宮詞二首</td><td class="rowlab">五言</td></tr>
+<tr><td>薛逢</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>虞世南</td><td class="gm">男</td><td>怨歌行</td><td class="rowlab">五言</td></tr>
+<tr><td>虞世南</td><td class="gm">男</td><td>怨歌行</td><td class="rowlab">五言</td></tr>
+<tr><td>袁暉</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>袁暉</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>袁暉</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>袁暉</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>裴交泰</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>裴交泰</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>許渾</td><td class="gm">男</td><td>經古行宮</td><td class="rowlab">七言</td></tr>
+<tr><td>賈至</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>賈至</td><td class="gm">男</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>賈至</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>趙嘏</td><td class="gm">男</td><td>宮烏棲</td><td class="rowlab">七言</td></tr>
+<tr><td>邵謁</td><td class="gm">男</td><td>漢宮井</td><td class="rowlab">七言</td></tr>
+<tr><td>鄭愔</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>鄭錫</td><td class="gm">男</td><td>玉階怨</td><td class="rowlab">五言</td></tr>
+<tr><td>鄭鏦</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>鄭鏦</td><td class="gm">男</td><td>玉階怨</td><td class="rowlab">五言</td></tr>
+<tr><td>錢珝</td><td class="gm">男</td><td>春恨三首</td><td class="rowlab">七言</td></tr>
+<tr><td>錢起</td><td class="gm">男</td><td>長信怨</td><td class="rowlab">七言</td></tr>
+<tr><td>長孫佐輔</td><td class="gm">男</td><td>古宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>陳子昂</td><td class="gm">男</td><td>感遇詩三十八首</td><td class="rowlab">五言</td></tr>
+<tr><td>陳標</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">七言</td></tr>
+<tr><td>陳陶</td><td class="gm">男</td><td>續古二十九首</td><td class="rowlab">五言</td></tr>
+<tr><td>陸龜蒙</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>陸龜蒙</td><td class="gm">男</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>陸龜蒙</td><td class="gm">男</td><td>宮人斜</td><td class="rowlab">七言</td></tr>
+<tr><td>雍裕之</td><td class="gm">男</td><td>宮人斜</td><td class="rowlab">七言</td></tr>
+<tr><td>韋莊</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">七言</td></tr>
+<tr><td>韋莊</td><td class="gm">男</td><td>撫盈歌</td><td class="rowlab">五言</td></tr>
+<tr><td>韓偓</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>韓偓</td><td class="gm">男</td><td>長信宮二首</td><td class="rowlab">七言</td></tr>
+<tr><td>韓翃</td><td class="gm">男</td><td>漢宮曲二首</td><td class="rowlab">五言</td></tr>
+<tr><td>韓翃</td><td class="gm">男</td><td>漢宮曲二首</td><td class="rowlab">七言</td></tr>
+<tr><td>項斯</td><td class="gm">男</td><td>送宮人入道</td><td class="rowlab">七言</td></tr>
+<tr><td>顧況</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>顧況</td><td class="gm">男</td><td>宮詞五首</td><td class="rowlab">七言</td></tr>
+<tr><td>顧非熊</td><td class="gm">男</td><td>銅雀妓</td><td class="rowlab">五言</td></tr>
+<tr><td>馬逢</td><td class="gm">男</td><td>宮詞二首</td><td class="rowlab">七言</td></tr>
+<tr><td>高蟾</td><td class="gm">男</td><td>長信宮二首</td><td class="rowlab">七言</td></tr>
+<tr><td>高蟾</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>高蟾</td><td class="gm">男</td><td>長門怨二首</td><td class="rowlab">七言</td></tr>
+<tr><td>鮑溶</td><td class="gm">男</td><td>上陽宮月</td><td class="rowlab">七言</td></tr>
+<tr><td>鮑溶</td><td class="gm">男</td><td>章華宮行</td><td class="rowlab">七言</td></tr>
+<tr><td>令狐楚</td><td class="rowlab">—</td><td>思君恩</td><td class="rowlab">五言</td></tr>
+<tr><td>僖宗宮人</td><td class="rowlab">—</td><td>金鎖詩</td><td class="rowlab">五言</td></tr>
+<tr><td>劉媛</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉長卿</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>劉長卿</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>劉雲</td><td class="rowlab">—</td><td>婕妤怨</td><td class="rowlab">五言</td></tr>
+<tr><td>周濆</td><td class="rowlab">—</td><td>重門曲</td><td class="rowlab">七言</td></tr>
+<tr><td>嚴識玄</td><td class="rowlab">—</td><td>班婕妤</td><td class="rowlab">五言</td></tr>
+<tr><td>嚴識玄</td><td class="rowlab">—</td><td>班婕妤</td><td class="rowlab">五言</td></tr>
+<tr><td>天寶宮人</td><td class="gf">女</td><td>題洛苑梧葉上</td><td class="rowlab">五言</td></tr>
+<tr><td>宣宗宮人</td><td class="gf">女</td><td>題紅葉</td><td class="rowlab">五言</td></tr>
+<tr><td>岑參</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>岑參</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>廖融</td><td class="rowlab">—</td><td>退宮妓</td><td class="rowlab">七言</td></tr>
+<tr><td>張循之</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>張琰</td><td class="rowlab">—</td><td>銅雀台</td><td class="rowlab">七言</td></tr>
+<tr><td>張祜</td><td class="rowlab">—</td><td>退宮人二首</td><td class="rowlab">七言</td></tr>
+<tr><td>張籍</td><td class="rowlab">—</td><td>酬朱慶餘</td><td class="rowlab">七言</td></tr>
+<tr><td>徐夤</td><td class="rowlab">—</td><td>上陽宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>徐賢妃</td><td class="gf">女</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>徐賢妃</td><td class="gf">女</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>德宗宮人</td><td class="gf">女</td><td>題花葉詩</td><td class="rowlab">五言</td></tr>
+<tr><td>戴叔倫</td><td class="rowlab">—</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>戴叔倫</td><td class="rowlab">—</td><td>漢宮人入道</td><td class="rowlab">七言</td></tr>
+<tr><td>戴叔倫</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>戴叔倫</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李商隱</td><td class="rowlab">—</td><td>和韓錄事送宮人入道</td><td class="rowlab">七言</td></tr>
+<tr><td>李商隱</td><td class="rowlab">—</td><td>槿花</td><td class="rowlab">七言</td></tr>
+<tr><td>李商隱</td><td class="rowlab">—</td><td>槿花二首</td><td class="rowlab">五言</td></tr>
+<tr><td>李建勳</td><td class="rowlab">—</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>李建勳</td><td class="rowlab">—</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>李白</td><td class="rowlab">—</td><td>古風</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="rowlab">—</td><td>怨歌行</td><td class="rowlab">五言</td></tr>
+<tr><td>李白</td><td class="rowlab">—</td><td>怨歌行</td><td class="rowlab">五言</td></tr>
+<tr><td>李端</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>李賀</td><td class="rowlab">—</td><td>宮娃歌</td><td class="rowlab">七言</td></tr>
+<tr><td>杜牧</td><td class="rowlab">—</td><td>出宮人二首</td><td class="rowlab">七言</td></tr>
+<tr><td>梁瓊</td><td class="gf">女</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>武后宮人</td><td class="gf">女</td><td>離別難</td><td class="rowlab">五言</td></tr>
+<tr><td>殷堯藩</td><td class="rowlab">—</td><td>宮人入道</td><td class="rowlab">七言</td></tr>
+<tr><td>江妃</td><td class="gf">女</td><td>謝賜珍珠</td><td class="rowlab">七言</td></tr>
+<tr><td>無名氏</td><td class="rowlab">—</td><td>長信宮</td><td class="rowlab">七言</td></tr>
+<tr><td>無名氏</td><td class="rowlab">—</td><td>長門</td><td class="rowlab">五言</td></tr>
+<tr><td>無名氏</td><td class="rowlab">—</td><td>雜詩</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="rowlab">—</td><td>宮詞一百首</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="rowlab">—</td><td>送宮人入道</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="rowlab">—</td><td>長門</td><td class="rowlab">七言</td></tr>
+<tr><td>王建</td><td class="rowlab">—</td><td>長門燭</td><td class="rowlab">七言</td></tr>
+<tr><td>王昌齡</td><td class="rowlab">—</td><td>西宮秋怨</td><td class="rowlab">七言</td></tr>
+<tr><td>王昌齡</td><td class="rowlab">—</td><td>長信秋詞五首</td><td class="rowlab">七言</td></tr>
+<tr><td>王維</td><td class="rowlab">—</td><td>班婕妤三首</td><td class="rowlab">五言</td></tr>
+<tr><td>王維</td><td class="rowlab">—</td><td>班婕妤三首</td><td class="rowlab">五言</td></tr>
+<tr><td>王貞白</td><td class="rowlab">—</td><td>折楊柳三首</td><td class="rowlab">七言</td></tr>
+<tr><td>王貞白</td><td class="rowlab">—</td><td>長門怨二首</td><td class="rowlab">五言</td></tr>
+<tr><td>白居易</td><td class="rowlab">—</td><td>太行路－借夫婦以諷君臣之不終也</td><td class="rowlab">七言</td></tr>
+<tr><td>白居易</td><td class="rowlab">—</td><td>春題華陽觀</td><td class="rowlab">七言</td></tr>
+<tr><td>白居易</td><td class="rowlab">—</td><td>陵園妾－憐幽閉也</td><td class="rowlab">七言</td></tr>
+<tr><td>盧綸</td><td class="rowlab">—</td><td>過玉真公主影殿</td><td class="rowlab">七言</td></tr>
+<tr><td>花蕊夫人</td><td class="gf">女</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>開元宮人</td><td class="rowlab">—</td><td>袍中詩</td><td class="rowlab">五言</td></tr>
+<tr><td>韋應物</td><td class="rowlab">—</td><td>送宮人入道</td><td class="rowlab">七言</td></tr>
+<tr><td>項斯</td><td class="rowlab">—</td><td>舊宮人</td><td class="rowlab">七言</td></tr>
+<tr><td>顧況</td><td class="rowlab">—</td><td>葉上題詩從苑中流出</td><td class="rowlab">七言</td></tr>
+<tr><td>高蟾</td><td class="rowlab">—</td><td>華清宮</td><td class="rowlab">七言</td></tr>
+<tr><td>鮑溶</td><td class="rowlab">—</td><td>行路難</td><td class="rowlab">七言</td></tr></tbody></table></div></details>
+<details class="appx"><summary><span>G2 female poets (all poems) <span class="c">· 214 poems</span></span></summary><div class="tablewrap"><table><thead><tr><th>Author</th><th style="text-align:left">Title</th><th>Form</th></tr></thead><tbody><tr><td>僖宗宮人</td><td>金鎖詩</td><td class="rowlab">五言</td></tr>
+<tr><td>劉媛</td><td>長門怨</td><td class="rowlab">七言</td></tr>
+<tr><td>劉媛</td><td>句</td><td class="rowlab">五言</td></tr>
+<tr><td>劉媛</td><td>送遠</td><td class="rowlab">七言</td></tr>
+<tr><td>劉采春</td><td>囉嗊曲六首</td><td class="rowlab">五言</td></tr>
+<tr><td>天寶宮人</td><td>題洛苑梧葉上</td><td class="rowlab">五言</td></tr>
+<tr><td>天寶宮人</td><td>又題</td><td class="rowlab">七言</td></tr>
+<tr><td>姚月華</td><td>制履贈楊達</td><td class="rowlab">五言</td></tr>
+<tr><td>姚月華</td><td>怨詩寄楊達</td><td class="rowlab">七言</td></tr>
+<tr><td>姚月華</td><td>怨詩效徐淑體</td><td class="rowlab">五言</td></tr>
+<tr><td>姚月華</td><td>有期不至</td><td class="rowlab">七言</td></tr>
+<tr><td>姚月華</td><td>楚妃怨</td><td class="rowlab">七言</td></tr>
+<tr><td>宣宗宮人</td><td>題紅葉</td><td class="rowlab">五言</td></tr>
+<tr><td>崔仲容</td><td>句</td><td class="rowlab">五言</td></tr>
+<tr><td>崔仲容</td><td>戲贈</td><td class="rowlab">七言</td></tr>
+<tr><td>崔仲容</td><td>贈所思</td><td class="rowlab">五言</td></tr>
+<tr><td>崔仲容</td><td>贈歌姬</td><td class="rowlab">七言</td></tr>
+<tr><td>常浩</td><td>寄遠</td><td class="rowlab">七言</td></tr>
+<tr><td>常浩</td><td>贈盧夫人</td><td class="rowlab">五言</td></tr>
+<tr><td>廉氏</td><td>寄征人</td><td class="rowlab">七言</td></tr>
+<tr><td>廉氏</td><td>峽中即事</td><td class="rowlab">七言</td></tr>
+<tr><td>廉氏</td><td>懷遠</td><td class="rowlab">五言</td></tr>
+<tr><td>張窈窕</td><td>上成都在事</td><td class="rowlab">五言</td></tr>
+<tr><td>張窈窕</td><td>句</td><td class="rowlab">七言</td></tr>
+<tr><td>張窈窕</td><td>寄故人</td><td class="rowlab">七言</td></tr>
+<tr><td>張窈窕</td><td>春思二首</td><td class="rowlab">七言</td></tr>
+<tr><td>張窈窕</td><td>西江行</td><td class="rowlab">五言</td></tr>
+<tr><td>張窈窕</td><td>贈所思</td><td class="rowlab">七言</td></tr>
+<tr><td>徐賢妃</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>徐賢妃</td><td>長門怨</td><td class="rowlab">五言</td></tr>
+<tr><td>徐賢妃</td><td>擬小山篇</td><td class="rowlab">雜言</td></tr>
+<tr><td>徐賢妃</td><td>秋風函谷應詔</td><td class="rowlab">五言</td></tr>
+<tr><td>徐賢妃</td><td>賦得北方有佳人</td><td class="rowlab">五言</td></tr>
+<tr><td>徐賢妃</td><td>進太宗</td><td class="rowlab">五言</td></tr>
+<tr><td>德宗宮人</td><td>題花葉詩</td><td class="rowlab">五言</td></tr>
+<tr><td>晁采</td><td>子夜歌十八首</td><td class="rowlab">五言</td></tr>
+<tr><td>晁采</td><td>寄文茂</td><td class="rowlab">七言</td></tr>
+<tr><td>晁采</td><td>春日送夫之長安</td><td class="rowlab">七言</td></tr>
+<tr><td>晁采</td><td>秋日再寄</td><td class="rowlab">七言</td></tr>
+<tr><td>晁采</td><td>雨中憶夫</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>偶居</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>八至</td><td class="rowlab">雜言</td></tr>
+<tr><td>李冶</td><td>句</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>寄朱放</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>寄校書七兄</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>得閻伯鈞書</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>從蕭叔子聽彈琴，賦得三峽流泉歌</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>恩命追入，留別廣陵故人</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>感興</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>明月夜留別</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>春閨怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>柳</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>湖上臥病喜陸鴻漸至</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>相思怨</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>結素魚貽友人</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>薔薇花</td><td class="rowlab">七言</td></tr>
+<tr><td>李冶</td><td>送閻二十六赴剡縣</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>送韓揆之江西</td><td class="rowlab">五言</td></tr>
+<tr><td>李冶</td><td>道意寄崔侍郎</td><td class="rowlab">五言</td></tr>
+<tr><td>梁瓊</td><td>銅雀台</td><td class="rowlab">五言</td></tr>
+<tr><td>梁瓊</td><td>句</td><td class="rowlab">七言</td></tr>
+<tr><td>梁瓊</td><td>宿巫山寄遠人</td><td class="rowlab">七言</td></tr>
+<tr><td>梁瓊</td><td>昭君怨</td><td class="rowlab">五言</td></tr>
+<tr><td>梁瓊</td><td>遠意</td><td class="rowlab">五言</td></tr>
+<tr><td>步非煙</td><td>又答趙象獨坐</td><td class="rowlab">七言</td></tr>
+<tr><td>步非煙</td><td>寄懷</td><td class="rowlab">七言</td></tr>
+<tr><td>步非煙</td><td>答趙子</td><td class="rowlab">七言</td></tr>
+<tr><td>步非煙</td><td>答趙象</td><td class="rowlab">七言</td></tr>
+<tr><td>武后宮人</td><td>離別難</td><td class="rowlab">五言</td></tr>
+<tr><td>江妃</td><td>謝賜珍珠</td><td class="rowlab">七言</td></tr>
+<tr><td>程長文</td><td>春閨怨</td><td class="rowlab">七言</td></tr>
+<tr><td>程長文</td><td>獄中書情上使君</td><td class="rowlab">七言</td></tr>
+<tr><td>程長文</td><td>銅雀台怨</td><td class="rowlab">七言</td></tr>
+<tr><td>花蕊夫人</td><td>宮詞</td><td class="rowlab">七言</td></tr>
+<tr><td>花蕊夫人</td><td>述國亡詩</td><td class="rowlab">七言</td></tr>
+<tr><td>葛鴉兒</td><td>懷良人</td><td class="rowlab">七言</td></tr>
+<tr><td>葛鴉兒</td><td>會仙詩</td><td class="rowlab">七言</td></tr>
+<tr><td>薛媛</td><td>寫真寄夫</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>上川主武元衡相國二首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>上王尚書</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>九日遇雨二首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>別李郎中</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>句</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>和劉賓客玉蕣</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>和李書記席上見贈</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>和郭員外題萬里橋</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>宣上人見示與諸公唱和</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>寄張元夫</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>寄舊詩與元微之</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>寄詞</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>憶荔枝</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>採蓮舟</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>摩訶池贈蕭中丞</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>斛石山曉望寄呂侍禦</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>斛石山書事</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>春望詞四首</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>春郊遊眺寄孫處士二首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>月</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>柳絮</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>棠梨花和李太尉</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>段相國游武擔寺，病不能從題寄</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>江亭餞別</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>江月樓</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>江邊</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>池上雙鳥</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>海棠溪</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>燕離巢</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>牡丹</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>犬離主</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>珠離掌</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>秋泉</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>竹離亭</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>筆離手</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>籌邊樓</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>續嘉陵驛詩獻武相國</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>罰赴邊上武相公二首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>罰赴邊有懷上韋令公二首</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>聽僧吹蘆管</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>菱荇沼</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>蟬</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>西岩</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>詠八十一顆</td><td class="rowlab">雜言</td></tr>
+<tr><td>薛濤</td><td>試新服裁制初成三首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>謁巫山廟</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>賊平後上高相公</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>賦淩雲寺二首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>贈楊蘊中</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>贈段校書</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>贈蘇十三中丞</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>贈遠二首</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>贈韋校書</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>送友人</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>送姚員外</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>送扶煉師</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>送盧員外</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>送鄭眉州</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>鄉思</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬人雨後玩竹</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>酬吳隨君</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬文使君</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬李校書</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬杜舍人</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬楊供奉法師見招</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬祝十三秀才</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬辛員外折花見遺</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬郭簡州寄柑子</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>酬雍秀才貽巴峽圖</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>金燈花</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>鏡離台</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>題竹郎廟</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>風</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>馬離廄</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>魚離池</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>鴛鴦草</td><td class="rowlab">五言</td></tr>
+<tr><td>薛濤</td><td>鷹離鞲</td><td class="rowlab">七言</td></tr>
+<tr><td>薛濤</td><td>鸚鵡離籠</td><td class="rowlab">七言</td></tr>
+<tr><td>裴羽仙</td><td>哭夫二首</td><td class="rowlab">七言</td></tr>
+<tr><td>開元宮人</td><td>袍中詩</td><td class="rowlab">五言</td></tr>
+<tr><td>關盼盼</td><td>句</td><td class="rowlab">七言</td></tr>
+<tr><td>關盼盼</td><td>和白公詩</td><td class="rowlab">七言</td></tr>
+<tr><td>關盼盼</td><td>燕子樓三首</td><td class="rowlab">七言</td></tr>
+<tr><td>陳玉蘭</td><td>寄夫</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>代人悼亡</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>光、威、裒姊妹三人少孤而始妍乃有是作…因次其韻</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>冬夜寄溫飛卿</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>句</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>和人</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>和人次韻</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>和友人次韻</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>和新及第悼亡詩二首</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>夏日山居</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>寄劉尚書</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>寄國香</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>寄子安</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>寄題煉師</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>寄飛卿</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>寓言</td><td class="rowlab">雜言</td></tr>
+<tr><td>魚玄機</td><td>左名場自澤州至京，使人傳語</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>情書</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>愁思</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>感懷寄人</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>打球作</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>折楊柳</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>早秋</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>春情寄子安</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>暮春即事</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>暮春有感寄友人</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>期友人阻雨不至</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>次韻西鄰新居兼乞酒</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>江行</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>江陵愁望寄子安</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>浣紗廟</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>秋怨</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>聞李端公垂釣回寄贈</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>訪趙煉師不遇</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>賣殘牡丹</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>賦得江邊柳</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>贈鄰女</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>迎李近仁員外</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>送別</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>送別</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>遊崇真觀南樓，睹新及第題名處</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>過鄂州</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>遣懷</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>酬李學士寄簟</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>酬李郢夏日釣魚回見示</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>重陽阻雨</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>閨怨</td><td class="rowlab">七言</td></tr>
+<tr><td>魚玄機</td><td>隔漢江寄子安</td><td class="rowlab">雜言</td></tr>
+<tr><td>魚玄機</td><td>題任處士創資福寺</td><td class="rowlab">五言</td></tr>
+<tr><td>魚玄機</td><td>題隱霧亭</td><td class="rowlab">七言</td></tr>
+<tr><td>鮑君徽</td><td>奉和麟德殿宴百僚應制</td><td class="rowlab">五言</td></tr>
+<tr><td>鮑君徽</td><td>東亭茶宴</td><td class="rowlab">七言</td></tr>
+<tr><td>鮑君徽</td><td>關山月</td><td class="rowlab">五言</td></tr></tbody></table></div></details>
+<details class="appx"><summary><span>Unmatched list rows <span class="c">· 45 rows</span></span></summary><div class="tablewrap"><table><thead><tr><th>Author</th><th>Sex</th><th style="text-align:left">Title</th><th>Reason</th></tr></thead><tbody><tr><td>司馬札</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">author_missing</td></tr>
+<tr><td>李咸用</td><td class="gm">男</td><td>春宮詞</td><td class="rowlab">title_miss</td></tr>
+<tr><td>長孫輔佐</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">author_missing</td></tr>
+<tr><td>于濆</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">title_miss</td></tr>
+<tr><td>李咸用</td><td class="rowlab">—</td><td>妾薄命</td><td class="rowlab">title_miss</td></tr>
+<tr><td>段成式</td><td class="rowlab">—</td><td>漢宮怨二首</td><td class="rowlab">title_miss</td></tr>
+<tr><td>齊澣</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">author_missing</td></tr>
+<tr><td>魏奉古</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">title_miss</td></tr>
+<tr><td>于鵠</td><td class="rowlab">—</td><td>送宮人入道歸山</td><td class="rowlab">title_miss</td></tr>
+<tr><td>張籍</td><td class="rowlab">—</td><td>節婦吟寄東平李司空師道</td><td class="rowlab">title_miss</td></tr>
+<tr><td>朱慶餘</td><td class="rowlab">—</td><td>閨意獻張水部</td><td class="rowlab">title_miss</td></tr>
+<tr><td>張碣</td><td class="rowlab">—</td><td>東都望幸</td><td class="rowlab">author_missing</td></tr>
+<tr><td>虞世南</td><td class="gm">男</td><td>雜曲歌辭-陸州歌，排遍第三</td><td class="rowlab">title_miss</td></tr>
+<tr><td>虞世南</td><td class="gm">男</td><td>雜曲歌辭-祓禊曲</td><td class="rowlab">title_miss</td></tr>
+<tr><td>齊澣</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">author_missing</td></tr>
+<tr><td>李白</td><td class="gm">男</td><td>邯鄲才人嫁爲廝養卒婦</td><td class="rowlab">title_miss</td></tr>
+<tr><td>粱鍠</td><td class="rowlab">—</td><td>長門怨</td><td class="rowlab">author_missing</td></tr>
+<tr><td>李嘉祐</td><td class="gm">男</td><td>古興</td><td class="rowlab">author_missing</td></tr>
+<tr><td>李益</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">title_miss</td></tr>
+<tr><td>羊士諤</td><td class="gm">男</td><td>和李都郎中經宮人斜</td><td class="rowlab">title_miss</td></tr>
+<tr><td>令狐楚</td><td class="gm">男</td><td>宮人斜</td><td class="rowlab">title_miss</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>河南府試十二月樂詞并閨月·十月</td><td class="rowlab">title_miss</td></tr>
+<tr><td>李賀</td><td class="gm">男</td><td>追和何謝銅雀妓</td><td class="rowlab">title_miss</td></tr>
+<tr><td>張祜</td><td class="gm">男</td><td>思歸隱</td><td class="rowlab">title_miss</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>宮詞其一（蟬翼輕綃傅體紅）</td><td class="rowlab">title_miss</td></tr>
+<tr><td>杜牧</td><td class="gm">男</td><td>宮詞其二（監宮引出暫開門）</td><td class="rowlab">title_miss</td></tr>
+<tr><td>司馬札</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">author_missing</td></tr>
+<tr><td>于濆</td><td class="gm">男</td><td>宮怨</td><td class="rowlab">title_miss</td></tr>
+<tr><td>李咸用</td><td class="gm">男</td><td>妾薄命</td><td class="rowlab">title_miss</td></tr>
+<tr><td>李咸用</td><td class="gm">男</td><td>銅雀臺</td><td class="rowlab">title_miss</td></tr>
+<tr><td>羅鄴</td><td class="gm">男</td><td>螢其一（水殿清風玉戶開）</td><td class="rowlab">title_miss</td></tr>
+<tr><td>高蟾</td><td class="gm">男</td><td>宮詞</td><td class="rowlab">title_miss</td></tr>
+<tr><td>鄭谷</td><td class="gm">男</td><td>長門怨其一（閒把羅衣泣鳳皇）</td><td class="rowlab">title_miss</td></tr>
+<tr><td>鄭谷</td><td class="gm">男</td><td>長門怨其二（流水君恩共不回）</td><td class="rowlab">title_miss</td></tr>
+<tr><td>孫元晏</td><td class="gm">男</td><td>梁·分宮女</td><td class="rowlab">title_miss</td></tr>
+<tr><td>李益、法掁</td><td class="rowlab">—</td><td>賦應門照綠苔</td><td class="rowlab">author_missing</td></tr>
+<tr><td>田蛾</td><td class="rowlab">—</td><td>攜手曲</td><td class="rowlab">author_missing</td></tr>
+<tr><td>田蛾</td><td class="rowlab">—</td><td>長信宮</td><td class="rowlab">author_missing</td></tr>
+<tr><td>故臺城妓</td><td class="rowlab">—</td><td>金陵詞</td><td class="rowlab">author_missing</td></tr>
+<tr><td>魏奉古</td><td class="gm">男</td><td>長門怨</td><td class="rowlab">title_miss</td></tr>
+<tr><td>無名氏</td><td class="rowlab">—</td><td>閨情其四（自處長信宮）</td><td class="rowlab">title_miss</td></tr>
+<tr><td>王貞白</td><td class="gm">男</td><td>昭陽落花</td><td class="rowlab">title_miss</td></tr>
+<tr><td>孫郃</td><td class="rowlab">—</td><td>長信宮</td><td class="rowlab">author_missing</td></tr>
+<tr><td>孫郃</td><td class="gm">男</td><td>宮詞其一（楊柳宮邊日已斜）</td><td class="rowlab">author_missing</td></tr>
+<tr><td>孫郃</td><td class="gm">男</td><td>宮詞其二（雙雙紫燕語呢喃）</td><td class="rowlab">author_missing</td></tr></tbody></table></div></details>
 </section>
 
 <footer>
