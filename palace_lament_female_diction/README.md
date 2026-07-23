@@ -97,6 +97,9 @@ python3 analyze_syntax.py --figures  # 句式・詞性 -> syntax_report.md + fig
 | `analyze_diction.py` | 名單載入、分組（`build_groups`）、log-odds、語彙場、報告 |
 | `analyze_syntax.py` | 句式（詩形/句長/問句/疊字）+ 詞性・虛詞類分析 + fig5–7 |
 | `make_figures.py` | 用語圖表 fig1–4（重用 `build_groups`）|
+| `dump_groups.py` | 輸出分群定義與成員 → `group_definitions.md` + `group_membership.csv` |
+| `group_definitions.md` | 分群定義、集合關係、逐首明細、caveat |
+| `group_membership.csv` | 523 首逐首資料（作者/題目/性別/字數/詩形 + 每組 0/1 旗標）|
 | `data/data_index/` | 宮怨詩名單（含性別）|
 | `data/female_poets.txt` | 補入的知名女詩人 |
 | `report.html` | 自包含離線報告（七圖內嵌，可直接開啟/當附件）|
