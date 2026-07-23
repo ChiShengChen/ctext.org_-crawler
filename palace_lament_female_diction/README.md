@@ -41,8 +41,9 @@
 ```bash
 python3 corpus.py            # 確認語料解析（詩數、作者、標題）
 python3 analyze_diction.py   # 三組對照 + 語彙場 → diction_report.md, unmatched_list.csv
-python3 make_figures.py            # 圖表 -> figures/
+python3 make_figures.py            # 用語圖表 -> figures/
 python3 make_figures.py --lang en  # 英文標題 -> figures_en/
+python3 analyze_syntax.py --figures  # 句式・詞性 -> syntax_report.md + fig5–7
 ```
 
 ## 圖表
@@ -53,6 +54,9 @@ python3 make_figures.py --lang en  # 英文標題 -> figures_en/
 | `fig2_voice_terms.png` | 男性代言 vs 女性閨怨抒情 區辨字詞 |
 | `fig3_lexical_fields.png` | 四組 × 五語彙場 分組長條圖 |
 | `fig4_subgenre_terms.png` | 宮詞記事 vs 閨怨抒情 區辨字詞 |
+| `fig5_poem_form.png` | 詩形分布（五言／七言／雜言，堆疊）|
+| `fig6_function_words.png` | 詞性・虛詞類 × 四組 熱圖 |
+| `fig7_register_markers.png` | 語域標記（人稱／疑問／語氣／時間）|
 
 ## 主要發現（見 `diction_report.md`）
 
@@ -68,13 +72,31 @@ python3 make_figures.py --lang en  # 英文標題 -> figures_en/
 > 結論屬 suggestive;宮詞記事幾乎由花蕊夫人《宮詞》主導。未比對 45 筆(語料未爬到之卷、
 > 作者不在語料)見 `unmatched_list.csv`。
 
+## 句式・詞性用法（見 `syntax_report.md`）
+
+文言無可靠 POS 標註器，故以**結構特徵**（句式）與**古漢語虛詞詞類**（詞性）分析。
+
+- **詩形**:女性詩人明顯偏**七言**（68% vs 代言 53%）;宮詞（花蕊夫人）偏五言。
+- **二人稱「君/爾」**:男性代言最高（每萬字 122 vs 女詩人 67）——代言宮怨是**對「君」的
+  傾訴**（妾↔君），結構上是一封對上位者的陳情。
+- **問句率**:代言（5.9/100 句）與閨怨（5.6）高，宮詞（2.0）低——哀怨體多**詰問語氣**，
+  記事體幾乎不問。
+- **語氣助詞（兮/矣/乎/哉）**:女性書寫較多（閨怨 48、女詩人 38 vs 代言 18、宮詞 2），
+  情感語氣更外顯。
+- **副詞・時間詞・否定**:閨怨最密（副詞 312、時間 288）——女性閨怨的**時間流逝與否定/
+  猶尚**語氣最重。
+
+> ⚠️ 宮詞（G3d）的「句數/首＝83.5」是語料結構假象（花蕊夫人《宮詞》整組併為少數條目），
+> 篇幅一欄不可直接解讀;其餘每字/每句比率不受影響。句式/虛詞小樣本波動大，屬 suggestive。
+
 ## 檔案
 
 | 檔案 | 用途 |
 |------|------|
-| `corpus.py` | 語料載入（含標題）+ 標題正規化比對工具 |
+| `corpus.py` | 語料載入（含標題/句讀）+ 標題正規化比對工具 |
 | `analyze_diction.py` | 名單載入、分組（`build_groups`）、log-odds、語彙場、報告 |
-| `make_figures.py` | 四張圖（重用 `build_groups`）|
+| `analyze_syntax.py` | 句式（詩形/句長/問句/疊字）+ 詞性・虛詞類分析 + fig5–7 |
+| `make_figures.py` | 用語圖表 fig1–4（重用 `build_groups`）|
 | `data/data_index/` | 宮怨詩名單（含性別）|
 | `data/female_poets.txt` | 補入的知名女詩人 |
 

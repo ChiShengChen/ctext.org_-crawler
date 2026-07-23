@@ -133,11 +133,14 @@ def match_rows(rows, by_author):
     return list(seen.values()), tiers, unmatched
 
 
-def build_groups():
-    """Return a dict of all poem groups plus metadata. Reused by make_figures."""
+def build_groups(recs=None):
+    """Return a dict of all poem groups plus metadata. Reused by make_figures
+    and analyze_syntax. Pass recs=corpus.load_records_structured() to carry the
+    per-poem 'clauses' through to the groups."""
     rows = load_palace_rows(PALACE_DIR)
     aug = load_augment(FEMALE_AUG)
-    recs = corpus.load_records()
+    if recs is None:
+        recs = corpus.load_records()
     by_author = build_index(recs)
 
     G1, tiers, unmatched = match_rows(rows, by_author)

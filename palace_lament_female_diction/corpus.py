@@ -113,6 +113,53 @@ def load_records(volumes_dir=DEFAULT_VOLUMES):
     return records
 
 
+# ---- structured variant (keeps 句 boundaries for syntax analysis) --------
+CLAUSE_SPLIT = re.compile(r"[，。！？、；.!?,;]+")
+
+
+def parse_volume_structured(path):
+    """Like parse_volume but also returns 'clauses': the poem split into 句
+    (CJK-only clauses), preserving verse structure for line-length analysis."""
+    vol = os.path.basename(path)
+    with open(path, encoding="utf-8") as f:
+        raw = f.read()
+    for block in ENTRY_SPLIT.split(raw):
+        m = AUTHOR_RE.search(block)
+        if not m:
+            continue
+        author = normalize_author(m.group(1))
+        if not author or author == "佚名":
+            continue
+        tm = TITLE_RE.search(block)
+        title = normalize_title(tm.group(1)) if tm else ""
+        idx = block.find("內容:")
+        if idx == -1:
+            continue
+        clauses = []
+        for line in block[idx + len("內容:"):].splitlines():
+            # drop the repeated 標題： prefix the crawler prepends to verse lines
+            if "：" in line:
+                line = line.rsplit("：", 1)[-1]
+            elif ":" in line:
+                line = line.rsplit(":", 1)[-1]
+            for piece in CLAUSE_SPLIT.split(line):
+                cl = "".join(CJK.findall(piece))
+                if cl:
+                    clauses.append(cl)
+        text = "".join(clauses)
+        if len(text) < 4:
+            continue
+        yield {"author": author, "title": title, "text": text,
+               "clauses": clauses, "volume": vol}
+
+
+def load_records_structured(volumes_dir=DEFAULT_VOLUMES):
+    records = []
+    for path in sorted(glob.glob(os.path.join(volumes_dir, "*.txt"))):
+        records.extend(parse_volume_structured(path))
+    return records
+
+
 if __name__ == "__main__":
     recs = load_records()
     by_author = collections.Counter(r["author"] for r in recs)
