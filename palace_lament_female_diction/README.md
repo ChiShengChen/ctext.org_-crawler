@@ -100,6 +100,8 @@ python3 analyze_syntax.py --figures --lang en  # 英文標籤 -> figures_en/
 | `analyze_syntax.py` | 句式（詩形/句長/問句/疊字）+ 詞性・虛詞類分析 + fig5–7 |
 | `make_figures.py` | 用語圖表 fig1–4（重用 `build_groups`）|
 | `dump_groups.py` | 輸出分群定義與成員 → `group_definitions.md` + `group_membership.csv` |
+| `export_poems.py` | 匯出各詩原文（保留標點）→ `poems/` |
+| `poems/` | 逐首原文（`G1_宮怨詩/` 321、`G2_女詩人/` 214 + `manifest.csv`）|
 | `group_definitions.md` | 分群定義、集合關係、逐首明細、caveat |
 | `group_membership.csv` | 523 首逐首資料（作者/題目/性別/字數/詩形 + 每組 0/1 旗標）|
 | `data/data_index/` | 宮怨詩名單（含性別）|

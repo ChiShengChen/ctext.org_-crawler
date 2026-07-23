@@ -135,13 +135,16 @@ def parse_volume_structured(path):
         idx = block.find("內容:")
         if idx == -1:
             continue
-        clauses = []
+        clauses, raw_lines = [], []
         for line in block[idx + len("內容:"):].splitlines():
             # drop the repeated 標題： prefix the crawler prepends to verse lines
             if "：" in line:
                 line = line.rsplit("：", 1)[-1]
             elif ":" in line:
                 line = line.rsplit(":", 1)[-1]
+            line = line.strip()
+            if line:
+                raw_lines.append(line)          # original text: punctuation kept
             for piece in CLAUSE_SPLIT.split(line):
                 cl = "".join(CJK.findall(piece))
                 if cl:
@@ -150,7 +153,7 @@ def parse_volume_structured(path):
         if len(text) < 4:
             continue
         yield {"author": author, "title": title, "text": text,
-               "clauses": clauses, "volume": vol}
+               "clauses": clauses, "raw": "\n".join(raw_lines), "volume": vol}
 
 
 def load_records_structured(volumes_dir=DEFAULT_VOLUMES):
