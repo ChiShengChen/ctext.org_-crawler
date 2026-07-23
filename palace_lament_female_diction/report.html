@@ -88,6 +88,15 @@ tbody tr:hover{background:var(--card)}
 td.hi{color:var(--vermil);font-weight:700}
 td.hii{color:var(--indigo);font-weight:700}
 .rowlab{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;margin:1.4rem 0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.grid2 .tablewrap{margin:0}
+.grid2 table{font-size:.82rem}
+.grid2 h3{font-family:var(--sans);font-size:.86rem;margin:0 0 .55rem;
+  color:var(--ink);letter-spacing:.02em;font-weight:700}
+.grid2 h3 .c{color:var(--muted);font-weight:400}
+td.fp{color:var(--muted)} .dag{color:var(--vermil);font-weight:700}
+.defs td:nth-child(2){white-space:normal;font-family:var(--sans);font-size:.84rem;color:var(--muted)}
 
 /* callout */
 .note{background:var(--card);border-left:3px solid var(--vermil);border-radius:0 4px 4px 0;
@@ -221,7 +230,66 @@ a{color:var(--indigo)}
 </section>
 
 <section>
-  <div class="h2row"><span class="num">五</span><h2>資料、方法與限制</h2></div>
+  <div class="h2row"><span class="num">五</span><h2>分群與樣本明細</h2></div>
+  <p>六個分群的判定準則與規模如下。<strong>女性自述（G3）完全是女詩人（G2）的子集、
+  與男性代言（G1m）零重疊</strong>；其 19 首依標題再分成<strong>宮詞記事</strong>與
+  <strong>閨怨抒情</strong>兩互斥子類（各 8 / 11 首）。</p>
+  <div class="tablewrap">
+  <table class="defs">
+    <caption>分群定義與規模</caption>
+    <thead><tr><th>組別</th><th>定義</th><th>詩數</th><th>作者</th></tr></thead>
+    <tbody>
+      <tr><td>G1 宮怨詩</td><td>宮怨詩名單（含性別）比對到語料者</td><td class="tabnum">321</td><td class="tabnum">141</td></tr>
+      <tr><td>G1m 代言</td><td>G1 中性別＝男</td><td class="tabnum">256</td><td class="tabnum">117</td></tr>
+      <tr><td>G2 女詩人</td><td>名單女性 ∪ 補入知名女詩人之全部詩</td><td class="tabnum">214</td><td class="tabnum">29</td></tr>
+      <tr><td>G3 女性自述</td><td>（G1 女性）∪（G2 中宮/閨題材）</td><td class="tabnum">19</td><td class="tabnum">14</td></tr>
+      <tr><td>├ G3d 宮詞記事</td><td>標題判為記事（宮詞/宮中/題…）</td><td class="tabnum">8</td><td class="tabnum">7</td></tr>
+      <tr><td>└ G3l 閨怨抒情</td><td>標題判為抒情（閨怨/長門/團扇…）</td><td class="tabnum">11</td><td class="tabnum">8</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>集合關係：G3d ∩ G3l ＝ 0；G3 ⊆ G2（19/19）；G3d、G3l 與代言交集皆 0；19 首中
+  10 首來自宮怨名單、9 首為標題關鍵字擴充。以下為女性自述 19 首全列。</p>
+  <div class="grid2">
+    <div class="tablewrap"><table>
+      <caption>G3d 宮詞記事（8）</caption>
+      <thead><tr><th>作者</th><th>題目</th><th>字數</th></tr></thead>
+      <tbody><tr class="hi"><td>花蕊夫人</td><td>宮詞</td><td class="hi tabnum">4396</td></tr>
+<tr class="fp"><td>鮑君徽</td><td>奉和麟德殿宴百僚應制<span class="dag">†</span></td><td class="tabnum">60</td></tr>
+<tr class="fp"><td>魚玄機</td><td>題任處士創資福寺<span class="dag">†</span></td><td class="tabnum">40</td></tr>
+<tr class="fp"><td>薛濤</td><td>題竹郎廟<span class="dag">†</span></td><td class="tabnum">28</td></tr>
+<tr class="fp"><td>魚玄機</td><td>題隱霧亭<span class="dag">†</span></td><td class="tabnum">28</td></tr>
+<tr><td>天寶宮人</td><td>題洛苑梧葉上</td><td class="tabnum">20</td></tr>
+<tr><td>宣宗宮人</td><td>題紅葉</td><td class="tabnum">20</td></tr>
+<tr><td>德宗宮人</td><td>題花葉詩</td><td class="tabnum">20</td></tr></tbody>
+    </table></div>
+    <div class="tablewrap"><table>
+      <caption>G3l 閨怨抒情（11）</caption>
+      <thead><tr><th>作者</th><th>題目</th><th>字數</th></tr></thead>
+      <tbody><tr><td>劉媛</td><td>長門怨</td><td class="tabnum">56</td></tr>
+<tr><td>魚玄機</td><td>閨怨</td><td class="tabnum">56</td></tr>
+<tr><td>徐賢妃</td><td>長門怨</td><td class="tabnum">40</td></tr>
+<tr><td>徐賢妃</td><td>長門怨</td><td class="tabnum">40</td></tr>
+<tr><td>梁瓊</td><td>銅雀台</td><td class="tabnum">40</td></tr>
+<tr><td>武后宮人</td><td>離別難</td><td class="tabnum">40</td></tr>
+<tr><td>李冶</td><td>相思怨</td><td class="tabnum">40</td></tr>
+<tr><td>江妃</td><td>謝賜珍珠</td><td class="tabnum">28</td></tr>
+<tr><td>程長文</td><td>春閨怨</td><td class="tabnum">28</td></tr>
+<tr><td>魚玄機</td><td>秋怨</td><td class="tabnum">28</td></tr>
+<tr><td>李冶</td><td>春閨怨</td><td class="tabnum">20</td></tr></tbody>
+    </table></div>
+  </div>
+  <div class="note">
+    <span class="lbl">關鍵資料問題</span>
+    「宮詞記事」不可當獨立子類解讀：<strong>以字數計 95% 為花蕊夫人《宮詞》一人</strong>
+    （4,396 / 4,612 字，整組百首連寫為一筆），故本組的用語≈花蕊夫人。另 <span class="dag">†</span>
+    標記之 3 首（薛濤〈題竹郎廟〉、魚玄機〈題隱霧亭／題任處士創資福寺〉）為<strong>題寺題景</strong>
+    之作，被「題」開頭誤納，並非宮廷記事。真正宮詞記事僅花蕊夫人《宮詞》＋ 3 首宮人題葉詩。
+  </div>
+</section>
+
+<section>
+  <div class="h2row"><span class="num">六</span><h2>資料、方法與限制</h2></div>
   <p><strong>語料</strong>取自《全唐詩》900 卷（41,882 首）。<strong>宮怨詩名單</strong>（含作者性別）
   經標題正規化（樂府前綴、首句後綴、異體字）比對，命中率約 89%（未中 45 筆多為語料未爬到之卷或
   作者不在語料）。<strong>女性詩人</strong>＝名單女性作者 ∪ 補入之唐代知名女詩人（薛濤、魚玄機、
