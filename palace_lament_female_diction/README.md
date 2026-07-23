@@ -99,5 +99,6 @@ python3 analyze_syntax.py --figures  # 句式・詞性 -> syntax_report.md + fig
 | `make_figures.py` | 用語圖表 fig1–4（重用 `build_groups`）|
 | `data/data_index/` | 宮怨詩名單（含性別）|
 | `data/female_poets.txt` | 補入的知名女詩人 |
+| `report.html` | 自包含離線報告（七圖內嵌，可直接開啟/當附件）|
 
 > 語料取自 `../quantangshi_crawler/quantangshi_volumes/*.txt`（全唐詩 900 卷，約 41,882 首）。
