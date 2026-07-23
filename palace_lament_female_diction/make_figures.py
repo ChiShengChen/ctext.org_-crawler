@@ -39,16 +39,53 @@ def save(fig, name):
     print(f"  saved {os.path.relpath(p, HERE)}")
 
 
+# Direct English glosses for the distinctive terms (EN figures show *gloss*（漢字）).
+GLOSS = {
+    "長門": "Changmen", "長信": "Changxin", "信宮": "Changxin", "昭陽": "Zhaoyang",
+    "金屋": "golden house", "金殿": "golden hall", "金階": "golden steps",
+    "掖庭": "palace quarters", "深宮": "deep palace", "宮": "palace", "宮中": "in palace",
+    "宮女": "palace maid", "宮人": "palace maid", "六宮": "six palaces", "門宮": "palace gate",
+    "殿": "hall", "殿前": "fore-hall", "殿裏": "in the hall", "內": "inner",
+    "內人": "palace maid", "內園": "inner garden", "內家": "palace household",
+    "苑中": "in the park", "苑": "park", "龍池": "Dragon Pond", "傍池": "pondside",
+    "池頭": "pondside", "池": "pond", "畫船": "painted boat", "禦": "imperial",
+    "宣": "proclaim", "打球": "polo", "球": "ball", "按": "strum", "院": "courtyard",
+    "院裏": "in the yard", "打": "strike", "進": "enter", "官家": "emperor",
+    "君恩": "royal favour", "君王": "sovereign", "恩": "favour", "承恩": "receive favour",
+    "寵": "favour", "團扇": "round fan", "飛燕": "Feiyan", "棄妾": "cast-off wife",
+    "嬌愛": "doted love", "妒": "jealousy", "妾": "concubine", "舞": "dance",
+    "郎": "beloved", "儂": "I", "我": "I", "相思": "lovesickness", "思": "longing",
+    "心": "heart", "紅箋": "red paper", "詩": "poem", "首詩": "a poem", "書": "letter",
+    "吟": "chant", "同心": "one heart", "山": "mountain", "江": "river", "雨": "rain",
+    "雪": "snow", "雲": "cloud", "石": "stone", "酒": "wine", "金": "gold",
+    "客": "traveller", "遠": "far", "離": "parting", "歸": "return", "去": "depart",
+    "行": "travel", "過": "pass", "道": "road", "南": "south", "有": "have", "無": "none",
+    "此": "this", "生": "life", "如": "like", "何": "why", "不": "not", "兮": "particle",
+    "秋": "autumn", "竹": "bamboo", "逢": "meet", "氣": "air", "林": "grove", "空": "empty",
+    "含": "hold", "事": "affair", "今": "now", "在": "at",
+}
+
+
+def gloss_label(w):
+    """*gloss* italic via mathtext, then （漢字） upright — e.g. $palace$（宮）."""
+    g = GLOSS.get(w)
+    if not g:
+        return w
+    return "$\\mathit{" + g.replace(" ", "\\ ") + "}$（" + w + "）"
+
+
 def diverging_terms(a_side, b_side, name_a, name_b, title, fname, top):
     """a_side: (term, z) with z>0 distinctive of A; b_side: z<0 distinctive of B."""
     items = list(b_side[:top])[::-1] + list(a_side[:top])[::-1]
     terms = [w for w, _ in items]
     zs = [z for _, z in items]
     colors = [C_PALACE if z > 0 else C_FEMALE for z in zs]
-    fig, ax = plt.subplots(figsize=(7.2, max(4, 0.34 * len(items) + 1)))
+    en = LANG == "en"
+    labels = [gloss_label(w) for w in terms] if en else terms
+    fig, ax = plt.subplots(figsize=(9.0 if en else 7.2, max(4, 0.34 * len(items) + 1)))
     ax.barh(range(len(items)), zs, color=colors, edgecolor="none")
     ax.set_yticks(range(len(items)))
-    ax.set_yticklabels(terms, fontsize=11)
+    ax.set_yticklabels(labels, fontsize=10 if en else 11)
     ax.axvline(0, color="#444", lw=.8)
     ax.set_xlabel(T("加權 log-odds z（← 偏 {} ｜ 偏 {} →）".format(name_b, name_a),
                     "weighted log-odds z  (← {}  |  {} →)".format(name_b, name_a)))
