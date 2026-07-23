@@ -101,7 +101,8 @@ def main():
     L.append("")
     L.append("**子類關鍵字（標題比對）**")
     L.append(f"- 閨怨抒情（lyric）：{'、'.join(A.LYRIC_KW)}")
-    L.append(f"- 宮詞記事（doc）：{'、'.join(A.DOC_KW)}、或「題」開頭")
+    L.append(f"- 宮詞記事（doc）：{'、'.join(A.DOC_KW)}、或含 {'/'.join(A.DOC_LEAF)} "
+             f"之「題…」題壁（排除題寺／題景／應制）")
     L.append("- 判定順序：先 lyric 後 doc；G1 女性列若兩者皆非，預設 lyric（名單本為宮怨）。\n")
 
     L.append("## 二、集合關係\n")
@@ -117,11 +118,11 @@ def main():
     L.append(f"| G3l ∩ G1（宮怨名單）| {len(sets['G3l'] & sets['G1'])} |")
     L.append("")
 
-    L.append("## 三、女性自述明細（G3 = 19）\n")
-    L.append("### G3d 宮詞記事（8）")
+    L.append(f"## 三、女性自述明細（G3 = {len(g['G3'])}）\n")
+    L.append(f"### G3d 宮詞記事（{len(g['G3d'])}）")
     L += tbl(g["G3d"])
     L.append("")
-    L.append("### G3l 閨怨抒情（11）")
+    L.append(f"### G3l 閨怨抒情（{len(g['G3l'])}）")
     L += tbl(g["G3l"])
     L.append("")
 

@@ -49,15 +49,21 @@ LEXICAL_FIELDS = collections.OrderedDict([
 LYRIC_KW = ["閨怨", "閨情", "春怨", "秋怨", "宮怨", "長門", "長信", "昭陽",
             "團扇", "秋扇", "婕妤", "倢伃", "妾", "相思", "望夫", "搗衣",
             "怨歌", "恨", "別離", "離思"]
-DOC_KW = ["宮詞", "宮中", "應制", "侍宴", "從駕", "奉和", "奉答"]
+DOC_KW = ["宮詞", "宮中"]                  # palace-documentary title markers
+DOC_LEAF = ("葉", "苑", "宮", "掖", "內")   # 題X: keep 紅葉題詩-type palace inscriptions only
 
 
 def female_subgenre(title):
-    """'lyric' (閨怨抒情) / 'doc' (宮詞記事) / None from a title."""
+    """'lyric' (閨怨抒情) / 'doc' (宮詞記事) / None from a title.
+    'doc' is deliberately narrow: 宮詞/宮中, or a 題… inscription that carries a
+    palace marker (紅葉題詩 legends). Plain 題寺/題景 and 應制 banquet poems are
+    NOT documentary and fall through to None (they leave G3)."""
     t = title or ""
     if any(k in t for k in LYRIC_KW):
         return "lyric"
-    if "宮詞" in t or "宮中" in t or t.startswith("題") or any(k in t for k in DOC_KW):
+    if any(k in t for k in DOC_KW):
+        return "doc"
+    if t.startswith("題") and any(k in t for k in DOC_LEAF):
         return "doc"
     return None
 
