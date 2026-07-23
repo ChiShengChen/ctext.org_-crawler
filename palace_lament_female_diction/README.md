@@ -108,5 +108,7 @@ python3 analyze_syntax.py --figures --lang en  # 英文標籤 -> figures_en/
 | `data/female_poets.txt` | 補入的知名女詩人 |
 | `report.html` | 自包含離線報告・中文（七圖內嵌，可直接開啟/當附件）|
 | `report_en.html` | 自包含離線報告・英文版 |
+| `compare_vent_female.py` | 只比較 代言(G1m) vs 女詩人(G2) + 重畫四圖（`figures_cmp/`）|
+| `report_compare.html` / `_en.html` | 代言 vs 女詩人 聚焦對照報告（中／英）|
 
 > 語料取自 `../quantangshi_crawler/quantangshi_volumes/*.txt`（全唐詩 900 卷，約 41,882 首）。
