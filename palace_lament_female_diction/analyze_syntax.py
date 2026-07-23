@@ -94,59 +94,70 @@ def pos_profile(records):
             for name, chars in POS_CLASSES.items()}
 
 
-def make_figures(groups, syn, pos):
+EN_GROUP = {"G1m 代言": "G1m vent.", "G3l 閨怨": "G3l lyric",
+            "G3d 宮詞": "G3d doc.", "G2 女詩人": "G2 female"}
+
+
+def make_figures(groups, syn, pos, lang="zh"):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import numpy as np
+    en = lang == "en"
     plt.rcParams["font.sans-serif"] = ["WenQuanYi Zen Hei", "Noto Sans CJK JP",
                                        "Noto Sans CJK SC", "AR PL UMing CN"]
     plt.rcParams["axes.unicode_minus"] = False
-    os.makedirs(FIGDIR, exist_ok=True)
+    figdir = os.path.join(HERE, "figures_en" if en else "figures")
+    os.makedirs(figdir, exist_ok=True)
     names = list(groups)
+    disp = [EN_GROUP.get(n, n) for n in names] if en else names
+    T = lambda zh, e: e if en else zh
 
     def save(fig, name):
-        fig.tight_layout(); fig.savefig(os.path.join(FIGDIR, name), dpi=130)
-        plt.close(fig); print(f"  saved figures/{name}")
+        fig.tight_layout(); fig.savefig(os.path.join(figdir, name), dpi=130)
+        plt.close(fig); print(f"  saved {os.path.basename(figdir)}/{name}")
 
-    # fig5 詩形分布 (stacked)
+    # fig5 poem form (stacked)
     fig, ax = plt.subplots(figsize=(7, 4.2))
     p5 = [syn[n]["pct_5"] for n in names]
     p7 = [syn[n]["pct_7"] for n in names]
     pm = [syn[n]["pct_misc"] for n in names]
-    ax.bar(names, p5, label="五言", color="#3b6ea5")
-    ax.bar(names, p7, bottom=p5, label="七言", color="#c8553d")
-    ax.bar(names, pm, bottom=[a + b for a, b in zip(p5, p7)], label="雜言", color="#999")
-    ax.set_ylabel("% of poems"); ax.set_title("詩形分布(五言 / 七言 / 雜言)")
+    ax.bar(disp, p5, label=T("五言", "5-syllable"), color="#3b6ea5")
+    ax.bar(disp, p7, bottom=p5, label=T("七言", "7-syllable"), color="#c8553d")
+    ax.bar(disp, pm, bottom=[a + b for a, b in zip(p5, p7)], label=T("雜言", "mixed"), color="#999")
+    ax.set_ylabel("% of poems")
+    ax.set_title(T("詩形分布(五言 / 七言 / 雜言)", "Poem form (5- / 7-syllable lines)"))
     ax.legend(frameon=False, ncol=3, loc="lower center", bbox_to_anchor=(.5, 1.02))
     save(fig, "fig5_poem_form.png")
 
-    # fig6 虛詞類 heatmap (row-normalized colour, raw annotations)
+    # fig6 function-word heatmap (row-normalized colour, raw annotations)
     cats = list(POS_CLASSES)
+    ylab = [c.split("(")[1].rstrip(")") if en else c.split(" (")[0] for c in cats]
     M = np.array([[pos[n][c] for n in names] for c in cats])
     Mn = (M - M.min(1, keepdims=True)) / (M.ptp(1, keepdims=True) + 1e-9)
-    fig, ax = plt.subplots(figsize=(7.4, 6))
+    fig, ax = plt.subplots(figsize=(7.6, 6))
     ax.imshow(Mn, cmap="YlOrRd", aspect="auto")
-    ax.set_xticks(range(len(names))); ax.set_xticklabels(names, fontsize=10)
-    ax.set_yticks(range(len(cats)))
-    ax.set_yticklabels([c.split(" (")[0] for c in cats], fontsize=10)
+    ax.set_xticks(range(len(names))); ax.set_xticklabels(disp, fontsize=10)
+    ax.set_yticks(range(len(cats))); ax.set_yticklabels(ylab, fontsize=10)
     for i in range(len(cats)):
         for j in range(len(names)):
             ax.text(j, i, f"{M[i, j]:.0f}", ha="center", va="center", fontsize=9,
                     color="#222" if Mn[i, j] < .6 else "white")
-    ax.set_title("詞性・虛詞類(每萬字;色階為列內相對高低)")
+    ax.set_title(T("詞性・虛詞類(每萬字;色階為列內相對高低)",
+                   "Function-word classes (per 10k chars; colour = within-row rank)"))
     save(fig, "fig6_function_words.png")
 
-    # fig7 語域標記 grouped bar (per-10k function-word markers)
+    # fig7 register markers grouped bar
     markers = ["二人稱 (2nd-pers)", "一人稱 (1st-pers)", "疑問 (interrog)",
                "語氣助詞 (particle)", "時間 (temporal)"]
+    mlab = [m.split("(")[1].rstrip(")") if en else m.split(" (")[0] for m in markers]
     x = np.arange(len(markers)); w = 0.8 / len(names)
     fig, ax = plt.subplots(figsize=(8.6, 4.6))
     for i, n in enumerate(names):
-        ax.bar(x + i * w, [pos[n][m] for m in markers], w, label=n, color=C_GROUPS[i])
-    ax.set_xticks(x + w * (len(names) - 1) / 2)
-    ax.set_xticklabels([m.split(" (")[0] for m in markers], fontsize=10)
-    ax.set_ylabel("每萬字次數"); ax.set_title("語域標記:人稱・疑問・語氣・時間")
+        ax.bar(x + i * w, [pos[n][m] for m in markers], w, label=disp[i], color=C_GROUPS[i])
+    ax.set_xticks(x + w * (len(names) - 1) / 2); ax.set_xticklabels(mlab, fontsize=10)
+    ax.set_ylabel(T("每萬字次數", "per 10k chars"))
+    ax.set_title(T("語域標記:人稱・疑問・語氣・時間", "Register markers"))
     ax.legend(frameon=False, fontsize=9)
     save(fig, "fig7_register_markers.png")
 
@@ -154,6 +165,8 @@ def make_figures(groups, syn, pos):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--figures", action="store_true", help="also write fig5–7")
+    ap.add_argument("--lang", choices=["zh", "en"], default="zh",
+                    help="figure label language (zh -> figures/, en -> figures_en/)")
     args = ap.parse_args()
     recs = corpus.load_records_structured()
     g = A.build_groups(recs=recs)
@@ -185,7 +198,7 @@ def main():
               "".join(f"{pos[k][cls]:>6.1f}".ljust(11) for k in groups))
 
     if args.figures:
-        make_figures(groups, syn, pos)
+        make_figures(groups, syn, pos, lang=args.lang)
     _write_report(groups, syn, pos, metrics)
 
 

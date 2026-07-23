@@ -43,7 +43,8 @@ python3 corpus.py            # 確認語料解析（詩數、作者、標題）
 python3 analyze_diction.py   # 三組對照 + 語彙場 → diction_report.md, unmatched_list.csv
 python3 make_figures.py            # 用語圖表 -> figures/
 python3 make_figures.py --lang en  # 英文標題 -> figures_en/
-python3 analyze_syntax.py --figures  # 句式・詞性 -> syntax_report.md + fig5–7
+python3 analyze_syntax.py --figures            # 句式・詞性 -> syntax_report.md + fig5–7
+python3 analyze_syntax.py --figures --lang en  # 英文標籤 -> figures_en/
 ```
 
 ## 圖表
@@ -103,6 +104,7 @@ python3 analyze_syntax.py --figures  # 句式・詞性 -> syntax_report.md + fig
 | `group_membership.csv` | 523 首逐首資料（作者/題目/性別/字數/詩形 + 每組 0/1 旗標）|
 | `data/data_index/` | 宮怨詩名單（含性別）|
 | `data/female_poets.txt` | 補入的知名女詩人 |
-| `report.html` | 自包含離線報告（七圖內嵌，可直接開啟/當附件）|
+| `report.html` | 自包含離線報告・中文（七圖內嵌，可直接開啟/當附件）|
+| `report_en.html` | 自包含離線報告・英文版 |
 
 > 語料取自 `../quantangshi_crawler/quantangshi_volumes/*.txt`（全唐詩 900 卷，約 41,882 首）。
