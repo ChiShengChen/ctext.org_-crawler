@@ -38,7 +38,7 @@ PALACE_DIR = os.path.join(DATA, "data_index")
 FEMALE_AUG = os.path.join(DATA, "female_poets.txt")
 
 LEXICAL_FIELDS = collections.OrderedDict([
-    ("怨情 (grief)",        list("怨愁恨悲淚泣啼寂寞孤斷腸憂哀")),
+    ("怨情 (lament)",       list("怨愁恨悲淚泣啼寂寞孤斷腸憂哀")),
     ("時序 (time/season)",  list("秋春夜月風霜寒曉暮昏更漏年")),
     ("宮殿空間 (palace space)", list("宮殿樓臺闕簾幕階砌苔井戶窗庭牆")),
     ("服飾器物 (adornment)",    list("羅綺紈扇鏡妝黛粉釵鈿衣裳金玉")),

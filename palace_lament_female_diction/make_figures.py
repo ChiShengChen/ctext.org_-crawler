@@ -63,6 +63,8 @@ GLOSS = {
     "此": "this", "生": "life", "如": "like", "何": "why", "不": "not", "兮": "particle",
     "秋": "autumn", "竹": "bamboo", "逢": "meet", "氣": "air", "林": "grove", "空": "empty",
     "含": "hold", "事": "affair", "今": "now", "在": "at",
+    "晶簾": "crystal curtain", "銅雀": "Bronze Bird", "女伴": "female companion",
+    "紅泥": "red clay", "船": "boat", "玉枕": "jade pillow", "岸": "bank",
 }
 
 

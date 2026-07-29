@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="'Helvetica Neue', Arial, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- transparent background -->
+
+  <!-- title -->
+  <text x="70" y="70" font-size="36" font-weight="700" fill="#0f172a">Distinctive-Term Method: Weighted Log-Odds</text>
+  <text x="70" y="103" font-size="19" fill="#64748b">man (G1m) vs. female poets (G2) — z-scored against the full Quan Tangshi background</text>
+  <line x1="70" y1="122" x2="1210" y2="122" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- ===================== STEP 1: CORPORA ===================== -->
+  <g>
+    <rect x="70" y="148" width="330" height="180" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect x="70" y="148" width="330" height="60" rx="14" fill="#2563eb"/>
+    <rect x="70" y="188" width="330" height="20" fill="#2563eb"/>
+    <text x="92" y="176" font-size="13" font-weight="600" fill="#bfdbfe" letter-spacing="2">STEP 1</text>
+    <text x="92" y="200" font-size="20" font-weight="700" fill="#ffffff">Two Corpora</text>
+
+    <g font-size="15" fill="#1e293b">
+      <circle cx="98" cy="235" r="3" fill="#2563eb"/>
+      <text x="112" y="240"><tspan font-weight="600">man</tspan> = G1m · palace lament · n = 256</text>
+      <circle cx="98" cy="263" r="3" fill="#2563eb"/>
+      <text x="112" y="268"><tspan font-weight="600">female poets</tspan> = G2 · all works · n = 214</text>
+      <circle cx="98" cy="291" r="3" fill="#2563eb"/>
+      <text x="112" y="296">disjoint groups — no shared poems</text>
+      <circle cx="98" cy="315" r="3" fill="#2563eb"/>
+      <text x="112" y="320">token counts <tspan font-style="italic">c</tspan><tspan font-size="11">1</tspan><tspan font-style="italic">(w), c</tspan><tspan font-size="11">2</tspan><tspan font-style="italic">(w)</tspan> · totals <tspan font-style="italic">n</tspan><tspan font-size="11">1</tspan><tspan font-style="italic">, n</tspan><tspan font-size="11">2</tspan></text>
+    </g>
+  </g>
+
+  <!-- ===================== STEP 2: TOKENS ===================== -->
+  <g>
+    <rect x="475" y="148" width="330" height="180" rx="14" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+    <rect x="475" y="148" width="330" height="60" rx="14" fill="#0d9488"/>
+    <rect x="475" y="188" width="330" height="20" fill="#0d9488"/>
+    <text x="497" y="176" font-size="13" font-weight="600" fill="#99f6e4" letter-spacing="2">STEP 2</text>
+    <text x="497" y="200" font-size="20" font-weight="700" fill="#ffffff">Tokenise</text>
+
+    <g font-size="15" fill="#1e293b">
+      <circle cx="503" cy="235" r="3" fill="#0d9488"/>
+      <text x="517" y="240">1–2 gram character tokens</text>
+      <circle cx="503" cy="263" r="3" fill="#0d9488"/>
+      <text x="517" y="268">no word segmentation required</text>
+      <circle cx="503" cy="291" r="3" fill="#0d9488"/>
+      <text x="517" y="296">長門宮 → 長 · 門 · 宮 · 長門 · 門宮</text>
+      <circle cx="503" cy="315" r="3" fill="#0d9488"/>
+      <text x="517" y="320">min. count: <tspan font-style="italic">c</tspan><tspan font-size="11">1</tspan><tspan font-style="italic">(w) + c</tspan><tspan font-size="11">2</tspan><tspan font-style="italic">(w)</tspan> ≥ 5</text>
+    </g>
+  </g>
+
+  <!-- ===================== STEP 3: PRIOR ===================== -->
+  <g>
+    <rect x="880" y="148" width="330" height="180" rx="14" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <rect x="880" y="148" width="330" height="60" rx="14" fill="#7c3aed"/>
+    <rect x="880" y="188" width="330" height="20" fill="#7c3aed"/>
+    <text x="902" y="176" font-size="13" font-weight="600" fill="#ddd6fe" letter-spacing="2">STEP 3</text>
+    <text x="902" y="200" font-size="20" font-weight="700" fill="#ffffff">Informative Prior</text>
+
+    <g font-size="15" fill="#1e293b">
+      <circle cx="908" cy="235" r="3" fill="#7c3aed"/>
+      <text x="922" y="240">α<tspan font-size="11">w</tspan> = frequency of <tspan font-style="italic">w</tspan> in Quan Tangshi</text>
+      <circle cx="908" cy="263" r="3" fill="#7c3aed"/>
+      <text x="922" y="268">background ≈ 41,882 poems · α<tspan font-size="11">0</tspan> = Σ α<tspan font-size="11">w</tspan></text>
+      <circle cx="908" cy="291" r="3" fill="#7c3aed"/>
+      <text x="922" y="296">shrinks rare tokens toward corpus norm</text>
+      <circle cx="908" cy="315" r="3" fill="#7c3aed"/>
+      <text x="922" y="320">discounts generic Tang poetic diction</text>
+    </g>
+  </g>
+
+  <!-- connectors into formula panel -->
+  <line x1="235" y1="328" x2="235" y2="346" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="640" y1="328" x2="640" y2="346" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="1045" y1="328" x2="1045" y2="346" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- ===================== STEP 4: FORMULAS ===================== -->
+  <g>
+    <rect x="70" y="348" width="1140" height="212" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="95" y="378" font-size="13.5" font-weight="600" fill="#64748b" letter-spacing="2">STEP 4 · WEIGHTED LOG-ODDS, INFORMATIVE DIRICHLET PRIOR</text>
+    <text x="1185" y="378" font-size="13.5" fill="#64748b" text-anchor="end">Monroe, Colaresi &amp; Quinn (2008)</text>
+
+    <!-- formula 1: prior-smoothed log-odds -->
+    <g fill="#0f172a">
+      <text x="140" y="460" font-size="20"><tspan font-style="italic">l</tspan><tspan font-size="13">g</tspan><tspan font-style="italic">(w)</tspan>  =  log</text>
+      <text x="348" y="445" font-size="18"><tspan font-style="italic">c</tspan><tspan font-size="12">g</tspan><tspan font-style="italic">(w)</tspan> + α<tspan font-size="12">w</tspan></text>
+      <line x1="292" y1="453" x2="508" y2="453" stroke="#0f172a" stroke-width="1.3"/>
+      <text x="308" y="480" font-size="18"><tspan font-style="italic">n</tspan><tspan font-size="12">g</tspan> + α<tspan font-size="12">0</tspan> - <tspan font-style="italic">c</tspan><tspan font-size="12">g</tspan><tspan font-style="italic">(w)</tspan> - α<tspan font-size="12">w</tspan></text>
+      <text x="400" y="524" text-anchor="middle" font-size="12.5" fill="#64748b">prior-smoothed log-odds of token w in corpus g   (g = 1, 2)</text>
+    </g>
+
+    <!-- divider -->
+    <line x1="590" y1="405" x2="590" y2="535" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- formula 2: z-score -->
+    <g fill="#0f172a">
+      <text x="640" y="460" font-size="20"><tspan font-style="italic">z</tspan><tspan font-size="13">w</tspan>  =</text>
+      <text x="862" y="445" font-size="18"><tspan font-style="italic">l</tspan><tspan font-size="12">1</tspan><tspan font-style="italic">(w)</tspan> - <tspan font-style="italic">l</tspan><tspan font-size="12">2</tspan><tspan font-style="italic">(w)</tspan></text>
+      <line x1="730" y1="453" x2="1120" y2="453" stroke="#0f172a" stroke-width="1.3"/>
+      <text x="762" y="481" font-size="16.5">√( 1 / (<tspan font-style="italic">c</tspan><tspan font-size="11">1</tspan><tspan font-style="italic">(w)</tspan> + α<tspan font-size="11">w</tspan>)  +  1 / (<tspan font-style="italic">c</tspan><tspan font-size="11">2</tspan><tspan font-style="italic">(w)</tspan> + α<tspan font-size="11">w</tspan>) )</text>
+      <text x="925" y="524" text-anchor="middle" font-size="12.5" fill="#64748b">log-odds difference standardised by its approximate variance → z-score</text>
+    </g>
+  </g>
+
+  <!-- connector to read-out -->
+  <line x1="640" y1="560" x2="640" y2="582" stroke="#475569" stroke-width="2.5" marker-end="url(#arrowDark)"/>
+
+  <!-- ===================== READ-OUT ===================== -->
+  <rect x="70" y="588" width="1140" height="100" rx="14" fill="#1e293b"/>
+  <text x="100" y="620" font-size="18" font-weight="700" fill="#ffffff">→ Rank tokens by <tspan font-style="italic">z</tspan> · keep top 20 per side · plot as diverging bars</text>
+  <text x="100" y="647" font-size="15" fill="#cbd5e1"><tspan font-style="italic">z</tspan> &gt; 0 (blue, right): distinctive of man (G1m)  ·  <tspan font-style="italic">z</tspan> &lt; 0 (red, left): distinctive of female poets (G2)</text>
+  <text x="100" y="671" font-size="15" fill="#cbd5e1">|<tspan font-style="italic">z</tspan>| ≈ standard-deviation units, |<tspan font-style="italic">z</tspan>| ≥ 2 is a strong signal · the prior damps low-frequency noise and generic diction</text>
+</svg>

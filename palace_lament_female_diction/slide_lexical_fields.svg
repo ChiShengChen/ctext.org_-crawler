@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="'Helvetica Neue', Arial, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">
+
+  <!-- transparent background -->
+
+  <text x="70" y="70" font-size="36" font-weight="700" fill="#0f172a">Five Lexical Fields 語彙場</text>
+  <text x="70" y="103" font-size="19" fill="#64748b">Hand-curated closed character sets, counted per 10,000 characters in each subcorpus</text>
+  <line x1="70" y1="122" x2="1210" y2="122" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- lament 怨情 -->
+  <g>
+    <rect x="70" y="148" width="1140" height="88" rx="14" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5"/>
+    <rect x="70" y="148" width="8" height="88" rx="4" fill="#be123c"/>
+    <text x="100" y="186" font-size="21" font-weight="700" fill="#be123c">lament</text>
+    <text x="100" y="212" font-size="14.5" fill="#64748b">怨情 · 14 chars</text>
+    <rect x="330" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="353" y="201" font-size="25" text-anchor="middle" fill="#be123c">怨</text>
+    <rect x="384" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="407" y="201" font-size="25" text-anchor="middle" fill="#be123c">愁</text>
+    <rect x="438" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="461" y="201" font-size="25" text-anchor="middle" fill="#be123c">恨</text>
+    <rect x="492" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="515" y="201" font-size="25" text-anchor="middle" fill="#be123c">悲</text>
+    <rect x="546" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="569" y="201" font-size="25" text-anchor="middle" fill="#be123c">淚</text>
+    <rect x="600" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="623" y="201" font-size="25" text-anchor="middle" fill="#be123c">泣</text>
+    <rect x="654" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="677" y="201" font-size="25" text-anchor="middle" fill="#be123c">啼</text>
+    <rect x="708" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="731" y="201" font-size="25" text-anchor="middle" fill="#be123c">寂</text>
+    <rect x="762" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="785" y="201" font-size="25" text-anchor="middle" fill="#be123c">寞</text>
+    <rect x="816" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="839" y="201" font-size="25" text-anchor="middle" fill="#be123c">孤</text>
+    <rect x="870" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="893" y="201" font-size="25" text-anchor="middle" fill="#be123c">斷</text>
+    <rect x="924" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="947" y="201" font-size="25" text-anchor="middle" fill="#be123c">腸</text>
+    <rect x="978" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="1001" y="201" font-size="25" text-anchor="middle" fill="#be123c">憂</text>
+    <rect x="1032" y="169" width="46" height="46" rx="9" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+    <text x="1055" y="201" font-size="25" text-anchor="middle" fill="#be123c">哀</text>
+  </g>
+
+  <!-- time/season 時序 -->
+  <g>
+    <rect x="70" y="247" width="1140" height="88" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect x="70" y="247" width="8" height="88" rx="4" fill="#2563eb"/>
+    <text x="100" y="285" font-size="21" font-weight="700" fill="#2563eb">time/season</text>
+    <text x="100" y="311" font-size="14.5" fill="#64748b">時序 · 13 chars</text>
+    <rect x="330" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="353" y="300" font-size="25" text-anchor="middle" fill="#2563eb">秋</text>
+    <rect x="384" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="407" y="300" font-size="25" text-anchor="middle" fill="#2563eb">春</text>
+    <rect x="438" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="461" y="300" font-size="25" text-anchor="middle" fill="#2563eb">夜</text>
+    <rect x="492" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="515" y="300" font-size="25" text-anchor="middle" fill="#2563eb">月</text>
+    <rect x="546" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="569" y="300" font-size="25" text-anchor="middle" fill="#2563eb">風</text>
+    <rect x="600" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="623" y="300" font-size="25" text-anchor="middle" fill="#2563eb">霜</text>
+    <rect x="654" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="677" y="300" font-size="25" text-anchor="middle" fill="#2563eb">寒</text>
+    <rect x="708" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="731" y="300" font-size="25" text-anchor="middle" fill="#2563eb">曉</text>
+    <rect x="762" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="785" y="300" font-size="25" text-anchor="middle" fill="#2563eb">暮</text>
+    <rect x="816" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="839" y="300" font-size="25" text-anchor="middle" fill="#2563eb">昏</text>
+    <rect x="870" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="893" y="300" font-size="25" text-anchor="middle" fill="#2563eb">更</text>
+    <rect x="924" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="947" y="300" font-size="25" text-anchor="middle" fill="#2563eb">漏</text>
+    <rect x="978" y="268" width="46" height="46" rx="9" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="1001" y="300" font-size="25" text-anchor="middle" fill="#2563eb">年</text>
+  </g>
+
+  <!-- palace space 宮殿空間 -->
+  <g>
+    <rect x="70" y="346" width="1140" height="88" rx="14" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <rect x="70" y="346" width="8" height="88" rx="4" fill="#7c3aed"/>
+    <text x="100" y="384" font-size="21" font-weight="700" fill="#7c3aed">palace space</text>
+    <text x="100" y="410" font-size="14.5" fill="#64748b">宮殿空間 · 15 chars</text>
+    <rect x="330" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="353" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">宮</text>
+    <rect x="384" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="407" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">殿</text>
+    <rect x="438" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="461" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">樓</text>
+    <rect x="492" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="515" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">臺</text>
+    <rect x="546" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="569" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">闕</text>
+    <rect x="600" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="623" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">簾</text>
+    <rect x="654" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="677" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">幕</text>
+    <rect x="708" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="731" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">階</text>
+    <rect x="762" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="785" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">砌</text>
+    <rect x="816" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="839" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">苔</text>
+    <rect x="870" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="893" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">井</text>
+    <rect x="924" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="947" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">戶</text>
+    <rect x="978" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="1001" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">窗</text>
+    <rect x="1032" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="1055" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">庭</text>
+    <rect x="1086" y="367" width="46" height="46" rx="9" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="1109" y="399" font-size="25" text-anchor="middle" fill="#7c3aed">牆</text>
+  </g>
+
+  <!-- adornment 服飾器物 -->
+  <g>
+    <rect x="70" y="445" width="1140" height="88" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+    <rect x="70" y="445" width="8" height="88" rx="4" fill="#d97706"/>
+    <text x="100" y="483" font-size="21" font-weight="700" fill="#d97706">adornment</text>
+    <text x="100" y="509" font-size="14.5" fill="#64748b">服飾器物 · 14 chars</text>
+    <rect x="330" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="353" y="498" font-size="25" text-anchor="middle" fill="#d97706">羅</text>
+    <rect x="384" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="407" y="498" font-size="25" text-anchor="middle" fill="#d97706">綺</text>
+    <rect x="438" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="461" y="498" font-size="25" text-anchor="middle" fill="#d97706">紈</text>
+    <rect x="492" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="515" y="498" font-size="25" text-anchor="middle" fill="#d97706">扇</text>
+    <rect x="546" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="569" y="498" font-size="25" text-anchor="middle" fill="#d97706">鏡</text>
+    <rect x="600" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="623" y="498" font-size="25" text-anchor="middle" fill="#d97706">妝</text>
+    <rect x="654" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="677" y="498" font-size="25" text-anchor="middle" fill="#d97706">黛</text>
+    <rect x="708" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="731" y="498" font-size="25" text-anchor="middle" fill="#d97706">粉</text>
+    <rect x="762" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="785" y="498" font-size="25" text-anchor="middle" fill="#d97706">釵</text>
+    <rect x="816" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="839" y="498" font-size="25" text-anchor="middle" fill="#d97706">鈿</text>
+    <rect x="870" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="893" y="498" font-size="25" text-anchor="middle" fill="#d97706">衣</text>
+    <rect x="924" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="947" y="498" font-size="25" text-anchor="middle" fill="#d97706">裳</text>
+    <rect x="978" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="1001" y="498" font-size="25" text-anchor="middle" fill="#d97706">金</text>
+    <rect x="1032" y="466" width="46" height="46" rx="9" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="1055" y="498" font-size="25" text-anchor="middle" fill="#d97706">玉</text>
+  </g>
+
+  <!-- favour 君恩 -->
+  <g>
+    <rect x="70" y="544" width="1140" height="88" rx="14" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+    <rect x="70" y="544" width="8" height="88" rx="4" fill="#0d9488"/>
+    <text x="100" y="582" font-size="21" font-weight="700" fill="#0d9488">favour</text>
+    <text x="100" y="608" font-size="14.5" fill="#64748b">君恩 · 12 chars</text>
+    <rect x="330" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="353" y="597" font-size="25" text-anchor="middle" fill="#0d9488">君</text>
+    <rect x="384" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="407" y="597" font-size="25" text-anchor="middle" fill="#0d9488">恩</text>
+    <rect x="438" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="461" y="597" font-size="25" text-anchor="middle" fill="#0d9488">寵</text>
+    <rect x="492" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="515" y="597" font-size="25" text-anchor="middle" fill="#0d9488">幸</text>
+    <rect x="546" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="569" y="597" font-size="25" text-anchor="middle" fill="#0d9488">顧</text>
+    <rect x="600" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="623" y="597" font-size="25" text-anchor="middle" fill="#0d9488">承</text>
+    <rect x="654" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="677" y="597" font-size="25" text-anchor="middle" fill="#0d9488">歡</text>
+    <rect x="708" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="731" y="597" font-size="25" text-anchor="middle" fill="#0d9488">愛</text>
+    <rect x="762" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="785" y="597" font-size="25" text-anchor="middle" fill="#0d9488">專</text>
+    <rect x="816" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="839" y="597" font-size="25" text-anchor="middle" fill="#0d9488">新</text>
+    <rect x="870" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="893" y="597" font-size="25" text-anchor="middle" fill="#0d9488">舊</text>
+    <rect x="924" y="565" width="46" height="46" rx="9" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="947" y="597" font-size="25" text-anchor="middle" fill="#0d9488">棄</text>
+  </g>
+
+  <text x="70" y="668" font-size="14.5" fill="#64748b">Fields are mutually exclusive — each character belongs to exactly one field · defined a priori from genre convention, not learned from data</text>
+  <text x="70" y="692" font-size="14.5" fill="#64748b">Normalised frequency = hits per 10,000 characters 每萬字次數</text>
+</svg>

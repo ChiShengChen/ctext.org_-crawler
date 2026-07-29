@@ -1,0 +1,82 @@
+LEXICAL FIELDS (語彙場) — DEFINITION & PROCESSING
+Slide notes / speaker notes
+================================================================
+
+-- ENGLISH --------------------------------------------------
+
+DEFINITION
+A lexical field is a hand-curated, closed set of single characters
+tied to one thematic domain of palace-lament poetry. Five fields
+are defined a priori from the genre's conventional imagery (not
+learned from the data), in analyze_diction.py (LEXICAL_FIELDS):
+
+  lament       怨情:  怨 愁 恨 悲 淚 泣 啼 寂 寞 孤 斷 腸 憂 哀   (14 chars)
+  time/season  時序:  秋 春 夜 月 風 霜 寒 曉 暮 昏 更 漏 年       (13 chars)
+  palace space 宮殿:  宮 殿 樓 臺 闕 簾 幕 階 砌 苔 井 戶 窗 庭 牆 (15 chars)
+  adornment    服飾器物:  羅 綺 紈 扇 鏡 妝 黛 粉 釵 鈿 衣 裳 金 玉 (14 chars)
+  favour       君恩:  君 恩 寵 幸 顧 承 歡 愛 專 新 舊 棄           (12 chars)
+
+The five sets are mutually exclusive: each character belongs to
+exactly one field.
+
+PROCESSING
+1. Concatenate all poems of a subcorpus (e.g. G1m or G2) into one
+   string; punctuation was already stripped.
+2. Count every occurrence of every character in the field's set.
+3. Normalise: divide by the subcorpus's total character count and
+   multiply by 10,000  ->  "hits per 10,000 characters".
+   Normalisation makes subcorpora of different sizes directly
+   comparable.
+
+WHY THIS DESIGN
+- Interpretable by construction: every number traces back to a
+  visible list of characters, unlike topic models or embeddings.
+- Single-character counting needs no word segmentation, which is
+  unreliable for Tang-dynasty Chinese.
+- Complements the data-driven log-odds analysis: log-odds finds
+  distinctive terms bottom-up; lexical fields test theory-driven
+  imagery categories top-down.
+
+CAVEATS
+- Polysemy is invisible to character counting: 更 (watch/moreover),
+  幸 (imperial favour/luck), 新/舊 (new/old in any sense) are
+  counted regardless of sense in context.
+- A character counts toward its field wherever it appears: 秋 in
+  秋風 and in 秋扇 both feed "time/season".
+- The lists are interpretive choices; a different scholar could
+  draw the sets differently. Results should be read together with
+  close reading of the poems.
+
+-- 中文 ------------------------------------------------------
+
+定義
+語彙場是人工擬定的封閉單字集，每個字集對應宮怨詩的一個
+傳統意象範疇。五個場依文類慣例先驗訂定（非由資料學出），
+定義於 analyze_diction.py 的 LEXICAL_FIELDS：
+
+  怨情：怨愁恨悲淚泣啼寂寞孤斷腸憂哀（14 字）
+  時序：秋春夜月風霜寒曉暮昏更漏年（13 字）
+  宮殿空間：宮殿樓臺闕簾幕階砌苔井戶窗庭牆（15 字）
+  服飾器物：羅綺紈扇鏡妝黛粉釵鈿衣裳金玉（14 字）
+  君恩：君恩寵幸顧承歡愛專新舊棄（12 字）
+
+五個字集互斥，一字只屬一場。
+
+處理流程
+1. 將子語料（如 G1m、G2）全部詩作串接為一字串（標點已去除）。
+2. 逐字統計字集內每個字的出現總次數。
+3. 正規化：除以該子語料總字數、乘以一萬，得「每萬字次數」，
+   使不同大小的子語料可直接比較。
+
+設計理由
+- 可解釋性：每個數字都能回溯到明確的字表，不同於主題模型。
+- 單字計數免斷詞，避開唐詩斷詞不可靠的問題。
+- 與 log-odds 互補：log-odds 由下而上找區辨詞，語彙場由上
+  而下檢驗理論驅動的意象範疇。
+
+限制
+- 多義字無法區分語境：更（更漏／更加）、幸（寵幸／僥倖）、
+  新舊等一律計入。
+- 字在任何組合中都計入所屬場：秋風、秋扇的「秋」皆入時序。
+- 字表屬詮釋性選擇，不同學者可能劃分不同；結果應與文本
+  細讀並用。

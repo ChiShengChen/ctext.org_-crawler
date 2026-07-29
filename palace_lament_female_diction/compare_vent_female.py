@@ -44,7 +44,7 @@ def figures(lang, recs, vent, fem):
                                        "Noto Sans CJK SC", "AR PL UMing CN"]
     plt.rcParams["axes.unicode_minus"] = False
     T = lambda zh, e: e if en else zh
-    NV, NF = T("代言", "male poets"), T("女詩人", "female poets")
+    NV, NF = T("代言", "man"), T("女詩人", "female poets")
 
     def save(fig, name):
         fig.tight_layout(); fig.savefig(os.path.join(figdir, name), dpi=130)
@@ -67,7 +67,7 @@ def figures(lang, recs, vent, fem):
     ax.set_xlabel(T(f"加權 log-odds z（← 偏 {NF} ｜ 偏 {NV} →）",
                     f"weighted log-odds z  (← {NF}  |  {NV} →)"))
     ax.set_title(T("代言 vs 女詩人：最具區辨力字詞",
-                   "Ventriloquism vs. female poets: distinctive terms"))
+                   "Man vs. female poets: distinctive terms"))
     from matplotlib.patches import Patch
     ax.legend(handles=[Patch(color=C_VENT, label=NV), Patch(color=C_FEM, label=NF)],
               loc="lower right", frameon=False, fontsize=9)
@@ -83,7 +83,7 @@ def figures(lang, recs, vent, fem):
     ax.bar(x + w/2, [pf[f] for f in fields], w, label=NF, color=C_FEM)
     ax.set_xticks(x); ax.set_xticklabels(lab, fontsize=10)
     ax.set_ylabel(T("每萬字次數", "per 10k chars"))
-    ax.set_title(T("宮怨語彙場：代言 vs 女詩人", "Lexical fields: ventriloquism vs. female poets"))
+    ax.set_title(T("宮怨語彙場：代言 vs 女詩人", "Lexical fields: man vs. female poets"))
     ax.legend(frameon=False)
     save(fig, "cmp2_fields.png")
 
@@ -111,7 +111,7 @@ def figures(lang, recs, vent, fem):
     ax.barh(y - h/2, [qf[c] for c in cats], h, label=NF, color=C_FEM)
     ax.set_yticks(y); ax.set_yticklabels(ylab, fontsize=10); ax.invert_yaxis()
     ax.set_xlabel(T("每萬字次數", "per 10k chars"))
-    ax.set_title(T("詞性・虛詞類：代言 vs 女詩人", "Function-word classes: vent. vs. female"))
+    ax.set_title(T("詞性・虛詞類：代言 vs 女詩人", "Function-word classes: man vs. female poets"))
     ax.legend(frameon=False)
     save(fig, "cmp4_funcwords.png")
 
