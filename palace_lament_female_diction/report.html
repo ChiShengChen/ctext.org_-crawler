@@ -304,6 +304,326 @@ details.appx thead th{position:sticky;top:0;background:var(--card)}
   作者不在語料）。<strong>女性詩人</strong>＝名單女性作者 ∪ 補入之唐代知名女詩人（薛濤、魚玄機、
   李冶…）。<strong>區辨詞</strong>用 Monroe et al. (2008) 加權 log-odds ratio，informative
   Dirichlet prior 以全唐詩全集為背景，對高低頻皆穩健。</p>
+  <figure class="plate">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" style="display:block;width:100%;height:auto" font-family="'Helvetica Neue', Arial, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- transparent background (no rect) -->
+
+  <!-- title -->
+  <text x="70" y="78" font-size="36" font-weight="700" fill="#0f172a">Corpus Construction Pipeline</text>
+  <text x="70" y="112" font-size="19" fill="#64748b">Quan Tangshi 全唐詩 (Complete Tang Poems) — from web crawling to labeled subcorpora</text>
+  <line x1="70" y1="134" x2="1210" y2="134" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- ===================== STAGE 1: DATA CRAWLING ===================== -->
+  <g>
+    <rect x="70" y="180" width="330" height="330" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect x="70" y="180" width="330" height="64" rx="14" fill="#2563eb"/>
+    <rect x="70" y="222" width="330" height="22" fill="#2563eb"/>
+    <text x="92" y="212" font-size="15" font-weight="600" fill="#bfdbfe" letter-spacing="2">STEP 1</text>
+    <text x="92" y="234" font-size="22" font-weight="700" fill="#ffffff">Data Crawling</text>
+
+    <g font-size="16.5" fill="#1e293b">
+      <circle cx="98" cy="276" r="3" fill="#2563eb"/>
+      <text x="112" y="282">Source: <tspan font-weight="600">Chinese Text Project</tspan></text>
+      <text x="112" y="304" font-size="14.5" fill="#475569">ctext.org — Quan Tangshi full text</text>
+
+      <circle cx="98" cy="336" r="3" fill="#2563eb"/>
+      <text x="112" y="342">Custom Python crawler</text>
+      <text x="112" y="364" font-size="14.5" fill="#475569">requests · BeautifulSoup · cloudscraper</text>
+
+      <circle cx="98" cy="396" r="3" fill="#2563eb"/>
+      <text x="112" y="402">Rate-limiting · retries · resumable</text>
+
+      <circle cx="98" cy="432" r="3" fill="#2563eb"/>
+      <text x="112" y="438"><tspan font-weight="700">900 juan</tspan> 卷 · <tspan font-weight="700">~41,882</tspan> poems</text>
+      <text x="112" y="460" font-size="14.5" fill="#475569">stored as per-volume plain text</text>
+    </g>
+
+    <!-- output chip -->
+    <rect x="100" y="530" width="270" height="40" rx="20" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="235" y="555" font-size="14.5" fill="#1d4ed8" text-anchor="middle">raw volume files (.txt)</text>
+    <line x1="235" y1="510" x2="235" y2="528" stroke="#93c5fd" stroke-width="1.5"/>
+  </g>
+
+  <!-- arrow 1 -->
+  <line x1="404" y1="345" x2="466" y2="345" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- ===================== STAGE 2: DATA CLEANING ===================== -->
+  <g>
+    <rect x="475" y="180" width="330" height="330" rx="14" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+    <rect x="475" y="180" width="330" height="64" rx="14" fill="#0d9488"/>
+    <rect x="475" y="222" width="330" height="22" fill="#0d9488"/>
+    <text x="497" y="212" font-size="15" font-weight="600" fill="#99f6e4" letter-spacing="2">STEP 2</text>
+    <text x="497" y="234" font-size="22" font-weight="700" fill="#ffffff">Data Cleaning</text>
+
+    <g font-size="16.5" fill="#1e293b">
+      <circle cx="503" cy="276" r="3" fill="#0d9488"/>
+      <text x="517" y="282">Poem-level parsing</text>
+      <text x="517" y="304" font-size="14.5" fill="#475569">author · title · body</text>
+
+      <circle cx="503" cy="336" r="3" fill="#0d9488"/>
+      <text x="517" y="342">Title normalization</text>
+      <text x="517" y="364" font-size="14.5" fill="#475569">yuefu 樂府 prefixes · first-line suffixes</text>
+      <text x="517" y="384" font-size="14.5" fill="#475569">variant characters (e.g. 倢伃 ↔ 婕妤)</text>
+
+      <circle cx="503" cy="416" r="3" fill="#0d9488"/>
+      <text x="517" y="422">Punctuation stripped for statistics</text>
+
+      <circle cx="503" cy="452" r="3" fill="#0d9488"/>
+      <text x="517" y="458">Deduplication · metadata repair</text>
+      <text x="517" y="480" font-size="14.5" fill="#475569">misaligned author / gender fields</text>
+    </g>
+
+    <!-- output chip -->
+    <rect x="505" y="530" width="270" height="40" rx="20" fill="#ffffff" stroke="#5eead4" stroke-width="1.5"/>
+    <text x="640" y="555" font-size="14.5" fill="#0f766e" text-anchor="middle">structured corpus</text>
+    <line x1="640" y1="510" x2="640" y2="528" stroke="#5eead4" stroke-width="1.5"/>
+  </g>
+
+  <!-- arrow 2 -->
+  <line x1="809" y1="345" x2="871" y2="345" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- ===================== STAGE 3: LABELING ===================== -->
+  <g>
+    <rect x="880" y="180" width="330" height="330" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+    <rect x="880" y="180" width="330" height="64" rx="14" fill="#d97706"/>
+    <rect x="880" y="222" width="330" height="22" fill="#d97706"/>
+    <text x="902" y="212" font-size="15" font-weight="600" fill="#fde68a" letter-spacing="2">STEP 3</text>
+    <text x="902" y="234" font-size="22" font-weight="700" fill="#ffffff">Labeling</text>
+
+    <g font-size="16" fill="#1e293b">
+      <circle cx="908" cy="272" r="3" fill="#d97706"/>
+      <text x="922" y="278">Curated palace-lament poem list</text>
+      <text x="922" y="299" font-size="14" fill="#475569">gongyuan 宮怨 — author · gender · title</text>
+
+      <circle cx="908" cy="322" r="3" fill="#d97706"/>
+      <text x="922" y="328">Matched via normalized titles</text>
+      <text x="922" y="349" font-size="14" fill="#475569"><tspan font-weight="700" fill="#b45309">~89%</tspan> hit rate (45 unmatched, logged)</text>
+
+      <circle cx="908" cy="372" r="3" fill="#d97706"/>
+      <text x="922" y="378">Supplementary female-poet roster</text>
+      <text x="922" y="399" font-size="14" fill="#475569">Xue Tao 薛濤 · Yu Xuanji 魚玄機 · et al.</text>
+
+      <circle cx="908" cy="422" r="3" fill="#d97706"/>
+      <text x="922" y="428">Gender cross-checked against CBDB</text>
+      <text x="922" y="449" font-size="14" fill="#475569">China Biographical Database</text>
+
+      <circle cx="908" cy="472" r="3" fill="#d97706"/>
+      <text x="922" y="478">Subgrouping by title keywords</text>
+      <text x="922" y="499" font-size="14" fill="#475569">palace verse vs. boudoir lament (automatic)</text>
+    </g>
+
+    <!-- output chip -->
+    <rect x="910" y="530" width="270" height="40" rx="20" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="1045" y="555" font-size="14.5" fill="#b45309" text-anchor="middle">G1 / G1m / G2 / G3d / G3l</text>
+    <line x1="1045" y1="510" x2="1045" y2="528" stroke="#fcd34d" stroke-width="1.5"/>
+  </g>
+
+  <!-- ===================== BOTTOM: subcorpora legend → analysis ===================== -->
+  <g>
+    <line x1="235" y1="570" x2="235" y2="596" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="640" y1="570" x2="640" y2="596" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="1045" y1="570" x2="1045" y2="596" stroke="#cbd5e1" stroke-width="2"/>
+
+    <rect x="70" y="596" width="1140" height="104" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="95" y="624" font-size="13.5" font-weight="600" fill="#64748b" letter-spacing="2">FIVE SUBCORPORA → ANALYSIS</text>
+    <text x="1185" y="624" font-size="13.5" fill="#64748b" text-anchor="end">523 labeled poems in total</text>
+
+    <!-- G1 -->
+    <text x="95" y="656" font-size="16" fill="#1e293b"><tspan font-weight="700" fill="#b45309">G1</tspan>  Palace-lament poems</text>
+    <text x="95" y="680" font-size="13.5" fill="#64748b">宮怨詩 · n = 321</text>
+
+    <!-- G1m -->
+    <text x="320" y="656" font-size="16" fill="#1e293b"><tspan font-weight="700" fill="#b45309">G1m</tspan>  Male ventriloquism</text>
+    <text x="320" y="680" font-size="13.5" fill="#64748b">男性代言 · n = 256 · ⊂ G1</text>
+
+    <!-- G2 -->
+    <text x="545" y="656" font-size="16" fill="#1e293b"><tspan font-weight="700" fill="#be123c">G2</tspan>  Female poets, all works</text>
+    <text x="545" y="680" font-size="13.5" fill="#64748b">女性詩人 · n = 214</text>
+
+    <!-- G3d -->
+    <text x="790" y="656" font-size="16" fill="#1e293b"><tspan font-weight="700" fill="#6d28d9">G3d</tspan>  Palace verse, record</text>
+    <text x="790" y="680" font-size="13.5" fill="#64748b">宮詞記事 · n = 4 · self-voiced</text>
+
+    <!-- G3l -->
+    <text x="1015" y="656" font-size="16" fill="#1e293b"><tspan font-weight="700" fill="#6d28d9">G3l</tspan>  Boudoir lament</text>
+    <text x="1015" y="680" font-size="13.5" fill="#64748b">閨怨抒情 · n = 11 · self-voiced</text>
+  </g>
+</svg>
+  <figcaption><strong>圖 M1 — 語料建置流程。</strong>爬取（ctext.org，900 卷、約 41,882 首）→
+  清理與標題正規化 → 依宮怨詩名單標註（性別以 CBDB 交叉核對），得五個子語料庫（共 523 首）。</figcaption>
+  </figure>
+  <figure class="plate">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" style="display:block;width:100%;height:auto" font-family="'Helvetica Neue', Arial, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- transparent background -->
+
+  <!-- title -->
+  <text x="70" y="70" font-size="36" font-weight="700" fill="#0f172a">Digital Humanities Methods</text>
+  <text x="70" y="103" font-size="19" fill="#64748b">Distant reading × close reading — quantitative signals verified in the texts</text>
+  <line x1="70" y1="122" x2="1210" y2="122" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- input chip -->
+  <rect x="415" y="140" width="450" height="40" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="640" y="165" font-size="15" fill="#334155" text-anchor="middle">Input: 523 poems · 5 subcorpora（G1 · G1m · G2 · G3d · G3l）</text>
+
+  <!-- branch lines -->
+  <line x1="640" y1="180" x2="640" y2="202" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="201" y1="202" x2="1077" y2="202" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="201" y1="202" x2="201" y2="226" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="493" y1="202" x2="493" y2="226" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="785" y1="202" x2="785" y2="226" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="1077" y1="202" x2="1077" y2="226" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===================== CARD 1: LEXICAL ANALYSIS ===================== -->
+  <g>
+    <rect x="70" y="232" width="262" height="316" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect x="70" y="232" width="262" height="60" rx="14" fill="#2563eb"/>
+    <rect x="70" y="272" width="262" height="20" fill="#2563eb"/>
+    <text x="90" y="256" font-size="13" font-weight="600" fill="#bfdbfe" letter-spacing="2">QUANTITATIVE</text>
+    <text x="90" y="280" font-size="20" font-weight="700" fill="#ffffff">Lexical Analysis</text>
+
+    <g font-size="15.5" fill="#1e293b">
+      <circle cx="94" cy="320" r="3" fill="#2563eb"/>
+      <text x="108" y="326">1–2 gram char tokens</text>
+      <text x="108" y="346" font-size="13.5" fill="#475569">no segmentation needed</text>
+
+      <circle cx="94" cy="376" r="3" fill="#2563eb"/>
+      <text x="108" y="382">Weighted log-odds</text>
+      <text x="108" y="402" font-size="13.5" fill="#475569">informative Dirichlet prior</text>
+      <text x="108" y="420" font-size="13.5" fill="#475569">(Monroe et al. 2008)</text>
+
+      <circle cx="94" cy="450" r="3" fill="#2563eb"/>
+      <text x="108" y="456">Prior = full corpus</text>
+      <text x="108" y="476" font-size="13.5" fill="#475569">Quan Tangshi, ~41,882 poems</text>
+
+      <circle cx="94" cy="506" r="3" fill="#2563eb"/>
+      <text x="108" y="512">Ranked by z-score</text>
+      <text x="108" y="532" font-size="13.5" fill="#475569">robust at low frequency</text>
+    </g>
+  </g>
+
+  <!-- ===================== CARD 2: IMAGERY ANALYSIS ===================== -->
+  <g>
+    <rect x="362" y="232" width="262" height="316" rx="14" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+    <rect x="362" y="232" width="262" height="60" rx="14" fill="#0d9488"/>
+    <rect x="362" y="272" width="262" height="20" fill="#0d9488"/>
+    <text x="382" y="256" font-size="13" font-weight="600" fill="#99f6e4" letter-spacing="2">INTERPRETABLE</text>
+    <text x="382" y="280" font-size="20" font-weight="700" fill="#ffffff">Imagery Analysis</text>
+
+    <g font-size="15.5" fill="#1e293b">
+      <circle cx="386" cy="320" r="3" fill="#0d9488"/>
+      <text x="400" y="326">5 imagery fields 語彙場</text>
+      <text x="400" y="346" font-size="13.5" fill="#475569">怨情 resentment · 時序 time</text>
+      <text x="400" y="364" font-size="13.5" fill="#475569">宮殿 space · 服飾器物 objects</text>
+      <text x="400" y="382" font-size="13.5" fill="#475569">君恩 imperial favor</text>
+
+      <circle cx="386" cy="412" r="3" fill="#0d9488"/>
+      <text x="400" y="418">Normalized frequency</text>
+      <text x="400" y="438" font-size="13.5" fill="#475569">per 10,000 characters</text>
+
+      <circle cx="386" cy="468" r="3" fill="#0d9488"/>
+      <text x="400" y="474">Controlled contrast</text>
+      <text x="400" y="494" font-size="13.5" fill="#475569">lament vs lament: G1m / G3l</text>
+      <text x="400" y="512" font-size="13.5" fill="#475569">avoids genre confound</text>
+    </g>
+  </g>
+
+  <!-- ===================== CARD 3: STRUCTURAL & REGISTER ===================== -->
+  <g>
+    <rect x="654" y="232" width="262" height="316" rx="14" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <rect x="654" y="232" width="262" height="60" rx="14" fill="#7c3aed"/>
+    <rect x="654" y="272" width="262" height="20" fill="#7c3aed"/>
+    <text x="674" y="256" font-size="13" font-weight="600" fill="#ddd6fe" letter-spacing="2">STRUCTURAL</text>
+    <text x="674" y="280" font-size="20" font-weight="700" fill="#ffffff">Structure &amp; Register</text>
+
+    <g font-size="15.5" fill="#1e293b">
+      <circle cx="678" cy="320" r="3" fill="#7c3aed"/>
+      <text x="692" y="326">Poem form 詩形</text>
+      <text x="692" y="346" font-size="13.5" fill="#475569">5-char · 7-char · mixed lines</text>
+
+      <circle cx="678" cy="376" r="3" fill="#7c3aed"/>
+      <text x="692" y="382">Question rate 問句率</text>
+      <text x="692" y="402" font-size="13.5" fill="#475569">interrogatives per 100 lines</text>
+
+      <circle cx="678" cy="432" r="3" fill="#7c3aed"/>
+      <text x="692" y="438">Function words 虛詞</text>
+      <text x="692" y="458" font-size="13.5" fill="#475569">person 人稱 · modal 語氣</text>
+      <text x="692" y="476" font-size="13.5" fill="#475569">temporal 時間 · negation 否定</text>
+
+      <circle cx="678" cy="506" r="3" fill="#7c3aed"/>
+      <text x="692" y="512">Register markers</text>
+      <text x="692" y="532" font-size="13.5" fill="#475569">reduplication 疊字 · 君 / 妾</text>
+    </g>
+  </g>
+
+  <!-- ===================== CARD 4: CLOSE READING ===================== -->
+  <g>
+    <rect x="946" y="232" width="262" height="316" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+    <rect x="946" y="232" width="262" height="60" rx="14" fill="#d97706"/>
+    <rect x="946" y="272" width="262" height="20" fill="#d97706"/>
+    <text x="966" y="256" font-size="13" font-weight="600" fill="#fde68a" letter-spacing="2">QUALITATIVE</text>
+    <text x="966" y="280" font-size="20" font-weight="700" fill="#ffffff">Close Reading</text>
+
+    <g font-size="15.5" fill="#1e293b">
+      <circle cx="970" cy="320" r="3" fill="#d97706"/>
+      <text x="984" y="326">Per-poem originals</text>
+      <text x="984" y="346" font-size="13.5" fill="#475569">punctuated texts, by group</text>
+
+      <circle cx="970" cy="376" r="3" fill="#d97706"/>
+      <text x="984" y="382">Terms read in context</text>
+
+      <circle cx="970" cy="414" r="3" fill="#d97706"/>
+      <text x="984" y="420">Allusions &amp; exempla</text>
+      <text x="984" y="440" font-size="13.5" fill="#475569">Changmen 長門 · fan 團扇</text>
+      <text x="984" y="458" font-size="13.5" fill="#475569">Ban Jieyu 班婕妤 …</text>
+
+      <circle cx="970" cy="488" r="3" fill="#d97706"/>
+      <text x="984" y="494">Caveat auditing</text>
+      <text x="984" y="514" font-size="13.5" fill="#475569">small n · one-author skew</text>
+      <text x="984" y="532" font-size="13.5" fill="#475569">(Lady Huarui 花蕊夫人)</text>
+    </g>
+  </g>
+
+  <!-- ===================== convergence to findings ===================== -->
+  <line x1="201" y1="548" x2="201" y2="572" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="493" y1="548" x2="493" y2="572" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="785" y1="548" x2="785" y2="572" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="1077" y1="548" x2="1077" y2="572" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="201" y1="572" x2="1077" y2="572" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="420" y1="572" x2="420" y2="596" stroke="#475569" stroke-width="2.5" marker-end="url(#arrowDark)"/>
+
+  <!-- findings bar -->
+  <rect x="70" y="600" width="700" height="80" rx="14" fill="#1e293b"/>
+  <text x="100" y="632" font-size="18" font-weight="700" fill="#ffffff">→ Findings — cross-validated across the four methods</text>
+  <text x="100" y="660" font-size="15" fill="#cbd5e1">ventriloquism: allusive court diction · female self-voice: direct, affect-laden diction</text>
+
+  <!-- future work (dashed) -->
+  <line x1="770" y1="640" x2="800" y2="640" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <rect x="808" y="600" width="402" height="80" rx="14" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="832" y="628" font-size="13.5" font-weight="600" fill="#64748b" letter-spacing="2">FUTURE WORK</text>
+  <text x="832" y="652" font-size="16.5" font-weight="700" fill="#334155">Full syntactic parsing 句法剖析</text>
+  <text x="832" y="672" font-size="13.5" fill="#64748b">stylometry 風格計量 · topic models 主題模型</text>
+</svg>
+  <figcaption><strong>圖 M2 — 分析方法。</strong>用語分析（加權 log-odds）、語彙場、句式與語域、
+  細讀四種方法互補並交叉驗證；完整句法剖析、風格計量與主題模型為未來工作。</figcaption>
+  </figure>
   <div class="note">
     <span class="lbl">統計限制</span>
     女性自述樣本小（閨怨 n≈11、宮詞 n≈8），區辨詞 z 值偏弱，語彙場／句式比率波動大，結論屬

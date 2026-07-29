@@ -44,7 +44,7 @@ def figures(lang, recs, vent, fem):
                                        "Noto Sans CJK SC", "AR PL UMing CN"]
     plt.rcParams["axes.unicode_minus"] = False
     T = lambda zh, e: e if en else zh
-    NV, NF = T("代言", "ventriloquism"), T("女詩人", "female poets")
+    NV, NF = T("代言", "male poets"), T("女詩人", "female poets")
 
     def save(fig, name):
         fig.tight_layout(); fig.savefig(os.path.join(figdir, name), dpi=130)
