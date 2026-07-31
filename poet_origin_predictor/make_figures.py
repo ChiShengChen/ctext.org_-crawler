@@ -153,10 +153,25 @@ def era_of(mid):
     return None
 
 
-def save(fig, name):
+def save(fig, name, transparent=False, tight=True):
     p = os.path.join(FIGDIR, name)
-    fig.tight_layout(); fig.savefig(p, dpi=130); plt.close(fig)
+    if tight:
+        fig.tight_layout()
+    fig.savefig(p, dpi=130, transparent=transparent)
+    plt.close(fig)
     print(f"  saved {os.path.relpath(p, HERE)}")
+
+
+# Slide-deck palette (Tang_Poets_Origins_slides): brick red / warm gray / ink.
+SLIDE_RED, SLIDE_GRAY, SLIDE_INK = "#A63C2A", "#8C8478", "#2E2723"
+
+
+def _slide_axes(ax):
+    ax.tick_params(colors=SLIDE_INK, labelsize=11)
+    for sp in ax.spines.values():
+        sp.set_color(SLIDE_GRAY)
+    ax.xaxis.label.set_color(SLIDE_INK); ax.yaxis.label.set_color(SLIDE_INK)
+    ax.title.set_color(SLIDE_INK)
 
 
 def _sn_cv_predict(df):
@@ -231,7 +246,9 @@ def fig02_confusion():
     save(fig, "fig02_confusion.png")
 
 
-def fig03_distance_decay():
+def fig03_distance_decay(slide=False):
+    # slide=True writes fig03_distance_decay_slide.png: transparent background,
+    # deck palette, larger type. The paper figure is unchanged.
     from sklearn.feature_extraction.text import TfidfVectorizer
     df = load_df()
     keep = df["region"].value_counts(); keep = keep[keep >= 5].index
@@ -252,17 +269,26 @@ def fig03_distance_decay():
     r, p_naive = pearsonr(gx, ly)
     _, p_mantel = mantel_p(geo, ling)
     fig, ax = plt.subplots(figsize=(6.5, 5))
-    ax.scatter(gx, ly, alpha=.7)
+    fs = 13 if slide else None
+    ax.scatter(gx, ly, alpha=.8 if slide else .7,
+               color=SLIDE_GRAY if slide else None, s=55 if slide else None)
     z = np.polyfit(gx, ly, 1)
     xs = np.linspace(gx.min(), gx.max(), 50)
-    ax.plot(xs, np.polyval(z, xs), "r--",
+    ax.plot(xs, np.polyval(z, xs), ls="--",
+            color=SLIDE_RED if slide else "r", lw=2 if slide else None,
             label=f"r={r:.2f}, Mantel p={p_mantel:.2f}\n(naive p={p_naive:.3f})")
-    ax.set_xlabel(T("地理距離（km）", "geographic distance (km)"))
-    ax.set_ylabel(T("語言距離（1 − cosine）", "linguistic distance (1 - cosine)"))
-    ax.set_title(T(f"詩歌語言的距離衰減（{len(regions)} 道）",
-                   f"Distance decay of poetic language ({len(regions)} circuits)"))
-    ax.legend()
-    save(fig, "fig03_distance_decay.png")
+    ax.set_xlabel(T("地理距離（km）", "geographic distance (km)"), fontsize=fs)
+    ax.set_ylabel(T("語言距離（1 − cosine）", "linguistic distance (1 - cosine)"),
+                  fontsize=fs)
+    if slide:
+        _slide_axes(ax)
+        ax.legend(fontsize=11, labelcolor=SLIDE_INK)
+        save(fig, "fig03_distance_decay_slide.png", transparent=True)
+    else:
+        ax.set_title(T(f"詩歌語言的距離衰減（{len(regions)} 道）",
+                       f"Distance decay of poetic language ({len(regions)} circuits)"))
+        ax.legend()
+        save(fig, "fig03_distance_decay.png")
 
 
 def fig04_era_evolution():
@@ -464,6 +490,164 @@ def fig11_periphery():
     save(fig, "fig11_periphery.png")
 
 
+def fig11b_periphery_regline():
+    # Supplementary/slide variant of fig11: adds the fitted regression line
+    # (with r and its non-significant p in the legend) plus a dashed fit
+    # excluding Jiangnan, whose leverage flips the slope sign. Place names
+    # carry the Chinese circuit name in brackets. Not part of the paper set.
+    df = apply_task(load_df(), "circuit")
+    keep = df["label"].value_counts(); keep = keep[keep >= 8].index
+    keep = [r for r in keep if r in CIRCUIT_COORDS]
+    df = df[df["label"].isin(keep)].reset_index(drop=True)
+    le = LabelEncoder(); y = le.fit_transform(df["label"])
+    X, _, _ = build_features(df["text"].tolist())
+    p = cross_val_predict(LinearSVC(class_weight="balanced", C=0.5), X, y,
+                          cv=StratifiedKFold(5, shuffle=True, random_state=42))
+    rec = recall_score(y, p, average=None)
+    order = list(le.classes_)
+    dist = np.array([haversine(CIRCUIT_COORDS[r], CIRCUIT_COORDS[CAP]) for r in order])
+    rr = np.array([rec[i] for i in range(len(order))])
+
+    r_all, p_all = pearsonr(dist, rr)
+    mask = np.array([r_ != "江南道" for r_ in order])
+    r_ex, p_ex = pearsonr(dist[mask], rr[mask])
+
+    fig, ax = plt.subplots(figsize=(6.5, 5))
+    ax.scatter(dist, rr, s=90, color=SLIDE_RED, zorder=3)
+    offsets = {"河南道": ((6, -16), "left"), "河東道": ((-8, 4), "right"),
+               "江南道": ((-8, -18), "right")}
+    for r_, d, a in zip(order, dist, rr):
+        lbl = f"{PINYIN.get(r_, r_)}（{r_}）" if LANG == "en" else r_
+        (dx, dy), ha = offsets.get(r_, ((6, 5), "left"))
+        ax.annotate(lbl, (d, a), textcoords="offset points",
+                    xytext=(dx, dy), ha=ha, fontsize=12, color=SLIDE_INK)
+    xs = np.linspace(dist.min(), dist.max(), 100)
+    z = np.polyfit(dist, rr, 1)
+    ax.plot(xs, np.polyval(z, xs), color=SLIDE_RED, lw=2,
+            label=T(f"全部（r={r_all:.2f}, p={p_all:.2f}，不顯著）",
+                    f"all circuits (r={r_all:.2f}, p={p_all:.2f}, n.s.)"))
+    z2 = np.polyfit(dist[mask], rr[mask], 1)
+    ax.plot(xs, np.polyval(z2, xs), color=SLIDE_GRAY, lw=2, ls="--",
+            label=T(f"不含江南（r={r_ex:.2f}, p={p_ex:.2f}）",
+                    f"excl. Jiangnan（江南）(r={r_ex:.2f}, p={p_ex:.2f})"))
+    ax.legend(loc="center left", fontsize=10.5, labelcolor=SLIDE_INK)
+    ax.set_xlim(dist.min() - 80, dist.max() + 200)
+    ax.set_xlabel(T("離長安距離（km）", "distance from Chang'an（長安）(km)"), fontsize=13)
+    ax.set_ylabel(T("辨識率（recall）", "identifiability (recall)"), fontsize=13)
+    _slide_axes(ax)
+    save(fig, "fig11b_periphery_regline.png", transparent=True)
+
+
+def fig13_jiangnan_markers():
+    # What makes Jiangnan legible: binary Jiangnan-vs-rest LogReg weights on
+    # the six-circuit poet set (same filter as fig11), grouped into readable
+    # families, plus a place-name ablation showing recall is unchanged when
+    # every geographically-loaded n-gram is dropped (i.e. not name leakage).
+    from sklearn.linear_model import LogisticRegression
+    df = apply_task(load_df(), "circuit")
+    keep = df["label"].value_counts(); keep = keep[keep >= 8].index
+    keep = [r for r in keep if r in CIRCUIT_COORDS]
+    df = df[df["label"].isin(keep)].reset_index(drop=True)
+    le = LabelEncoder(); y = le.fit_transform(df["label"])
+    X, vec, _ = build_features(df["text"].tolist())
+    names = list(vec.get_feature_names_out()) + feat.FEATURE_NAMES
+    jn = list(le.classes_).index("江南道")
+    yb = (y == jn).astype(int)
+    w = LogisticRegression(max_iter=3000,
+                           class_weight="balanced").fit(X, yb).coef_[0]
+
+    CAT = {}
+    for f in ["img_mountain", "img_water", "煙霞", "溪上", "搖落"]:
+        CAT[f] = "land"
+    for f in ["謾", "只", "只有", "不是", "多少", "未可", "何言", "歸去",
+              "好", "偏", "添", "片", "日又"]:
+        CAT[f] = "colloq"
+    for f in ["蘆", "萋", "茗", "牡丹", "朵", "鱗", "猩", "匡", "綿", "江南"]:
+        CAT[f] = "flora"
+    CCOL = {"land": "#2a8", "colloq": "#46a", "flora": "#a63c2a",
+            "other": "#999"}
+    GLOSS = {"img_mountain": T("山意象（特徵）", "mountain imagery"),
+             "img_water": T("水意象（特徵）", "water imagery"),
+             "season_spring": T("春季標記（特徵）", "spring markers"),
+             "白露": "white dew",
+             "謾": "in vain", "只": "only", "只有": "there is only",
+             "不是": "is not", "多少": "how many", "未可": "not yet",
+             "何言": "why say", "歸去": "going home", "好": "fine",
+             "偏": "especially", "添": "adds", "片": "a sliver",
+             "日又": "day, again", "煙霞": "mist and glow",
+             "溪上": "on the stream", "搖落": "leaves falling",
+             "蘆": "reeds", "萋": "lush grass", "茗": "tea",
+             "牡丹": "peony", "朵": "blossom", "鱗": "fish scales",
+             "猩": "gibbon-crimson", "匡": "Mt. Lu", "綿": "silk-soft",
+             "江南": "Jiangnan itself", "約": "promise", "利": "gain",
+             "律": "meter", "穿": "threads through", "魂夢": "soul-dream",
+             "會": "meet", "關山": "frontier passes", "紛": "profuse",
+             "衛": "guards", "使": "envoy", "回日": "day of return",
+             "芙蓉": "lotus", "誰念": "who remembers", "文": "letters",
+             "山長": "mountains stretch", "試": "examine", "賞": "bestow",
+             "北": "north", "涓": "trickle"}
+
+    def lbl(f):
+        if f in feat.FEATURE_NAMES:
+            return GLOSS.get(f, f)
+        g = GLOSS.get(f)
+        return f"{g}（{f}）" if (LANG == "en" and g) else f
+
+    order = np.argsort(w)[::-1]
+    top_p = order[:16][::-1]
+    top_n = order[-10:]
+
+    fig, ax = plt.subplots(1, 2, figsize=(11.5, 6.2),
+                           gridspec_kw={"width_ratios": [1.15, 1]})
+    for a, idxs, title in [
+            (ax[0], top_p, T("推向江南的特徵", "pushing toward Jiangnan")),
+            (ax[1], top_n, T("推離江南的特徵", "pushing away from Jiangnan"))]:
+        cols = [CCOL[CAT.get(names[i], "other")] for i in idxs]
+        a.barh(range(len(idxs)), [w[i] for i in idxs], color=cols, height=0.7)
+        a.set_yticks(range(len(idxs)))
+        a.set_yticklabels([lbl(names[i]) for i in idxs], fontsize=9)
+        a.axvline(0, c="k", lw=0.8)
+        a.set_xlabel(T("LogReg 權重（江南 vs 其他道）",
+                       "LogReg weight (Jiangnan vs rest)"))
+        a.set_title(title)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=CCOL[k]) for k in
+               ["land", "colloq", "flora", "other"]]
+    ax[0].legend(handles, [T("山水/意象", "landscape & imagery"),
+                           T("口語語體", "colloquial diction"),
+                           T("南方風物", "southern flora & things"),
+                           T("其他", "other")],
+                 loc="lower right", fontsize=8)
+
+    # Place-name ablation (multiclass, same protocol as fig11).
+    PLACE = set("吳越楚湘江湖溪浙淮楓橘蓮荷")
+    nchar = len(vec.get_feature_names_out())
+    drop = {i for i in range(nchar) if any(c in PLACE for c in names[i])}
+    keep_idx = np.array([i for i in range(X.shape[1]) if i not in drop])
+    skf = StratifiedKFold(5, shuffle=True, random_state=42)
+    rec_f = recall_score(y, cross_val_predict(
+        LinearSVC(class_weight="balanced", C=0.5), X, y, cv=skf),
+        average=None)[jn]
+    rec_a = recall_score(y, cross_val_predict(
+        LinearSVC(class_weight="balanced", C=0.5), X[:, keep_idx], y, cv=skf),
+        average=None)[jn]
+    fig.suptitle(T("江南為何可辨識：判別特徵（二元 LogReg）",
+                   "What makes Jiangnan legible: discriminative features"),
+                 fontsize=13)
+    fig.text(0.5, 0.055,
+             T(f"地名消融:剔除全部含「{''.join(sorted(PLACE))}」的 "
+               f"{len(drop)} 個 n-gram 後,",
+               f"Place-name ablation: dropping all {len(drop)} n-grams "
+               f"containing 「{''.join(sorted(PLACE))}」"),
+             ha="center", fontsize=9.5, style="italic")
+    fig.text(0.5, 0.022,
+             T(f"江南 recall {rec_f:.2f} → {rec_a:.2f} — 可辨識性並非地名洩漏",
+               f"leaves Jiangnan recall unchanged ({rec_f:.2f} → {rec_a:.2f}) "
+               "— identifiability is not place-name leakage"),
+             ha="center", fontsize=9.5, style="italic")
+    fig.tight_layout(rect=[0, 0.09, 1, 0.95])
+    save(fig, "fig13_jiangnan_markers.png", tight=False)
+
+
 def fig12_hier_comparison():
     # Results from transformer_hier.py (one consistent pytorch291 GPU run,
     # south/north, StratifiedKFold(5), poet-level — same protocol as classical).
@@ -506,7 +690,8 @@ if __name__ == "__main__":
     for fn in [fig06_region_distribution, fig02_confusion, fig03_distance_decay,
                fig04_era_evolution, fig05_misclass_by_era, fig07_domain_radar,
                fig08_discriminative_chars, fig10_length_control, fig11_periphery,
-               fig09_transformer, fig12_hier_comparison, fig01_model_comparison]:
+               fig09_transformer, fig12_hier_comparison, fig13_jiangnan_markers,
+               fig01_model_comparison]:
         try:
             fn()
         except Exception as e:
