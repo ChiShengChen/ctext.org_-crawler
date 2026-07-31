@@ -1,0 +1,127 @@
+<frozen importlib._bootstrap>:228: RuntimeWarning: scipy._lib.messagestream.MessageStream size changed, may indicate binary incompatibility. Expected 56 from C header, got 64 from PyObject
+/home/meow/anaconda3/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.8.1' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/home/meow/anaconda3/lib/python3.9/site-packages/pandas/core/arrays/masked.py:61: UserWarning: Pandas requires version '1.3.6' or newer of 'bottleneck' (version '1.3.4' currently installed).
+  from pandas.core import (
+
+========================================================================
+2  BOOTSTRAP 95% CIs + era-difference tests
+========================================================================
+S/N accuracy 0.636 [95% CI 0.574, 0.698]  (n=242)
+  recall 江南道: 0.71 [CI 0.61, 0.80] (n=85)
+  recall 河北道: 0.11 [CI 0.02, 0.19] (n=47)
+  recall 河南道: 0.06 [CI 0.00, 0.19] (n=16)
+  recall 河東道: 0.09 [CI 0.00, 0.23] (n=22)
+  recall 淮南道: 0.00 [CI 0.00, 0.00] (n=8)
+  recall 關內道: 0.17 [CI 0.07, 0.29] (n=41)
+
+Per-era S/N accuracy (within-era CV) with CIs:
+  初唐: acc=0.41 [CI 0.24, 0.59] (n=29)
+  盛唐: acc=0.50 [CI 0.32, 0.68] (n=28)
+  中唐: acc=0.53 [CI 0.40, 0.67] (n=43)
+  晚唐: acc=0.68 [CI 0.48, 0.88] (n=25)
+
+Pairwise era differences (Fisher on correct/wrong counts):
+  初唐 vs 盛唐: p=0.599
+  初唐 vs 中唐: p=0.345
+  初唐 vs 晚唐: p=0.061
+  盛唐 vs 中唐: p=0.812
+  盛唐 vs 晚唐: p=0.265
+  中唐 vs 晚唐: p=0.310
+
+========================================================================
+3  FEATURE-FAMILY ABLATION (South/North, LogReg + SVC)
+========================================================================
+       char n-grams only | LogReg: acc=0.674 macroF1=0.673
+       char n-grams only |    SVC: acc=0.694 macroF1=0.693
+    domain features only | LogReg: acc=0.529 macroF1=0.528
+    domain features only |    SVC: acc=0.525 macroF1=0.524
+        combined (paper) | LogReg: acc=0.603 macroF1=0.602
+        combined (paper) |    SVC: acc=0.636 macroF1=0.635
+
+========================================================================
+4  ERA-CONTROLLED JIANGNAN FAMILY TESTS (stratified permutation)
+========================================================================
+dated poets in 6-circuit set: 118 (JN 38)
+   landscape: diff=+0.2319  era-stratified perm p=0.0302  (naive Mann-Whitney p=0.0610)
+  colloquial: diff=+0.1698  era-stratified perm p=0.0163  (naive Mann-Whitney p=0.0008)
+       flora: diff=+0.0916  era-stratified perm p=0.2337  (naive Mann-Whitney p=0.0697)
+
+========================================================================
+5  FUNCTION-CHARACTER vs CONTENT-CHARACTER SIGNAL (S/N)
+========================================================================
+vocab 8000: function-only n-grams 357, content-only 6628
+   function chars only: acc=0.603 macroF1=0.603
+    content chars only: acc=0.665 macroF1=0.665
+           all n-grams: acc=0.674 macroF1=0.673
+
+========================================================================
+6  SENSITIVITY: min-poems threshold + learning curve (S/N)
+========================================================================
+  min_poems>= 5: n=357  acc=0.661 macroF1=0.659
+  min_poems>=10: n=242  acc=0.636 macroF1=0.635
+  min_poems>=20: n=178  acc=0.669 macroF1=0.669
+
+learning curve (fraction of poets, 5 subsamples each):
+  40% of poets (n≈96): acc=0.612 ± 0.022
+  60% of poets (n≈145): acc=0.599 ± 0.036
+  80% of poets (n≈193): acc=0.622 ± 0.028
+  100% of poets (n≈242): acc=0.657 ± 0.000
+
+========================================================================
+7  HIGH-CONFIDENCE MISCLASSIFICATIONS (S/N, LogReg prob)
+========================================================================
+  poet true pred   conf  era
+   馮延巳    南    北   0.86 None
+   雍裕之    南    北   0.82    ?
+   陳去疾    南    北   0.82    ?
+    孫魴    南    北   0.82    ?
+    裴迪    北    南   0.81    ?
+   賀知章    南    北   0.81   初唐
+    褚亮    南    北   0.80   初唐
+    崔峒    北    南   0.79    ?
+    周賀    北    南   0.78    ?
+   馬懷素    南    北   0.77   初唐
+   張南史    北    南   0.77    ?
+   虞世南    南    北   0.74   初唐
+    李洞    北    南   0.73    ?
+    蔣防    南    北   0.72    ?
+   歐陽炯    南    北   0.71 None
+
+========================================================================
+8  McNEMAR BETWEEN MODELS + COHEN'S KAPPA
+========================================================================
+  LogReg: acc=0.603 kappa=0.205
+  SVC: acc=0.636 kappa=0.270
+  RF: acc=0.674 kappa=0.338
+  McNemar LogReg vs SVC: b=7 c=15 p=0.134
+  McNemar LogReg vs RF: b=20 c=37 p=0.033
+  McNemar SVC vs RF: b=16 c=25 p=0.211
+  kappa[south/north] = 0.270
+  kappa[circuit] = 0.097
+
+========================================================================
+9  STYLE-SIMILARITY NETWORK: geographic assortativity
+========================================================================
+kNN graph (k=10, 1608 edges, n=242 poets, S/N)
+same-region edge share: observed=0.517  null=0.500±0.012  perm p=0.07896
+
+========================================================================
+10  CIRCUIT DENDROGRAM vs GEOGRAPHY (cophenetic corr, exact perm)
+========================================================================
+regions: ['江南道', '河北道', '河南道', '河東道', '淮南道', '關內道']
+cophenetic(style tree) vs geographic distance: r=-0.287, exact permutation p=0.9444 (720 perms)
+
+========================================================================
+1  PERMUTATION TEST: South/North accuracy (B=1000, LinearSVC)
+========================================================================
+  ... 200/1000
+  ... 400/1000
+  ... 600/1000
+  ... 800/1000
+  ... 1000/1000
+observed acc=0.636 macroF1=0.635
+null acc: mean=0.504 sd=0.039 max=0.612
+permutation p = 0.000999  (B=1000)
+
+DONE.
